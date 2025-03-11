@@ -3,6 +3,7 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Bell, Settings, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import EclatLogo from './EclatLogo';
 
 interface NavbarProps {
   sidebarCollapsed: boolean;
@@ -70,7 +71,7 @@ const Navbar: React.FC<NavbarProps> = ({ sidebarCollapsed, isCopilotOpen = false
   return (
     <div 
       className={cn(
-        "fixed top-0 z-40 flex items-center justify-between h-16 transition-all duration-300 px-4",
+        "fixed top-0 z-40 flex items-center justify-between h-16 transition-all duration-300 px-4 glass",
         sidebarCollapsed ? "left-[70px]" : "left-[280px]",
         isCopilotOpen ? "right-[320px]" : "right-0"
       )}

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { 
@@ -9,8 +8,8 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import UserProfileButton from './UserProfileButton';
+import EclatLogo from './EclatLogo';
 
-// Define navigation items by category
 const navCategories = [
   {
     category: "PROPOSAL",
@@ -87,7 +86,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
           <div className="flex h-16 items-center justify-between px-4">
             {!isCollapsed && (
               <div className="flex items-center gap-2">
-                <div className="h-6 w-6 rounded-full bg-primary"></div>
+                <EclatLogo size="small" variant="light" />
                 <span className="text-lg font-semibold text-foreground animate-fadeIn">éclatOS</span>
               </div>
             )}
