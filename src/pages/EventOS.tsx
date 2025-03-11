@@ -71,7 +71,7 @@ const EventOSPage: React.FC = () => {
         <div className="space-y-2">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-              <Icon className="h-5 w-5 text-primary" />
+              <Calendar className="h-5 w-5 text-primary" />
             </div>
             <h1 className="text-2xl font-bold sm:text-3xl md:text-4xl text-gradient-primary">{title}</h1>
           </div>
@@ -109,7 +109,7 @@ const EventOSPage: React.FC = () => {
         </div>
       </div>
       
-      {/* Business Impact - Moved to where Design Approach was */}
+      {/* Business Impact Section */}
       <motion.div 
         className="mt-8 max-w-4xl mx-auto"
         variants={fadeIn}
@@ -164,7 +164,7 @@ const EventOSPage: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* Integration Points - Moved up to be before design approach */}
+      {/* Integration Points Section */}
       <motion.div 
         className="mt-8 max-w-4xl mx-auto"
         variants={fadeIn}
@@ -212,7 +212,7 @@ const EventOSPage: React.FC = () => {
         </div>
       </motion.div>
       
-      {/* Design Approach - Moved below Integration Points */}
+      {/* Design Approach - Now below Integration Points */}
       <motion.div 
         className="mt-8 max-w-4xl mx-auto"
         variants={fadeIn}
