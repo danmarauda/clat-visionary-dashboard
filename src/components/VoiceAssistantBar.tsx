@@ -7,7 +7,7 @@ import {
   Building2, Users, Utensils, Calendar, Paintbrush, Brain,
   LineChart, Workflow, Zap, CheckCircle2, BarChart3,
   MessageSquare, Megaphone, Briefcase, LayoutGrid, Clock,
-  UserRound, MessageSquareQuote
+  UserRound, MessageSquareQuote, Bot
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -42,11 +42,13 @@ const navItems: NavItem[] = [
 interface VoiceAssistantBarProps {
   isListening: boolean;
   toggleVoiceAssistant: () => void;
+  openCopilot: () => void;
 }
 
 const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({ 
   isListening, 
-  toggleVoiceAssistant 
+  toggleVoiceAssistant,
+  openCopilot
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -131,15 +133,28 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
                 </div>
               </div>
 
-              {/* Mobile Menu Toggle */}
-              <button
-                type="button"
-                onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden flex items-center justify-center w-9 h-9 rounded-full hover:bg-accent transition-colors"
-                aria-label="Toggle menu"
-              >
-                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </button>
+              {/* Actions on the right */}
+              <div className="flex items-center gap-2">
+                {/* Copilot Button */}
+                <button
+                  onClick={openCopilot}
+                  className="rounded-full p-2 text-foreground hover:bg-accent/10 transition-all hidden sm:flex items-center gap-1.5"
+                  aria-label="Open Copilot"
+                >
+                  <Bot className="h-5 w-5" />
+                  <span className="text-sm font-medium">Copilot</span>
+                </button>
+
+                {/* Mobile Menu Toggle */}
+                <button
+                  type="button"
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="md:hidden flex items-center justify-center w-9 h-9 rounded-full hover:bg-accent transition-colors"
+                  aria-label="Toggle menu"
+                >
+                  {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                </button>
+              </div>
             </motion.nav>
 
             {/* Mobile Navigation Menu */}
@@ -153,6 +168,22 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
                   className="absolute bottom-full left-0 right-0 mb-2 p-2 rounded-xl neo-blur shadow-lg md:hidden"
                 >
                   <div className="flex flex-col space-y-1 max-h-[70vh] overflow-y-auto">
+                    {/* Copilot Button for Mobile */}
+                    <button
+                      onClick={() => {
+                        setIsOpen(false);
+                        openCopilot();
+                      }}
+                      className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all text-muted-foreground hover:text-foreground hover:bg-gray-800/40"
+                    >
+                      <div className="flex items-center justify-center w-6 h-6">
+                        <Bot className="h-4 w-4" />
+                      </div>
+                      <span>Open Copilot</span>
+                      <ChevronRight className="h-4 w-4 ml-auto" />
+                    </button>
+
+                    {/* Navigation Items */}
                     {navItems.map((item) => {
                       const isActive = location.pathname === item.href;
                       return (

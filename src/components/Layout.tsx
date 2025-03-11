@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import VoiceAssistantBar from './VoiceAssistantBar';
+import CopilotSidebar from './CopilotSidebar';
 import WelcomeModal from './WelcomeModal';
 import { cn } from '@/lib/utils';
 import useVoiceAssistant from '@/hooks/useVoiceAssistant';
@@ -11,6 +12,7 @@ import useVoiceAssistant from '@/hooks/useVoiceAssistant';
 const Layout: React.FC = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [showWelcome, setShowWelcome] = useState(false);
+  const [isCopilotOpen, setIsCopilotOpen] = useState(false);
   const { isListening, toggleVoiceAssistant, processVoiceCommand } = useVoiceAssistant();
 
   useEffect(() => {
@@ -41,6 +43,14 @@ const Layout: React.FC = () => {
 
       <VoiceAssistantBar 
         isListening={isListening} 
+        toggleVoiceAssistant={toggleVoiceAssistant}
+        openCopilot={() => setIsCopilotOpen(true)}
+      />
+
+      <CopilotSidebar 
+        isOpen={isCopilotOpen}
+        onClose={() => setIsCopilotOpen(false)}
+        isListening={isListening}
         toggleVoiceAssistant={toggleVoiceAssistant}
       />
 
