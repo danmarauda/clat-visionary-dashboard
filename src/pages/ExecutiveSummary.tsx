@@ -25,6 +25,7 @@ const ExecutiveSummary: React.FC = () => {
         "Accessibility and inclusivity as core design principles"
       ]}
       personas={[]}
+      hidePersonas={true}
     />
   );
 };
