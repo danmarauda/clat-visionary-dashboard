@@ -16,13 +16,7 @@ const ExecutiveSummary: React.FC = () => {
         <h2 className="text-4xl font-light leading-tight tracking-wide">Strategic Vision.</h2>
         <h2 className="text-4xl font-light leading-tight tracking-wide">Luxury Innovation.</h2>
         
-        <div className="my-24 py-8">
-          <span className="text-8xl font-semibold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-            Executive Summary
-          </span>
-        </div>
-        
-        <p className="max-w-2xl text-sm text-muted-foreground">
+        <p className="max-w-2xl text-sm text-muted-foreground mt-8">
           A comprehensive overview of éclatOS, detailing our vision for unifying luxury experiences
           through intelligent automation and seamless integration.
         </p>

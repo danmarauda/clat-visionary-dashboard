@@ -66,6 +66,22 @@ const CommunityOSPage: React.FC = () => {
   
   return (
     <div className="container mx-auto px-4 py-8">
+      <div className="text-center mt-4">
+        <span className="text-sm font-light px-4 py-2 rounded-full border border-white/10 bg-white/5">
+          Community Engagement
+        </span>
+      </div>
+
+      <div className="flex flex-col items-center text-center py-8 space-y-1 mt-16">
+        <h2 className="text-4xl font-light leading-tight tracking-wide">Meaningful Connections.</h2>
+        <h2 className="text-4xl font-light leading-tight tracking-wide">Vibrant Community.</h2>
+        
+        <p className="max-w-2xl text-sm text-muted-foreground mt-8">
+          Sophisticated member engagement platform that fosters meaningful connections 
+          and enhances the Éclat community experience.
+        </p>
+      </div>
+      
       <ContentPage
         title={title}
         icon={icon}

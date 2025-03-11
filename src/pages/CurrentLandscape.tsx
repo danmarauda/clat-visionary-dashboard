@@ -14,13 +14,7 @@ const CurrentLandscape: React.FC = () => {
         <h2 className="text-4xl font-light leading-tight tracking-wide">Current State.</h2>
         <h2 className="text-4xl font-light leading-tight tracking-wide">Future Possibilities.</h2>
         
-        <div className="my-24 py-8">
-          <span className="text-8xl font-semibold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-            Current Landscape
-          </span>
-        </div>
-        
-        <p className="max-w-2xl text-sm text-muted-foreground">
+        <p className="max-w-2xl text-sm text-muted-foreground mt-8">
           Analysis of existing challenges and limitations across Éclat's expanding portfolio of premium sub-brands.
         </p>
       </div>

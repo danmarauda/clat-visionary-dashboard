@@ -6,6 +6,22 @@ import { Coffee, Users, Building, Calendar, Bookmark } from 'lucide-react';
 const ParlorPorticoPage: React.FC = () => {
   return (
     <div className="space-y-10 animate-fadeIn">
+      <div className="text-center mt-4">
+        <span className="text-sm font-light px-4 py-2 rounded-full border border-white/10 bg-white/5">
+          Business Club & Hospitality
+        </span>
+      </div>
+
+      <div className="flex flex-col items-center text-center py-8 space-y-1 mt-16">
+        <h2 className="text-4xl font-light leading-tight tracking-wide">Exclusive Spaces.</h2>
+        <h2 className="text-4xl font-light leading-tight tracking-wide">Exceptional Service.</h2>
+        
+        <p className="max-w-2xl text-sm text-muted-foreground mt-8">
+          Premium business club and hospitality offerings, combining exclusive membership 
+          experiences with world-class service in elegant settings.
+        </p>
+      </div>
+      
       <div className="space-y-6">
         <div className="relative rounded-2xl overflow-hidden border border-border/40 shadow-lg">
           <img 
