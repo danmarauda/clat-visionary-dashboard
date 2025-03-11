@@ -6,9 +6,10 @@ import { cn } from '@/lib/utils';
 
 interface NavbarProps {
   sidebarCollapsed: boolean;
+  isCopilotOpen?: boolean;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ sidebarCollapsed }) => {
+const Navbar: React.FC<NavbarProps> = ({ sidebarCollapsed, isCopilotOpen = false }) => {
   const navigate = useNavigate();
   const location = useLocation();
   
@@ -69,8 +70,9 @@ const Navbar: React.FC<NavbarProps> = ({ sidebarCollapsed }) => {
   return (
     <div 
       className={cn(
-        "fixed top-0 right-0 z-40 flex items-center justify-between h-16 transition-all duration-300 px-4",
-        sidebarCollapsed ? "left-[70px]" : "left-[280px]"
+        "fixed top-0 z-40 flex items-center justify-between h-16 transition-all duration-300 px-4",
+        sidebarCollapsed ? "left-[70px]" : "left-[280px]",
+        isCopilotOpen ? "right-[320px]" : "right-0"
       )}
     >
       <div className="flex-1 flex justify-center">
