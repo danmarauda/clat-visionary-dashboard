@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { 
@@ -141,7 +142,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
 
         {!isCollapsed && (
           <div className="p-4 mx-2 mb-4">
-            <UserProfileButton userName="Sarah Johnson" userRole="Design Lead" />
+            <UserProfileButton userName="Jesse Hayes" userRole="Creative Director" />
           </div>
         )}
       </div>
