@@ -25,27 +25,28 @@ const Layout: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground flex">
       <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
       
-      <Navbar sidebarCollapsed={isCollapsed} />
-      
-      <main 
-        className={cn(
-          "min-h-screen transition-all duration-300 pt-20 pb-12",
-          isCollapsed ? "ml-[70px]" : "ml-[280px]"
-        )}
-      >
-        <div className="mx-auto px-0">
-          <Outlet />
-        </div>
-      </main>
+      <div className={cn(
+        "flex-1 flex flex-col transition-all duration-300",
+        isCollapsed ? "ml-[70px]" : "ml-[280px]",
+        isCopilotOpen ? "mr-[320px]" : "mr-0"
+      )}>
+        <Navbar sidebarCollapsed={isCollapsed} />
+        
+        <main className="flex-1 pt-20 pb-12">
+          <div className="mx-auto px-0">
+            <Outlet />
+          </div>
+        </main>
 
-      <VoiceAssistantBar 
-        isListening={isListening} 
-        toggleVoiceAssistant={toggleVoiceAssistant}
-        openCopilot={() => setIsCopilotOpen(true)}
-      />
+        <VoiceAssistantBar 
+          isListening={isListening} 
+          toggleVoiceAssistant={toggleVoiceAssistant}
+          openCopilot={() => setIsCopilotOpen(true)}
+        />
+      </div>
 
       <CopilotSidebar 
         isOpen={isCopilotOpen}
