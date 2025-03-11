@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,6 +8,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import ExecutiveSummary from "./pages/ExecutiveSummary";
 import NotFound from "./pages/NotFound";
+import DesignOSPage from "./pages/DesignOS";
 
 const queryClient = new QueryClient();
 
@@ -35,7 +37,7 @@ const App = () => (
             <Route path="/analytics-os" element={<PlaceholderPage title="Analytics OS" />} />
             <Route path="/building-os" element={<PlaceholderPage title="Building OS" />} />
             <Route path="/community-os" element={<PlaceholderPage title="Community OS" />} />
-            <Route path="/design-os" element={<PlaceholderPage title="Design OS" />} />
+            <Route path="/design-os" element={<DesignOSPage />} />
             <Route path="/event-os" element={<PlaceholderPage title="Event OS" />} />
             <Route path="/hospitality-os" element={<PlaceholderPage title="Hospitality OS" />} />
             <Route path="/marketing-os" element={<PlaceholderPage title="Marketing OS" />} />
