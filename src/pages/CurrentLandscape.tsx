@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { FileText } from 'lucide-react';
+import { FileText, ArrowRight } from 'lucide-react';
 import ContentPage from '@/components/ContentPage';
 
 const CurrentLandscape: React.FC = () => {
