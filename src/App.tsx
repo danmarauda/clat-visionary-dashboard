@@ -17,6 +17,7 @@ import WorkspaceOSPage from "./pages/WorkspaceOS";
 import AnalyticsOSPage from "./pages/AnalyticsOS";
 import CommunityOSPage from "./pages/CommunityOS";
 import DeliveryTimeline from "./pages/DeliveryTimeline";
+import ParlorPorticoPage from "./pages/ParlorPortico";
 
 const queryClient = new QueryClient();
 
@@ -61,7 +62,7 @@ const App = () => (
             {/* Business Units */}
             <Route path="/business-units" element={<PlaceholderPage title="Business Units" />} />
             <Route path="/bureau" element={<PlaceholderPage title="Bureau" />} />
-            <Route path="/parlor-portico" element={<PlaceholderPage title="Parlor & Portico" />} />
+            <Route path="/parlor-portico" element={<ParlorPorticoPage />} />
             <Route path="/galerie" element={<PlaceholderPage title="Galerie" />} />
             <Route path="/forme" element={<PlaceholderPage title="Forme" />} />
             <Route path="/notel" element={<PlaceholderPage title="Notel" />} />
