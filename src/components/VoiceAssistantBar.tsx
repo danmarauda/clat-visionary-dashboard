@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -123,7 +124,7 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
                         onMouseLeave={() => setHoveredItem(null)}
                         className={cn(
                           "px-3 py-1.5 rounded-full text-sm transition-all duration-300 flex items-center gap-1.5 whitespace-nowrap",
-                          isActive
+                          isActive || isHovered
                             ? item.color
                             : "text-muted-foreground hover:text-foreground hover:bg-gray-800/40"
                         )}
