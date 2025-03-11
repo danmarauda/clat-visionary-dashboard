@@ -17,8 +17,8 @@ const Home: React.FC = () => {
         <h2 className="text-4xl font-light leading-tight tracking-wide">One platform.</h2>
         <h2 className="text-4xl font-light leading-tight tracking-wide">Every luxury experience.</h2>
         
-        <div className="mt-4 mb-4">
-          <span className="text-xl font-semibold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+        <div className="my-8">
+          <span className="text-3xl font-semibold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
             éclatOS
           </span>
         </div>
