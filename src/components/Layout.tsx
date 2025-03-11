@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
+import VoiceAssistantBar from './VoiceAssistantBar';
 import WelcomeModal from './WelcomeModal';
 import { cn } from '@/lib/utils';
 import useVoiceAssistant from '@/hooks/useVoiceAssistant';
@@ -25,11 +26,7 @@ const Layout: React.FC = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
       
-      <Navbar 
-        isListening={isListening} 
-        toggleVoiceAssistant={toggleVoiceAssistant}
-        sidebarCollapsed={isCollapsed}
-      />
+      <Navbar sidebarCollapsed={isCollapsed} />
       
       <main 
         className={cn(
@@ -41,6 +38,11 @@ const Layout: React.FC = () => {
           <Outlet />
         </div>
       </main>
+
+      <VoiceAssistantBar 
+        isListening={isListening} 
+        toggleVoiceAssistant={toggleVoiceAssistant}
+      />
 
       {showWelcome && <WelcomeModal onClose={() => setShowWelcome(false)} />}
     </div>

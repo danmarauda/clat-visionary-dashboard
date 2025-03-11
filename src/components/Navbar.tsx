@@ -1,16 +1,14 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Mic, Bell, Settings, User } from 'lucide-react';
+import { Bell, Settings, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface NavbarProps {
-  isListening: boolean;
-  toggleVoiceAssistant: () => void;
   sidebarCollapsed: boolean;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ isListening, toggleVoiceAssistant, sidebarCollapsed }) => {
+const Navbar: React.FC<NavbarProps> = ({ sidebarCollapsed }) => {
   const navigate = useNavigate();
   
   return (
@@ -23,25 +21,6 @@ const Navbar: React.FC<NavbarProps> = ({ isListening, toggleVoiceAssistant, side
       <div className="flex-1"></div>
       
       <div className="flex items-center gap-2">
-        <button
-          onClick={toggleVoiceAssistant}
-          className={cn(
-            "relative flex items-center justify-center rounded-full p-2 transition-all",
-            isListening 
-              ? "bg-primary/20 text-primary animate-pulse" 
-              : "hover:bg-accent/10 text-foreground"
-          )}
-          aria-label={isListening ? "Stop listening" : "Start voice assistant"}
-        >
-          <Mic className="h-5 w-5" />
-          
-          {isListening && (
-            <span className="absolute -bottom-8 whitespace-nowrap text-xs font-medium text-primary bg-background/80 px-2 py-1 rounded-md">
-              Listening...
-            </span>
-          )}
-        </button>
-
         <button
           className="flex items-center justify-center rounded-full p-2 hover:bg-accent/10 transition-colors"
           aria-label="Notifications"
