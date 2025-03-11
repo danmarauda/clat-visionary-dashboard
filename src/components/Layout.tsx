@@ -32,15 +32,15 @@ const Layout: React.FC = () => {
     <div className="min-h-screen bg-background text-foreground flex">
       <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
       
-      <Navbar 
-        sidebarCollapsed={isCollapsed} 
-        isCopilotOpen={isCopilotOpen}
-      />
-      
       <div className={cn(
         "flex-1 flex flex-col transition-all duration-300",
         isCollapsed ? "ml-[70px]" : "ml-[280px]"
       )}>
+        <Navbar 
+          sidebarCollapsed={isCollapsed} 
+          isCopilotOpen={isCopilotOpen}
+        />
+        
         <div className="flex flex-1">
           <main className="flex-1 pt-20 pb-12">
             <div className="w-full px-6 mx-auto max-w-[1920px]">
