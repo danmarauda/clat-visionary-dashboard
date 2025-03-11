@@ -30,28 +30,28 @@ const HospitalityOSPage: React.FC = () => {
   
   const designApproach = [
     "Streamlines all aspects of food and beverage operations, ensuring exceptional dining experiences.",
-    "15-20% increase in F&B revenue through optimized menu engineering and service efficiency.",
-    "25% reduction in food waste and 15% reduction in inventory costs through intelligent management.",
-    "30% improvement in staff productivity through optimized scheduling and streamlined workflows.",
+    "Increase in F&B revenue through optimized menu engineering and service efficiency.",
+    "Reduction in food waste and reduction in inventory costs through intelligent management.",
+    "Improvement in staff productivity through optimized scheduling and streamlined workflows.",
     "Consistently exceptional dining experiences with personalized service and reduced wait times.",
     "Data-driven decision making for menu development, pricing, and service optimization."
   ];
   
   const personas = [
     {
-      name: "Persona Name 1",
-      role: "Role Title",
-      description: "Persona description and key responsibilities."
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
     },
     {
-      name: "Persona Name 2",
-      role: "Role Title",
-      description: "Persona description and key responsibilities."
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
     },
     {
-      name: "Persona Name 3",
-      role: "Role Title",
-      description: "Persona description and key responsibilities."
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
     }
   ];
   
@@ -74,11 +74,12 @@ const HospitalityOSPage: React.FC = () => {
         keyComponents={keyComponents}
         designApproach={designApproach}
         personas={personas}
+        hideInputBoxes={true}
       />
       
       {/* Additional Content Section */}
       <motion.div 
-        className="mt-12 max-w-4xl mx-auto"
+        className="mt-8 max-w-4xl mx-auto"
         variants={fadeIn}
         initial="hidden"
         animate="visible"
@@ -129,14 +130,14 @@ const HospitalityOSPage: React.FC = () => {
             <div className="bg-module-hospitality/5 p-4 rounded-lg border border-module-hospitality/10">
               <h3 className="font-medium text-module-hospitality mb-2">Revenue Growth</h3>
               <p className="text-sm text-muted-foreground">
-                15-20% increase in F&B revenue through optimized menu engineering and service efficiency.
+                Increase in F&B revenue through optimized menu engineering and service efficiency.
               </p>
             </div>
             
             <div className="bg-module-hospitality/5 p-4 rounded-lg border border-module-hospitality/10">
               <h3 className="font-medium text-module-hospitality mb-2">Cost Reduction</h3>
               <p className="text-sm text-muted-foreground">
-                25% reduction in food waste and 15% reduction in inventory costs through intelligent management.
+                Reduction in food waste and inventory costs through intelligent management.
               </p>
             </div>
             
@@ -150,7 +151,7 @@ const HospitalityOSPage: React.FC = () => {
             <div className="bg-module-hospitality/5 p-4 rounded-lg border border-module-hospitality/10">
               <h3 className="font-medium text-module-hospitality mb-2">Staff Efficiency</h3>
               <p className="text-sm text-muted-foreground">
-                30% improvement in staff productivity through optimized scheduling and streamlined workflows.
+                Improvement in staff productivity through optimized scheduling and streamlined workflows.
               </p>
             </div>
             

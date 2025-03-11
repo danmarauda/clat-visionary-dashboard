@@ -31,27 +31,27 @@ const DesignOSPage: React.FC = () => {
   const designApproach = [
     "Streamlines the entire lifecycle of physical space creation and evolution.",
     "Ensures Éclat's distinctive aesthetic and functional excellence across all properties.",
-    "25% reduction in project timelines through streamlined processes and better coordination.",
-    "20% reduction in construction and renovation costs through better planning.",
+    "Reduction in project timelines through streamlined processes and better coordination.",
+    "Reduction in construction and renovation costs through better planning.",
     "Ensures consistent design language and quality standards across all Éclat properties.",
     "Data-driven design decisions that maximize functionality, aesthetics, and member satisfaction."
   ];
   
   const personas = [
     {
-      name: "Persona Name 1",
-      role: "Role Title",
-      description: "Persona description and key responsibilities."
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
     },
     {
-      name: "Persona Name 2",
-      role: "Role Title",
-      description: "Persona description and key responsibilities."
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
     },
     {
-      name: "Persona Name 3",
-      role: "Role Title",
-      description: "Persona description and key responsibilities."
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
     }
   ];
   
@@ -74,11 +74,12 @@ const DesignOSPage: React.FC = () => {
         keyComponents={keyComponents}
         designApproach={designApproach}
         personas={personas}
+        hideInputBoxes={true}
       />
       
       {/* Additional Content Section */}
       <motion.div 
-        className="mt-12 max-w-4xl mx-auto"
+        className="mt-8 max-w-4xl mx-auto"
         variants={fadeIn}
         initial="hidden"
         animate="visible"
@@ -129,14 +130,14 @@ const DesignOSPage: React.FC = () => {
             <div className="bg-module-design/5 p-4 rounded-lg border border-module-design/10">
               <h3 className="font-medium text-module-design mb-2">Project Efficiency</h3>
               <p className="text-sm text-muted-foreground">
-                25% reduction in project timelines through streamlined processes and better coordination.
+                Reduction in project timelines through streamlined processes and better coordination.
               </p>
             </div>
             
             <div className="bg-module-design/5 p-4 rounded-lg border border-module-design/10">
               <h3 className="font-medium text-module-design mb-2">Cost Control</h3>
               <p className="text-sm text-muted-foreground">
-                20% reduction in construction and renovation costs through better planning and resource management.
+                Reduction in construction and renovation costs through better planning and resource management.
               </p>
             </div>
             

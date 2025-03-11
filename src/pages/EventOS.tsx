@@ -30,28 +30,28 @@ const EventOSPage: React.FC = () => {
   
   const designApproach = [
     "Transforms how Éclat plans, executes, and analyzes events, providing a seamless experience.",
-    "35% reduction in event planning and execution time through streamlined workflows.",
-    "25% increase in event bookings through optimized venue utilization and availability.",
-    "20% reduction in event staffing costs through intelligent scheduling and automation.",
+    "Reduction in event planning and execution time through streamlined workflows.",
+    "Increase in event bookings through optimized venue utilization and availability.",
+    "Reduction in event staffing costs through intelligent scheduling and automation.",
     "Significantly improved attendee experience through seamless registration and engagement.",
     "Comprehensive event analytics enabling continuous improvement and strategic planning."
   ];
   
   const personas = [
     {
-      name: "Persona Name 1",
-      role: "Role Title",
-      description: "Persona description and key responsibilities."
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
     },
     {
-      name: "Persona Name 2",
-      role: "Role Title",
-      description: "Persona description and key responsibilities."
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
     },
     {
-      name: "Persona Name 3",
-      role: "Role Title",
-      description: "Persona description and key responsibilities."
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
     }
   ];
   
@@ -74,11 +74,12 @@ const EventOSPage: React.FC = () => {
         keyComponents={keyComponents}
         designApproach={designApproach}
         personas={personas}
+        hideInputBoxes={true}
       />
       
       {/* Additional Content Section */}
       <motion.div 
-        className="mt-12 max-w-4xl mx-auto"
+        className="mt-8 max-w-4xl mx-auto"
         variants={fadeIn}
         initial="hidden"
         animate="visible"
@@ -129,21 +130,21 @@ const EventOSPage: React.FC = () => {
             <div className="bg-module-event/5 p-4 rounded-lg border border-module-event/10">
               <h3 className="font-medium text-module-event mb-2">Operational Efficiency</h3>
               <p className="text-sm text-muted-foreground">
-                35% reduction in event planning and execution time through streamlined workflows.
+                Reduction in event planning and execution time through streamlined workflows.
               </p>
             </div>
             
             <div className="bg-module-event/5 p-4 rounded-lg border border-module-event/10">
               <h3 className="font-medium text-module-event mb-2">Revenue Growth</h3>
               <p className="text-sm text-muted-foreground">
-                25% increase in event bookings through optimized venue utilization and availability.
+                Increase in event bookings through optimized venue utilization and availability.
               </p>
             </div>
             
             <div className="bg-module-event/5 p-4 rounded-lg border border-module-event/10">
               <h3 className="font-medium text-module-event mb-2">Resource Optimization</h3>
               <p className="text-sm text-muted-foreground">
-                20% reduction in event staffing costs through intelligent scheduling and automation.
+                Reduction in event staffing costs through intelligent scheduling and automation.
               </p>
             </div>
             

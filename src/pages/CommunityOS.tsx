@@ -29,8 +29,8 @@ const CommunityOSPage: React.FC = () => {
   ];
   
   const designApproach = [
-    "35% increase in member retention through stronger community bonds and engagement.",
-    "40% increase in member referrals driven by positive community experiences.",
+    "Increase in member retention through stronger community bonds and engagement.",
+    "Increase in member referrals driven by positive community experiences.",
     "Strengthened emotional connection to the Éclat brand through community identity.",
     "Enhanced perceived value of membership beyond physical space and amenities.",
     "Increased business transactions and collaborations between members.",
@@ -39,19 +39,19 @@ const CommunityOSPage: React.FC = () => {
   
   const personas = [
     {
-      name: "Persona Name 1",
-      role: "Role Title",
-      description: "Persona description and key responsibilities."
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
     },
     {
-      name: "Persona Name 2",
-      role: "Role Title",
-      description: "Persona description and key responsibilities."
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
     },
     {
-      name: "Persona Name 3",
-      role: "Role Title",
-      description: "Persona description and key responsibilities."
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
     }
   ];
   
@@ -74,11 +74,12 @@ const CommunityOSPage: React.FC = () => {
         keyComponents={keyComponents}
         designApproach={designApproach}
         personas={personas}
+        hideInputBoxes={true}
       />
       
       {/* Additional Content Section */}
       <motion.div 
-        className="mt-12 max-w-4xl mx-auto"
+        className="mt-8 max-w-4xl mx-auto"
         variants={fadeIn}
         initial="hidden"
         animate="visible"
@@ -129,14 +130,14 @@ const CommunityOSPage: React.FC = () => {
             <div className="bg-module-community/5 p-4 rounded-lg border border-module-community/10">
               <h3 className="font-medium text-module-community mb-2">Member Retention</h3>
               <p className="text-sm text-muted-foreground">
-                35% increase in member retention through stronger community bonds and engagement.
+                Increase in member retention through stronger community bonds and engagement.
               </p>
             </div>
             
             <div className="bg-module-community/5 p-4 rounded-lg border border-module-community/10">
               <h3 className="font-medium text-module-community mb-2">Referral Growth</h3>
               <p className="text-sm text-muted-foreground">
-                40% increase in member referrals driven by positive community experiences.
+                Increase in member referrals driven by positive community experiences.
               </p>
             </div>
             

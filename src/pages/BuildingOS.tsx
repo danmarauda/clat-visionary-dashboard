@@ -29,8 +29,8 @@ const BuildingOSPage: React.FC = () => {
   ];
   
   const designApproach = [
-    "15-30% reduction in energy costs through intelligent optimization and usage patterns.",
-    "40% reduction in unexpected downtime through predictive maintenance and early issue detection.",
+    "Reduction in energy costs through intelligent optimization and usage patterns.",
+    "Reduction in unexpected downtime through predictive maintenance and early issue detection.",
     "Comprehensive protection of physical assets and member safety with intelligent monitoring.",
     "Reduced carbon footprint and alignment with ESG goals through optimized resource usage.",
     "Improved comfort and personalized environmental conditions enhancing satisfaction.",
@@ -39,19 +39,19 @@ const BuildingOSPage: React.FC = () => {
   
   const personas = [
     {
-      name: "Persona Name 1",
-      role: "Role Title",
-      description: "Persona description and key responsibilities."
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
     },
     {
-      name: "Persona Name 2",
-      role: "Role Title",
-      description: "Persona description and key responsibilities."
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
     },
     {
-      name: "Persona Name 3",
-      role: "Role Title",
-      description: "Persona description and key responsibilities."
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
     }
   ];
   
@@ -74,11 +74,12 @@ const BuildingOSPage: React.FC = () => {
         keyComponents={keyComponents}
         designApproach={designApproach}
         personas={personas}
+        hideInputBoxes={true}
       />
       
       {/* Additional Content Section */}
       <motion.div 
-        className="mt-12 max-w-4xl mx-auto"
+        className="mt-8 max-w-4xl mx-auto"
         variants={fadeIn}
         initial="hidden"
         animate="visible"
@@ -129,14 +130,14 @@ const BuildingOSPage: React.FC = () => {
             <div className="bg-module-building/5 p-4 rounded-lg border border-module-building/10">
               <h3 className="font-medium text-module-building mb-2">Cost Reduction</h3>
               <p className="text-sm text-muted-foreground">
-                15-30% reduction in energy costs through intelligent optimization and usage patterns.
+                Reduction in energy costs through intelligent optimization and usage patterns.
               </p>
             </div>
             
             <div className="bg-module-building/5 p-4 rounded-lg border border-module-building/10">
               <h3 className="font-medium text-module-building mb-2">Maintenance Efficiency</h3>
               <p className="text-sm text-muted-foreground">
-                40% reduction in unexpected downtime through predictive maintenance and early issue detection.
+                Reduction in unexpected downtime through predictive maintenance and early issue detection.
               </p>
             </div>
             

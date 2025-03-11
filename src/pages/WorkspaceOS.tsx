@@ -28,29 +28,29 @@ const WorkspaceOSPage: React.FC = () => {
   ];
   
   const designApproach = [
-    "30% improvement in space utilization through data-driven layout and capacity planning.",
-    "40% reduction in administrative overhead for workspace management and bookings.",
+    "Improvement in space utilization through data-driven layout and capacity planning.",
+    "Reduction in administrative overhead for workspace management and bookings.",
     "Significantly improved workspace experience through seamless booking and personalization.",
-    "20% increase in meeting room and event space revenue through optimized availability.",
+    "Increase in meeting room and event space revenue through optimized availability.",
     "Data-driven insights for future space planning and property expansion decisions.",
     "Premium technology experience differentiating Éclat from traditional workspace providers."
   ];
   
   const personas = [
     {
-      name: "Persona Name 1",
-      role: "Role Title",
-      description: "Persona description and key responsibilities."
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
     },
     {
-      name: "Persona Name 2",
-      role: "Role Title",
-      description: "Persona description and key responsibilities."
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
     },
     {
-      name: "Persona Name 3",
-      role: "Role Title",
-      description: "Persona description and key responsibilities."
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
     }
   ];
   
@@ -64,10 +64,11 @@ const WorkspaceOSPage: React.FC = () => {
         keyComponents={keyComponents}
         designApproach={designApproach}
         personas={personas}
+        hideInputBoxes={true}
       />
       
       {/* Additional Content Section */}
-      <div className="mt-12 max-w-4xl mx-auto">
+      <div className="mt-8 max-w-4xl mx-auto">
         <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
           <h2 className="text-xl font-semibold mb-6">Integration Points</h2>
           <p className="text-muted-foreground mb-4">
@@ -114,14 +115,14 @@ const WorkspaceOSPage: React.FC = () => {
             <div className="bg-module-workspace/5 p-4 rounded-lg border border-module-workspace/10">
               <h3 className="font-medium text-module-workspace mb-2">Space Optimization</h3>
               <p className="text-sm text-muted-foreground">
-                30% improvement in space utilization through data-driven layout and capacity planning.
+                Improvement in space utilization through data-driven layout and capacity planning.
               </p>
             </div>
             
             <div className="bg-module-workspace/5 p-4 rounded-lg border border-module-workspace/10">
               <h3 className="font-medium text-module-workspace mb-2">Operational Efficiency</h3>
               <p className="text-sm text-muted-foreground">
-                40% reduction in administrative overhead for workspace management and bookings.
+                Reduction in administrative overhead for workspace management and bookings.
               </p>
             </div>
             
@@ -135,7 +136,7 @@ const WorkspaceOSPage: React.FC = () => {
             <div className="bg-module-workspace/5 p-4 rounded-lg border border-module-workspace/10">
               <h3 className="font-medium text-module-workspace mb-2">Revenue Growth</h3>
               <p className="text-sm text-muted-foreground">
-                20% increase in meeting room and event space revenue through optimized availability.
+                Increase in meeting room and event space revenue through optimized availability.
               </p>
             </div>
             

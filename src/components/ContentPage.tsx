@@ -18,6 +18,7 @@ interface ContentPageProps {
   designApproach: string[];
   personas: UserPersona[];
   hidePersonas?: boolean;
+  hideInputBoxes?: boolean;
 }
 
 const ContentPage: React.FC<ContentPageProps> = ({
@@ -29,6 +30,7 @@ const ContentPage: React.FC<ContentPageProps> = ({
   designApproach,
   personas,
   hidePersonas = false,
+  hideInputBoxes = false,
 }) => {
   return (
     <div className="space-y-8 animate-fadeIn">
@@ -81,32 +83,6 @@ const ContentPage: React.FC<ContentPageProps> = ({
                 alt={title} 
                 className="w-full h-auto object-cover aspect-video hover:scale-105 transition-transform duration-500" 
               />
-            </div>
-
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <label htmlFor="benefits" className="block text-sm font-medium">
-                  Key Benefits
-                </label>
-                <textarea
-                  id="benefits"
-                  rows={3}
-                  placeholder="Enter key benefits..."
-                  className="w-full rounded-lg bg-card border border-border/50 px-3 py-2 text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/30"
-                ></textarea>
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="integration" className="block text-sm font-medium">
-                  Integration Points
-                </label>
-                <textarea
-                  id="integration"
-                  rows={3}
-                  placeholder="Enter integration points..."
-                  className="w-full rounded-lg bg-card border border-border/50 px-3 py-2 text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/30"
-                ></textarea>
-              </div>
             </div>
           </div>
         </div>
