@@ -11,6 +11,7 @@ import DesignOSPage from "./pages/DesignOS";
 import EventOSPage from "./pages/EventOS";
 import HospitalityOSPage from "./pages/HospitalityOS";
 import BuildingOSPage from "./pages/BuildingOS";
+import WorkspaceOSPage from "./pages/WorkspaceOS";
 
 const queryClient = new QueryClient();
 
@@ -43,7 +44,7 @@ const App = () => (
             <Route path="/event-os" element={<EventOSPage />} />
             <Route path="/hospitality-os" element={<HospitalityOSPage />} />
             <Route path="/marketing-os" element={<PlaceholderPage title="Marketing OS" />} />
-            <Route path="/workspace-os" element={<PlaceholderPage title="Workspace OS" />} />
+            <Route path="/workspace-os" element={<WorkspaceOSPage />} />
             
             {/* Project Sections */}
             <Route path="/project-scope" element={<PlaceholderPage title="Project Scope" />} />
