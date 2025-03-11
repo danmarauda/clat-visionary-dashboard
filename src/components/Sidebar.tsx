@@ -16,6 +16,7 @@ const navCategories = [
     items: [
       { id: 'dashboard', name: 'Dashboard', path: '/', icon: LayoutDashboard },
       { id: 'executive-summary', name: 'Executive Summary', path: '/executive-summary', icon: FileText },
+      { id: 'current-landscape', name: 'Current Landscape', path: '/current-landscape', icon: Activity },
       { id: 'project-scope', name: 'Project Scope', path: '/project-scope', icon: Briefcase },
       { id: 'timeline', name: 'Timeline', path: '/timeline', icon: Clock },
       { id: 'budget', name: 'Budget', path: '/budget', icon: DollarSign },

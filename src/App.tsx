@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import ExecutiveSummary from "./pages/ExecutiveSummary";
+import CurrentLandscape from "./pages/CurrentLandscape";
 import NotFound from "./pages/NotFound";
 import DesignOSPage from "./pages/DesignOS";
 import EventOSPage from "./pages/EventOS";
@@ -38,6 +39,7 @@ const App = () => (
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/executive-summary" element={<ExecutiveSummary />} />
+            <Route path="/current-landscape" element={<CurrentLandscape />} />
             
             {/* OS Modules */}
             <Route path="/analytics-os" element={<AnalyticsOSPage />} />
