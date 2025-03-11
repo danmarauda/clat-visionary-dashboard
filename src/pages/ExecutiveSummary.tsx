@@ -24,23 +24,7 @@ const ExecutiveSummary: React.FC = () => {
         "Focus on data visualization and actionable insights",
         "Accessibility and inclusivity as core design principles"
       ]}
-      personas={[
-        {
-          name: "Sarah Chen",
-          role: "Chief Operations Officer",
-          description: "Focused on operational efficiency and strategic resource allocation. Needs high-level dashboards and ROI metrics."
-        },
-        {
-          name: "Michael Rodriguez",
-          role: "Facilities Manager",
-          description: "Responsible for day-to-day building operations. Requires detailed systems monitoring and maintenance scheduling."
-        },
-        {
-          name: "Aisha Patel",
-          role: "IT Director",
-          description: "Oversees technology integration and security compliance. Needs system health metrics and security dashboards."
-        }
-      ]}
+      personas={[]}
     />
   );
 };
