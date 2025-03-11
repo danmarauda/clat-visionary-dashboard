@@ -57,6 +57,17 @@ export default {
           purple: '#A855F7',
           'dark-gray': '#1F2937',
           'light-gray': '#F3F4F6'
+        },
+        module: {
+          // OS Module colors
+          analytics: "#3B82F6",  // Blue
+          building: "#10B981",   // Green
+          community: "#F59E0B",  // Amber
+          design: "#EC4899",     // Pink
+          event: "#8B5CF6",      // Purple
+          hospitality: "#EF4444", // Red
+          marketing: "#F97316",  // Orange
+          workspace: "#06B6D4",  // Cyan
         }
       },
       borderRadius: {

@@ -15,27 +15,28 @@ interface NavItem {
   title: string;
   href: string;
   icon: React.ReactNode;
+  color: string;
 }
 
 const navItems: NavItem[] = [
   // OS Modules
-  { title: "Analytics OS", href: "/analytics-os", icon: <BarChart3 className="h-4 w-4" /> },
-  { title: "Building OS", href: "/building-os", icon: <Building2 className="h-4 w-4" /> },
-  { title: "Community OS", href: "/community-os", icon: <Users className="h-4 w-4" /> },
-  { title: "Design OS", href: "/design-os", icon: <Paintbrush className="h-4 w-4" /> },
-  { title: "Event OS", href: "/event-os", icon: <Calendar className="h-4 w-4" /> },
-  { title: "Hospitality OS", href: "/hospitality-os", icon: <Utensils className="h-4 w-4" /> },
-  { title: "Marketing OS", href: "/marketing-os", icon: <Megaphone className="h-4 w-4" /> },
-  { title: "Workspace OS", href: "/workspace-os", icon: <Briefcase className="h-4 w-4" /> },
+  { title: "Analytics OS", href: "/analytics-os", icon: <BarChart3 className="h-4 w-4" />, color: "text-module-analytics bg-module-analytics/10" },
+  { title: "Building OS", href: "/building-os", icon: <Building2 className="h-4 w-4" />, color: "text-module-building bg-module-building/10" },
+  { title: "Community OS", href: "/community-os", icon: <Users className="h-4 w-4" />, color: "text-module-community bg-module-community/10" },
+  { title: "Design OS", href: "/design-os", icon: <Paintbrush className="h-4 w-4" />, color: "text-module-design bg-module-design/10" },
+  { title: "Event OS", href: "/event-os", icon: <Calendar className="h-4 w-4" />, color: "text-module-event bg-module-event/10" },
+  { title: "Hospitality OS", href: "/hospitality-os", icon: <Utensils className="h-4 w-4" />, color: "text-module-hospitality bg-module-hospitality/10" },
+  { title: "Marketing OS", href: "/marketing-os", icon: <Megaphone className="h-4 w-4" />, color: "text-module-marketing bg-module-marketing/10" },
+  { title: "Workspace OS", href: "/workspace-os", icon: <Briefcase className="h-4 w-4" />, color: "text-module-workspace bg-module-workspace/10" },
   
   // Project Sections
-  { title: "Project Scope", href: "/project-scope", icon: <Layers className="h-4 w-4" /> },
-  { title: "Budget", href: "/budget", icon: <LineChart className="h-4 w-4" /> },
-  { title: "Delivery Timeline", href: "/timeline", icon: <Clock className="h-4 w-4" /> },
-  { title: "Team", href: "/team", icon: <UserRound className="h-4 w-4" /> },
-  { title: "Gallery", href: "/gallery", icon: <LayoutGrid className="h-4 w-4" /> },
-  { title: "Module Gallery", href: "/module-gallery", icon: <LayoutGrid className="h-4 w-4" /> },
-  { title: "Testimonials", href: "/testimonials", icon: <MessageSquareQuote className="h-4 w-4" /> }
+  { title: "Project Scope", href: "/project-scope", icon: <Layers className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" },
+  { title: "Budget", href: "/budget", icon: <LineChart className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" },
+  { title: "Delivery Timeline", href: "/timeline", icon: <Clock className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" },
+  { title: "Team", href: "/team", icon: <UserRound className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" },
+  { title: "Gallery", href: "/gallery", icon: <LayoutGrid className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" },
+  { title: "Module Gallery", href: "/module-gallery", icon: <LayoutGrid className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" },
+  { title: "Testimonials", href: "/testimonials", icon: <MessageSquareQuote className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" }
 ];
 
 interface VoiceAssistantBarProps {
@@ -61,6 +62,12 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Helper function to get module color
+  const getModuleColor = (path: string) => {
+    const navItem = navItems.find(item => item.href === path);
+    return navItem?.color || "text-white bg-gray-800/40";
+  };
+
   return (
     <AnimatePresence>
       {isVisible && (
@@ -73,7 +80,7 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
         >
           <div className="relative w-full max-w-6xl">
             <motion.nav
-              className="flex items-center justify-between px-4 py-2 rounded-full bg-background/90 backdrop-blur-lg border border-border/40 shadow-lg"
+              className="flex items-center justify-between px-4 py-2 rounded-full glass shadow-lg"
               layout
             >
               {/* Voice Assistant */}
@@ -83,14 +90,14 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
                   className={cn(
                     "relative flex items-center justify-center rounded-full p-2 transition-all",
                     isListening 
-                      ? "bg-primary/20 text-primary animate-pulse" 
+                      ? "bg-white/20 text-white animate-pulse" 
                       : "hover:bg-accent/10 text-foreground"
                   )}
                   aria-label={isListening ? "Stop listening" : "Start voice assistant"}
                 >
                   <Mic className="h-5 w-5" />
                   {isListening && (
-                    <span className="absolute -top-8 whitespace-nowrap text-xs font-medium text-primary bg-background/80 px-2 py-1 rounded-md">
+                    <span className="absolute -top-8 whitespace-nowrap text-xs font-medium text-white bg-black/80 px-2 py-1 rounded-md">
                       Listening...
                     </span>
                   )}
@@ -112,8 +119,8 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
                         className={cn(
                           "px-3 py-1.5 rounded-full text-sm transition-all duration-300 flex items-center gap-1.5 whitespace-nowrap",
                           isActive
-                            ? "bg-primary/10 text-primary font-medium"
-                            : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                            ? item.color
+                            : "text-muted-foreground hover:text-foreground hover:bg-gray-800/40"
                         )}
                       >
                         {item.icon}
@@ -143,28 +150,31 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute bottom-full left-0 right-0 mb-2 p-2 rounded-xl bg-background/95 backdrop-blur-lg border border-border/40 shadow-lg md:hidden"
+                  className="absolute bottom-full left-0 right-0 mb-2 p-2 rounded-xl neo-blur shadow-lg md:hidden"
                 >
                   <div className="flex flex-col space-y-1 max-h-[70vh] overflow-y-auto">
-                    {navItems.map((item) => (
-                      <Link
-                        key={item.title}
-                        to={item.href}
-                        onClick={() => setIsOpen(false)}
-                        className={cn(
-                          "flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all",
-                          location.pathname === item.href
-                            ? "bg-primary/10 text-primary font-medium"
-                            : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                        )}
-                      >
-                        <div className="flex items-center justify-center w-6 h-6">
-                          {item.icon}
-                        </div>
-                        <span>{item.title}</span>
-                        <ChevronRight className="h-4 w-4 ml-auto" />
-                      </Link>
-                    ))}
+                    {navItems.map((item) => {
+                      const isActive = location.pathname === item.href;
+                      return (
+                        <Link
+                          key={item.title}
+                          to={item.href}
+                          onClick={() => setIsOpen(false)}
+                          className={cn(
+                            "flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all",
+                            isActive
+                              ? item.color
+                              : "text-muted-foreground hover:text-foreground hover:bg-gray-800/40"
+                          )}
+                        >
+                          <div className="flex items-center justify-center w-6 h-6">
+                            {item.icon}
+                          </div>
+                          <span>{item.title}</span>
+                          <ChevronRight className="h-4 w-4 ml-auto" />
+                        </Link>
+                      );
+                    })}
                   </div>
                 </motion.div>
               )}
