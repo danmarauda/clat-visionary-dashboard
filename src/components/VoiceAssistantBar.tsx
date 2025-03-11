@@ -33,9 +33,7 @@ const navItems: NavItem[] = [
   { title: "Budget", href: "/budget", icon: <LineChart className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" },
   { title: "Delivery Timeline", href: "/timeline", icon: <Clock className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" },
   { title: "Team", href: "/team", icon: <UserRound className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" },
-  { title: "Gallery", href: "/gallery", icon: <LayoutGrid className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" },
-  { title: "Module Gallery", href: "/module-gallery", icon: <LayoutGrid className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" },
-  { title: "Testimonials", href: "/testimonials", icon: <MessageSquareQuote className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" }
+  { title: "Module Gallery", href: "/module-gallery", icon: <LayoutGrid className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" }
 ];
 
 interface VoiceAssistantBarProps {
