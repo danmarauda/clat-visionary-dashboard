@@ -9,7 +9,7 @@ const ExecutiveSummary: React.FC = () => {
       title="Executive Summary"
       icon={FileText}
       description="Éclat OS is a comprehensive workspace management platform designed for luxury and enterprise environments. This executive summary outlines the key features, benefits, and strategic advantages of implementing Éclat OS in your organization."
-      imageUrl="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
+      imageUrl="/lovable-uploads/cb7b9841-6ec6-4bec-9f17-507322c3b411.png"
       keyComponents={[
         "Integrated workspace analytics and management tools",
         "AI-powered space optimization and resource allocation",
