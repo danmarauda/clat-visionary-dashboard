@@ -24,10 +24,6 @@ const Layout: React.FC = () => {
     }
   }, []);
 
-  const toggleCopilot = () => {
-    setIsCopilotOpen(!isCopilotOpen);
-  };
-
   return (
     <div className="min-h-screen bg-background text-foreground flex">
       <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
@@ -51,7 +47,7 @@ const Layout: React.FC = () => {
           {isCopilotOpen && (
             <CopilotSidebar 
               isOpen={isCopilotOpen}
-              onClose={toggleCopilot}
+              onClose={() => setIsCopilotOpen(false)}
               isListening={isListening}
               toggleVoiceAssistant={toggleVoiceAssistant}
             />
@@ -61,8 +57,7 @@ const Layout: React.FC = () => {
         <VoiceAssistantBar 
           isListening={isListening} 
           toggleVoiceAssistant={toggleVoiceAssistant}
-          openCopilot={toggleCopilot}
-          isCopilotOpen={isCopilotOpen}
+          openCopilot={() => setIsCopilotOpen(true)}
         />
       </div>
 
