@@ -39,19 +39,19 @@ const HospitalityOSPage: React.FC = () => {
   
   const personas = [
     {
-      name: "David Chen",
-      role: "F&B Director",
-      description: "Oversees all food and beverage operations across Éclat properties."
+      name: "Persona Name 1",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     },
     {
-      name: "Sophia Rodriguez",
-      role: "Chef de Cuisine",
-      description: "Manages kitchen operations, menu planning, and food preparation."
+      name: "Persona Name 2",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     },
     {
-      name: "Marcus Johnson",
-      role: "Service Manager",
-      description: "Coordinates front-of-house staff and ensures exceptional guest experiences."
+      name: "Persona Name 3",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     }
   ];
   

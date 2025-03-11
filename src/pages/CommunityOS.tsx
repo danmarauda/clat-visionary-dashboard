@@ -39,19 +39,19 @@ const CommunityOSPage: React.FC = () => {
   
   const personas = [
     {
-      name: "Jamie Smith",
-      role: "Community Manager",
-      description: "Oversees community programming and member engagement."
+      name: "Persona Name 1",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     },
     {
-      name: "Alex Rivera",
-      role: "New Member",
-      description: "Seeking to build professional connections and integrate into the community."
+      name: "Persona Name 2",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     },
     {
-      name: "Taylor Lee",
-      role: "Event Organizer",
-      description: "Creates member-driven events and activities for the community."
+      name: "Persona Name 3",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     }
   ];
   

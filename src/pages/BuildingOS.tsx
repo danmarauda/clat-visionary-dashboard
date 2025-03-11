@@ -39,19 +39,19 @@ const BuildingOSPage: React.FC = () => {
   
   const personas = [
     {
-      name: "Michael Chen",
-      role: "Facility Manager",
-      description: "Responsible for overall building operations and maintenance."
+      name: "Persona Name 1",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     },
     {
-      name: "Sarah Johnson",
-      role: "Sustainability Director",
-      description: "Focuses on energy efficiency and environmental impact."
+      name: "Persona Name 2",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     },
     {
-      name: "David Rodriguez",
-      role: "Security Manager",
-      description: "Oversees building security systems and personnel."
+      name: "Persona Name 3",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     }
   ];
   

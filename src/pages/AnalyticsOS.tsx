@@ -39,19 +39,19 @@ const AnalyticsOSPage: React.FC = () => {
   
   const personas = [
     {
-      name: "Dana Chen",
-      role: "Chief Analytics Officer",
-      description: "Oversees data strategy and business intelligence across the organization."
+      name: "Persona Name 1",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     },
     {
-      name: "Marcus Johnson",
-      role: "Property Manager",
-      description: "Uses analytics dashboards to optimize daily operations and resource allocation."
+      name: "Persona Name 2",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     },
     {
-      name: "Sophia Rodriguez",
-      role: "Member Experience Director",
-      description: "Leverages member data to enhance service delivery and engagement."
+      name: "Persona Name 3",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     }
   ];
   

@@ -39,19 +39,19 @@ const EventOSPage: React.FC = () => {
   
   const personas = [
     {
-      name: "Sarah Chen",
-      role: "Event Director",
-      description: "Oversees event strategy and execution across all Éclat properties."
+      name: "Persona Name 1",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     },
     {
-      name: "Miguel Rodriguez",
-      role: "Venue Coordinator",
-      description: "Manages space allocation, setup, and technical requirements for events."
+      name: "Persona Name 2",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     },
     {
-      name: "Priya Sharma",
-      role: "Attendee Experience Manager",
-      description: "Ensures seamless registration, check-in, and engagement for all participants."
+      name: "Persona Name 3",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     }
   ];
   

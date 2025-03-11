@@ -38,19 +38,19 @@ const WorkspaceOSPage: React.FC = () => {
   
   const personas = [
     {
-      name: "Alex Morgan",
-      role: "Remote Professional",
-      description: "Needs on-demand workspace with reliable technology."
+      name: "Persona Name 1",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     },
     {
-      name: "Taylor Kim",
-      role: "Team Manager",
-      description: "Coordinates workspace for their team and manages meetings."
+      name: "Persona Name 2",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     },
     {
-      name: "Jordan Lee",
-      role: "Workspace Administrator",
-      description: "Oversees space allocation and utilization across locations."
+      name: "Persona Name 3",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     }
   ];
   

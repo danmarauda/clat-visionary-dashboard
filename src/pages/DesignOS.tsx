@@ -39,19 +39,19 @@ const DesignOSPage: React.FC = () => {
   
   const personas = [
     {
-      name: "Alex Chen",
-      role: "Design Director",
-      description: "Oversees all design projects and ensures brand consistency across properties."
+      name: "Persona Name 1",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     },
     {
-      name: "Maria Rodriguez",
-      role: "Project Manager",
-      description: "Coordinates construction timelines, resources, and vendor relationships."
+      name: "Persona Name 2",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     },
     {
-      name: "Jason Lee",
-      role: "3D Visualization Specialist",
-      description: "Creates immersive models and virtual walkthroughs of space designs."
+      name: "Persona Name 3",
+      role: "Role Title",
+      description: "Persona description and key responsibilities."
     }
   ];
   
