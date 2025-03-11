@@ -30,16 +30,26 @@ const Layout: React.FC = () => {
       
       <div className={cn(
         "flex-1 flex flex-col transition-all duration-300",
-        isCollapsed ? "ml-[70px]" : "ml-[280px]",
-        isCopilotOpen ? "mr-[320px]" : "mr-0"
+        isCollapsed ? "ml-[70px]" : "ml-[280px]"
       )}>
         <Navbar sidebarCollapsed={isCollapsed} />
         
-        <main className="flex-1 pt-20 pb-12">
-          <div className="mx-auto px-0">
-            <Outlet />
-          </div>
-        </main>
+        <div className="flex flex-1">
+          <main className="flex-1 pt-20 pb-12">
+            <div className="mx-auto px-0">
+              <Outlet />
+            </div>
+          </main>
+          
+          {isCopilotOpen && (
+            <CopilotSidebar 
+              isOpen={isCopilotOpen}
+              onClose={() => setIsCopilotOpen(false)}
+              isListening={isListening}
+              toggleVoiceAssistant={toggleVoiceAssistant}
+            />
+          )}
+        </div>
 
         <VoiceAssistantBar 
           isListening={isListening} 
@@ -47,13 +57,6 @@ const Layout: React.FC = () => {
           openCopilot={() => setIsCopilotOpen(true)}
         />
       </div>
-
-      <CopilotSidebar 
-        isOpen={isCopilotOpen}
-        onClose={() => setIsCopilotOpen(false)}
-        isListening={isListening}
-        toggleVoiceAssistant={toggleVoiceAssistant}
-      />
 
       {showWelcome && <WelcomeModal onClose={() => setShowWelcome(false)} />}
     </div>
