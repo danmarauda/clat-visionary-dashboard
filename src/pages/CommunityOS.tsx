@@ -11,7 +11,6 @@ import {
   CheckCircle2, 
   ArrowRight 
 } from 'lucide-react';
-import ContentPage from '@/components/ContentPage';
 
 const CommunityOSPage: React.FC = () => {
   const icon = Users;
@@ -82,18 +81,95 @@ const CommunityOSPage: React.FC = () => {
         </p>
       </div>
       
-      <ContentPage
-        title={title}
-        icon={icon}
-        description={description}
-        imageUrl={imageUrl}
-        keyComponents={keyComponents}
-        designApproach={designApproach}
-        personas={personas}
-        hideInputBoxes={true}
-      />
+      {/* Key Components Section */}
+      <div className="space-y-8 animate-fadeIn max-w-4xl mx-auto">
+        <div className="glass rounded-2xl p-6 md:p-8 shadow-lg animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <div>
+                <h2 className="text-xl font-semibold mb-4">Key Components</h2>
+                <ul className="space-y-2">
+                  {keyComponents.map((component, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-xs font-medium text-primary mt-0.5">
+                        {index + 1}
+                      </span>
+                      <span className="text-foreground">{component}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="overflow-hidden rounded-xl border border-border/50">
+                <img 
+                  src={imageUrl} 
+                  alt={title} 
+                  className="w-full h-auto object-cover aspect-video hover:scale-105 transition-transform duration-500" 
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       
-      {/* Additional Content Section */}
+      {/* Business Impact Section */}
+      <motion.div 
+        className="mt-8 max-w-4xl mx-auto"
+        variants={fadeIn}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
+          <h2 className="text-xl font-semibold mb-6">Business Impact</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-module-community/5 p-4 rounded-lg border border-module-community/10">
+              <h3 className="font-medium text-module-community mb-2">Member Retention</h3>
+              <p className="text-sm text-muted-foreground">
+                Increase in member retention through stronger community bonds and engagement.
+              </p>
+            </div>
+            
+            <div className="bg-module-community/5 p-4 rounded-lg border border-module-community/10">
+              <h3 className="font-medium text-module-community mb-2">Referral Growth</h3>
+              <p className="text-sm text-muted-foreground">
+                Increase in member referrals driven by positive community experiences.
+              </p>
+            </div>
+            
+            <div className="bg-module-community/5 p-4 rounded-lg border border-module-community/10">
+              <h3 className="font-medium text-module-community mb-2">Brand Loyalty</h3>
+              <p className="text-sm text-muted-foreground">
+                Strengthened emotional connection to the Éclat brand through community identity.
+              </p>
+            </div>
+            
+            <div className="bg-module-community/5 p-4 rounded-lg border border-module-community/10">
+              <h3 className="font-medium text-module-community mb-2">Value Perception</h3>
+              <p className="text-sm text-muted-foreground">
+                Enhanced perceived value of membership beyond physical space and amenities.
+              </p>
+            </div>
+            
+            <div className="bg-module-community/5 p-4 rounded-lg border border-module-community/10">
+              <h3 className="font-medium text-module-community mb-2">Business Opportunities</h3>
+              <p className="text-sm text-muted-foreground">
+                Increased business transactions and collaborations between members.
+              </p>
+            </div>
+            
+            <div className="bg-module-community/5 p-4 rounded-lg border border-module-community/10">
+              <h3 className="font-medium text-module-community mb-2">Feedback Loop</h3>
+              <p className="text-sm text-muted-foreground">
+                Direct channel for member feedback and continuous service improvement.
+              </p>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+      
+      {/* Integration Points Section */}
       <motion.div 
         className="mt-8 max-w-4xl mx-auto"
         variants={fadeIn}
@@ -139,51 +215,59 @@ const CommunityOSPage: React.FC = () => {
             </li>
           </ul>
         </div>
-        
-        <div className="mt-8 glass rounded-2xl p-6 md:p-8 shadow-lg">
-          <h2 className="text-xl font-semibold mb-6">Business Impact</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="bg-module-community/5 p-4 rounded-lg border border-module-community/10">
-              <h3 className="font-medium text-module-community mb-2">Member Retention</h3>
-              <p className="text-sm text-muted-foreground">
-                Increase in member retention through stronger community bonds and engagement.
-              </p>
-            </div>
-            
-            <div className="bg-module-community/5 p-4 rounded-lg border border-module-community/10">
-              <h3 className="font-medium text-module-community mb-2">Referral Growth</h3>
-              <p className="text-sm text-muted-foreground">
-                Increase in member referrals driven by positive community experiences.
-              </p>
-            </div>
-            
-            <div className="bg-module-community/5 p-4 rounded-lg border border-module-community/10">
-              <h3 className="font-medium text-module-community mb-2">Brand Loyalty</h3>
-              <p className="text-sm text-muted-foreground">
-                Strengthened emotional connection to the Éclat brand through community identity.
-              </p>
-            </div>
-            
-            <div className="bg-module-community/5 p-4 rounded-lg border border-module-community/10">
-              <h3 className="font-medium text-module-community mb-2">Value Perception</h3>
-              <p className="text-sm text-muted-foreground">
-                Enhanced perceived value of membership beyond physical space and amenities.
-              </p>
-            </div>
-            
-            <div className="bg-module-community/5 p-4 rounded-lg border border-module-community/10">
-              <h3 className="font-medium text-module-community mb-2">Business Opportunities</h3>
-              <p className="text-sm text-muted-foreground">
-                Increased business transactions and collaborations between members.
-              </p>
-            </div>
-            
-            <div className="bg-module-community/5 p-4 rounded-lg border border-module-community/10">
-              <h3 className="font-medium text-module-community mb-2">Feedback Loop</h3>
-              <p className="text-sm text-muted-foreground">
-                Direct channel for member feedback and continuous service improvement.
-              </p>
-            </div>
+      </motion.div>
+      
+      {/* Design Approach Section */}
+      <motion.div 
+        className="mt-8 max-w-4xl mx-auto"
+        variants={fadeIn}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
+          <h2 className="text-xl font-semibold mb-4">Design Approach</h2>
+          <ul className="space-y-2">
+            {designApproach.map((approach, index) => (
+              <li key={index} className="flex items-start gap-3">
+                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-xs font-medium text-primary mt-0.5">
+                  {index + 1}
+                </span>
+                <span className="text-foreground">{approach}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </motion.div>
+      
+      {/* User Personas Section - Moved to bottom */}
+      <motion.div 
+        className="mt-8 max-w-4xl mx-auto"
+        variants={fadeIn}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
+          <h2 className="text-xl font-semibold mb-4">User Personas</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {personas.map((persona, index) => (
+              <div 
+                key={index} 
+                className="glass rounded-xl p-5 hover:shadow-lg transition-all duration-300 border border-white/5 hover:border-primary/20 group"
+              >
+                <div className="flex flex-col space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                      <span className="text-lg font-medium text-primary">{persona.name.charAt(0)}</span>
+                    </div>
+                    <div>
+                      <h3 className="font-medium text-foreground">{persona.name}</h3>
+                      <p className="text-sm text-muted-foreground">{persona.role}</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{persona.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
         
