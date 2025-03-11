@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -52,6 +51,7 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -114,10 +114,13 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
                 <div className="flex items-center space-x-1">
                   {navItems.map((item) => {
                     const isActive = location.pathname === item.href;
+                    const isHovered = hoveredItem === item.href;
                     return (
                       <Link
                         key={item.title}
                         to={item.href}
+                        onMouseEnter={() => setHoveredItem(item.href)}
+                        onMouseLeave={() => setHoveredItem(null)}
                         className={cn(
                           "px-3 py-1.5 rounded-full text-sm transition-all duration-300 flex items-center gap-1.5 whitespace-nowrap",
                           isActive
@@ -126,7 +129,7 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
                         )}
                       >
                         {item.icon}
-                        {isActive && <span>{item.title}</span>}
+                        {(isActive || isHovered) && <span>{item.title}</span>}
                       </Link>
                     );
                   })}
