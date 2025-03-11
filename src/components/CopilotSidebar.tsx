@@ -54,7 +54,7 @@ const CopilotSidebar: React.FC<CopilotSidebarProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="h-screen w-[320px] bg-background border-l border-border shadow-md flex flex-col z-20">
+    <div className="h-screen w-[320px] bg-background border-l border-border shadow-md flex flex-col z-20 animate-slide-in-right">
       <CopilotHeader onClose={onClose} />
       <CopilotMessages messages={messages} />
       <CopilotSuggestions 
