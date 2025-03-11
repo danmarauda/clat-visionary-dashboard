@@ -1,112 +1,289 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { 
   Calendar, 
   Users, 
   Clock, 
   MapPin, 
   Ticket, 
-  MessageSquare
+  MessageSquare, 
+  CheckCircle2, 
+  ArrowRight 
 } from 'lucide-react';
-import OSModuleLayout from '../components/OSModuleLayout';
+import ContentPage from '@/components/ContentPage';
 
 const EventOSPage: React.FC = () => {
+  const icon = Calendar;
+  const title = "eventOS";
+  const description = "Comprehensive event management platform for planning, executing, and analyzing events across all Éclat properties.";
+  const imageUrl = "/placeholder.svg"; // Using placeholder since the referenced image may not exist
+  
+  const keyComponents = [
+    "Event Planning: Comprehensive planning tools with customizable templates, checklists, and timelines for all event types.",
+    "Venue Management: 3D visualization of venue layouts, capacity planning, and resource allocation with real-time availability.",
+    "Registration & Ticketing: Seamless attendee registration, ticketing, and check-in with customizable forms and payment processing.",
+    "Staff Coordination: Intelligent staff scheduling, role assignment, and real-time communication during events.",
+    "Attendee Engagement: Digital tools for attendee networking, Q&A, polling, and feedback collection during and after events.",
+    "Post-Event Analytics: Comprehensive event performance metrics, attendee behavior analysis, and ROI calculation."
+  ];
+  
+  const designApproach = [
+    "Transforms how Éclat plans, executes, and analyzes events, providing a seamless experience.",
+    "Reduction in event planning and execution time through streamlined workflows.",
+    "Increase in event bookings through optimized venue utilization and availability.",
+    "Reduction in event staffing costs through intelligent scheduling and automation.",
+    "Significantly improved attendee experience through seamless registration and engagement.",
+    "Comprehensive event analytics enabling continuous improvement and strategic planning."
+  ];
+  
+  const personas = [
+    {
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
+    },
+    {
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
+    },
+    {
+      name: "Name",
+      role: "Role",
+      description: "User Persona Description"
+    }
+  ];
+  
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.5 }
+    }
+  };
+  
   return (
-    <OSModuleLayout
-      moduleName="eventOS"
-      moduleColor="event"
-      tagline="Smart Spaces. Seamless Experience."
-      description="Comprehensive event management platform for planning, executing, and analyzing events across all Éclat properties."
-      imageUrl="/placeholder.svg"
-      keyComponents={[
-        "Event Planning: Comprehensive planning tools with customizable templates, checklists, and timelines for all event types.",
-        "Venue Management: 3D visualization of venue layouts, capacity planning, and resource allocation with real-time availability.",
-        "Registration & Ticketing: Seamless attendee registration, ticketing, and check-in with customizable forms and payment processing.",
-        "Staff Coordination: Intelligent staff scheduling, role assignment, and real-time communication during events.",
-        "Attendee Engagement: Digital tools for attendee networking, Q&A, polling, and feedback collection during and after events.",
-        "Post-Event Analytics: Comprehensive event performance metrics, attendee behavior analysis, and ROI calculation."
-      ]}
-      businessImpact={[
-        {
-          title: "Operational Efficiency",
-          description: "Reduction in event planning and execution time through streamlined workflows."
-        },
-        {
-          title: "Revenue Growth",
-          description: "Increase in event bookings through optimized venue utilization and availability."
-        },
-        {
-          title: "Resource Optimization",
-          description: "Reduction in event staffing costs through intelligent scheduling and automation."
-        },
-        {
-          title: "Attendee Satisfaction",
-          description: "Significantly improved attendee experience through seamless registration and engagement."
-        },
-        {
-          title: "Brand Enhancement",
-          description: "Consistently exceptional event execution reinforcing Éclat's premium brand positioning."
-        },
-        {
-          title: "Data-Driven Decisions",
-          description: "Comprehensive event analytics enabling continuous improvement and strategic planning."
-        }
-      ]}
-      integrationPoints={[
-        {
-          icon: MapPin,
-          module: "building",
-          description: "Coordinates venue environmental settings and security for events"
-        },
-        {
-          icon: Clock,
-          module: "hospitality",
-          description: "Synchronizes F&B service with event schedules and requirements"
-        },
-        {
-          icon: Users,
-          module: "community",
-          description: "Promotes events to relevant member segments and facilitates networking"
-        },
-        {
-          icon: MessageSquare,
-          module: "marketing",
-          description: "Integrates event promotion, registration, and follow-up communications"
-        },
-        {
-          icon: Ticket,
-          module: "analytics",
-          description: "Provides comprehensive event performance metrics and attendee insights"
-        }
-      ]}
-      designApproach={[
-        "Transforms how Éclat plans, executes, and analyzes events, providing a seamless experience.",
-        "Reduction in event planning and execution time through streamlined workflows.",
-        "Increase in event bookings through optimized venue utilization and availability.",
-        "Reduction in event staffing costs through intelligent scheduling and automation.",
-        "Significantly improved attendee experience through seamless registration and engagement.",
-        "Comprehensive event analytics enabling continuous improvement and strategic planning."
-      ]}
-      personas={[
-        {
-          name: "Name",
-          role: "Role",
-          description: "User Persona Description"
-        },
-        {
-          name: "Name",
-          role: "Role",
-          description: "User Persona Description"
-        },
-        {
-          name: "Name",
-          role: "Role",
-          description: "User Persona Description"
-        }
-      ]}
-      prevModule={{ name: "Design OS", path: "/design-os" }}
-      nextModule={{ name: "Hospitality OS", path: "/hospitality-os" }}
-    />
+    <div className="container mx-auto px-4 py-8">
+      {/* Key Components Section */}
+      <div className="space-y-8 animate-fadeIn">
+        <div className="space-y-2">
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+              <Calendar className="h-5 w-5 text-primary" />
+            </div>
+            <h1 className="text-2xl font-bold sm:text-3xl md:text-4xl text-gradient-primary">{title}</h1>
+          </div>
+          <p className="text-muted-foreground max-w-3xl">{description}</p>
+        </div>
+
+        <div className="glass rounded-2xl p-6 md:p-8 shadow-lg animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <div>
+                <h2 className="text-xl font-semibold mb-4">Key Components</h2>
+                <ul className="space-y-2">
+                  {keyComponents.map((component, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-xs font-medium text-primary mt-0.5">
+                        {index + 1}
+                      </span>
+                      <span className="text-foreground">{component}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="overflow-hidden rounded-xl border border-border/50">
+                <img 
+                  src={imageUrl} 
+                  alt={title} 
+                  className="w-full h-auto object-cover aspect-video hover:scale-105 transition-transform duration-500" 
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Business Impact Section */}
+      <motion.div 
+        className="mt-8 max-w-4xl mx-auto"
+        variants={fadeIn}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
+          <h2 className="text-xl font-semibold mb-6">Business Impact</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-module-event/5 p-4 rounded-lg border border-module-event/10">
+              <h3 className="font-medium text-module-event mb-2">Operational Efficiency</h3>
+              <p className="text-sm text-muted-foreground">
+                Reduction in event planning and execution time through streamlined workflows.
+              </p>
+            </div>
+            
+            <div className="bg-module-event/5 p-4 rounded-lg border border-module-event/10">
+              <h3 className="font-medium text-module-event mb-2">Revenue Growth</h3>
+              <p className="text-sm text-muted-foreground">
+                Increase in event bookings through optimized venue utilization and availability.
+              </p>
+            </div>
+            
+            <div className="bg-module-event/5 p-4 rounded-lg border border-module-event/10">
+              <h3 className="font-medium text-module-event mb-2">Resource Optimization</h3>
+              <p className="text-sm text-muted-foreground">
+                Reduction in event staffing costs through intelligent scheduling and automation.
+              </p>
+            </div>
+            
+            <div className="bg-module-event/5 p-4 rounded-lg border border-module-event/10">
+              <h3 className="font-medium text-module-event mb-2">Attendee Satisfaction</h3>
+              <p className="text-sm text-muted-foreground">
+                Significantly improved attendee experience through seamless registration and engagement.
+              </p>
+            </div>
+            
+            <div className="bg-module-event/5 p-4 rounded-lg border border-module-event/10">
+              <h3 className="font-medium text-module-event mb-2">Brand Enhancement</h3>
+              <p className="text-sm text-muted-foreground">
+                Consistently exceptional event execution reinforcing Éclat's premium brand positioning.
+              </p>
+            </div>
+            
+            <div className="bg-module-event/5 p-4 rounded-lg border border-module-event/10">
+              <h3 className="font-medium text-module-event mb-2">Data-Driven Decisions</h3>
+              <p className="text-sm text-muted-foreground">
+                Comprehensive event analytics enabling continuous improvement and strategic planning.
+              </p>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Integration Points Section */}
+      <motion.div 
+        className="mt-8 max-w-4xl mx-auto"
+        variants={fadeIn}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
+          <h2 className="text-xl font-semibold mb-6">Integration Points</h2>
+          <p className="text-muted-foreground mb-4">
+            Event OS seamlessly connects with other Eclat OS modules to create a cohesive event experience:
+          </p>
+          
+          <ul className="space-y-3">
+            <li className="flex items-start gap-3">
+              <div className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-module-building/20 text-xs font-medium text-module-building mt-0.5">
+                <MapPin className="h-4 w-4" />
+              </div>
+              <span><span className="font-medium">Building OS:</span> Coordinates venue environmental settings and security for events</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <div className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-module-hospitality/20 text-xs font-medium text-module-hospitality mt-0.5">
+                <Clock className="h-4 w-4" />
+              </div>
+              <span><span className="font-medium">Hospitality OS:</span> Synchronizes F&B service with event schedules and requirements</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <div className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-module-community/20 text-xs font-medium text-module-community mt-0.5">
+                <Users className="h-4 w-4" />
+              </div>
+              <span><span className="font-medium">Community OS:</span> Promotes events to relevant member segments and facilitates networking</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <div className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-module-marketing/20 text-xs font-medium text-module-marketing mt-0.5">
+                <MessageSquare className="h-4 w-4" />
+              </div>
+              <span><span className="font-medium">Marketing OS:</span> Integrates event promotion, registration, and follow-up communications</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <div className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-module-analytics/20 text-xs font-medium text-module-analytics mt-0.5">
+                <Ticket className="h-4 w-4" />
+              </div>
+              <span><span className="font-medium">Analytics OS:</span> Provides comprehensive event performance metrics and attendee insights</span>
+            </li>
+          </ul>
+        </div>
+      </motion.div>
+      
+      {/* Design Approach - Now below Integration Points */}
+      <motion.div 
+        className="mt-8 max-w-4xl mx-auto"
+        variants={fadeIn}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
+          <h2 className="text-xl font-semibold mb-4">Design Approach</h2>
+          <ul className="space-y-2">
+            {designApproach.map((approach, index) => (
+              <li key={index} className="flex items-start gap-3">
+                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-xs font-medium text-primary mt-0.5">
+                  {index + 1}
+                </span>
+                <span className="text-foreground">{approach}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </motion.div>
+      
+      {/* User Personas - Moved to bottom */}
+      <motion.div 
+        className="mt-8 max-w-4xl mx-auto"
+        variants={fadeIn}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
+          <h2 className="text-xl font-semibold mb-4">User Personas</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {personas.map((persona, index) => (
+              <div 
+                key={index} 
+                className="glass rounded-xl p-5 hover:shadow-lg transition-all duration-300 border border-white/5 hover:border-primary/20 group"
+              >
+                <div className="flex flex-col space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                      <span className="text-lg font-medium text-primary">{persona.name.charAt(0)}</span>
+                    </div>
+                    <div>
+                      <h3 className="font-medium text-foreground">{persona.name}</h3>
+                      <p className="text-sm text-muted-foreground">{persona.role}</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{persona.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+      
+      <div className="mt-8 max-w-4xl mx-auto flex justify-between">
+        <a 
+          href="/design-os" 
+          className="group inline-flex items-center gap-2 text-module-event font-medium hover:underline"
+        >
+          <ArrowRight className="h-4 w-4 rotate-180 transition-transform group-hover:-translate-x-1" />
+          Previous: Design OS
+        </a>
+        <a 
+          href="/hospitality-os" 
+          className="group inline-flex items-center gap-2 text-module-event font-medium hover:underline"
+        >
+          Next: Hospitality OS
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </a>
+      </div>
+    </div>
   );
 };
 
