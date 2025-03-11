@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { 
   Briefcase, 
@@ -72,7 +73,9 @@ const WorkspaceOSPage: React.FC = () => {
       <div className="flex flex-col items-center text-center py-8 space-y-1 mt-16">
         <h2 className="text-4xl font-light leading-tight tracking-wide">Smart Spaces.</h2>
         <h2 className="text-4xl font-light leading-tight tracking-wide">Seamless Experience.</h2>
-        <h2 className="text-4xl font-light leading-tight tracking-wide">workspaceOS</h2>
+        <div className="my-4">
+          <h2 className="text-4xl font-light leading-tight tracking-wide text-module-workspace">workspaceOS</h2>
+        </div>
         
         <p className="max-w-2xl text-sm text-muted-foreground mt-8">
           Intelligent workspace management platform that optimizes space utilization and enhances 
