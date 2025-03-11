@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { 
@@ -86,7 +87,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
             {!isCollapsed && (
               <div className="flex items-center gap-2">
                 <div className="h-6 w-6 rounded-full bg-primary"></div>
-                <span className="text-lg font-semibold text-foreground animate-fadeIn">Éclat OS</span>
+                <span className="text-lg font-semibold text-foreground animate-fadeIn">éclatOS</span>
               </div>
             )}
             <button
