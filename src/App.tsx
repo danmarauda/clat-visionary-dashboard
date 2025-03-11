@@ -9,6 +9,7 @@ import ExecutiveSummary from "./pages/ExecutiveSummary";
 import NotFound from "./pages/NotFound";
 import DesignOSPage from "./pages/DesignOS";
 import EventOSPage from "./pages/EventOS";
+import HospitalityOSPage from "./pages/HospitalityOS";
 
 const queryClient = new QueryClient();
 
@@ -39,7 +40,7 @@ const App = () => (
             <Route path="/community-os" element={<PlaceholderPage title="Community OS" />} />
             <Route path="/design-os" element={<DesignOSPage />} />
             <Route path="/event-os" element={<EventOSPage />} />
-            <Route path="/hospitality-os" element={<PlaceholderPage title="Hospitality OS" />} />
+            <Route path="/hospitality-os" element={<HospitalityOSPage />} />
             <Route path="/marketing-os" element={<PlaceholderPage title="Marketing OS" />} />
             <Route path="/workspace-os" element={<PlaceholderPage title="Workspace OS" />} />
             
