@@ -21,7 +21,7 @@ const CopilotSidebar: React.FC<CopilotSidebarProps> = ({
   const [messages, setMessages] = useState<{type: 'user' | 'assistant'; content: string}[]>([
     {
       type: 'assistant',
-      content: 'Hello! I\'m your Éclat OS Copilot. I can help you navigate the platform, answer questions, or explain features. Try asking me something!'
+      content: 'Hello! I\'m your éclatOS Copilot. I can help you navigate the platform, answer questions, or explain features. Try asking me something!'
     }
   ]);
 
@@ -79,7 +79,7 @@ const CopilotSidebar: React.FC<CopilotSidebarProps> = ({
               <div className="flex items-center justify-center h-8 w-8 rounded-full bg-module-design/20">
                 <Brain className="h-5 w-5 text-module-design" />
               </div>
-              <h2 className="font-semibold text-lg">Éclat OS Copilot</h2>
+              <h2 className="font-semibold text-lg">éclatOS Copilot</h2>
             </div>
             <button
               onClick={onClose}

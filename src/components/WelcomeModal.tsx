@@ -40,7 +40,7 @@ const WelcomeModal: React.FC<WelcomeModalProps> = ({ onClose }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-semibold text-gradient">Welcome to Éclat OS</h2>
+          <h2 className="text-2xl font-semibold text-gradient">Welcome to éclatOS</h2>
           <button 
             onClick={handleClose}
             className="h-8 w-8 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
@@ -52,7 +52,7 @@ const WelcomeModal: React.FC<WelcomeModalProps> = ({ onClose }) => {
         
         <div className="space-y-4">
           <p className="text-muted-foreground">
-            Éclat OS is a luxury workspace management platform designed to elevate your experience with elegant design and powerful features.
+            éclatOS is a luxury workspace management platform designed to elevate your experience with elegant design and powerful features.
           </p>
           
           <div className="rounded-xl bg-primary/10 p-4 border border-primary/20">

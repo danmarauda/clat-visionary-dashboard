@@ -8,7 +8,7 @@ const Home: React.FC = () => {
   return (
     <div className="space-y-12">
       <div className="space-y-2">
-        <h1 className="text-3xl font-bold">EclatOS Proposal</h1>
+        <h1 className="text-3xl font-bold">éclatOS Proposal</h1>
         <p className="text-muted-foreground">Enterprise Operating System for Luxury Experiences</p>
       </div>
 
@@ -70,7 +70,7 @@ const Home: React.FC = () => {
           <div className="space-y-4 mb-6 md:mb-0">
             <h2 className="text-2xl font-bold">Ready to explore the full proposal?</h2>
             <p className="text-muted-foreground">
-              Navigate through the sidebar to discover all aspects of the EclatOS platform.
+              Navigate through the sidebar to discover all aspects of the éclatOS platform.
             </p>
           </div>
           <Link 
