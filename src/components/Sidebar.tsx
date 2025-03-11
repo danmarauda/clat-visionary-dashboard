@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { 
@@ -8,6 +7,7 @@ import {
   BookOpen, HelpCircle, Settings, ChevronRight, ChevronLeft
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import UserProfileButton from './UserProfileButton';
 
 // Define navigation items by category
 const navCategories = [
@@ -141,16 +141,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
 
         {!isCollapsed && (
           <div className="p-4 mx-2 mb-4">
-            <button className="w-full flex items-center justify-center gap-2 bg-background hover:bg-accent/10 border border-border/60 rounded-lg py-2 px-4 text-sm font-medium transition-colors">
-              <div className="h-4 w-4">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-              </div>
-              Download Proposal
-            </button>
+            <UserProfileButton userName="Sarah Johnson" userRole="Design Lead" />
           </div>
         )}
       </div>
