@@ -16,6 +16,7 @@ import BuildingOSPage from "./pages/BuildingOS";
 import WorkspaceOSPage from "./pages/WorkspaceOS";
 import AnalyticsOSPage from "./pages/AnalyticsOS";
 import CommunityOSPage from "./pages/CommunityOS";
+import DeliveryTimeline from "./pages/DeliveryTimeline";
 
 const queryClient = new QueryClient();
 
@@ -54,7 +55,7 @@ const App = () => (
             {/* Project Sections */}
             <Route path="/project-scope" element={<PlaceholderPage title="Project Scope" />} />
             <Route path="/budget" element={<PlaceholderPage title="Budget" />} />
-            <Route path="/timeline" element={<PlaceholderPage title="Delivery Timeline" />} />
+            <Route path="/timeline" element={<DeliveryTimeline />} />
             <Route path="/team" element={<PlaceholderPage title="Team" />} />
             
             {/* Business Units */}
