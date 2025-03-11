@@ -77,7 +77,7 @@ const HospitalityOSPage: React.FC = () => {
         hideInputBoxes={true}
       />
       
-      {/* Additional Content Section */}
+      {/* Integration Points & Business Impact - Moved up above personas */}
       <motion.div 
         className="mt-8 max-w-4xl mx-auto"
         variants={fadeIn}
