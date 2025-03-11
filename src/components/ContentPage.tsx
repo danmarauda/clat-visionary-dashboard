@@ -19,6 +19,7 @@ interface ContentPageProps {
   personas: UserPersona[];
   hidePersonas?: boolean;
   hideInputBoxes?: boolean;
+  imageBelowContent?: boolean;
 }
 
 const ContentPage: React.FC<ContentPageProps> = ({
@@ -31,6 +32,7 @@ const ContentPage: React.FC<ContentPageProps> = ({
   personas,
   hidePersonas = false,
   hideInputBoxes = false,
+  imageBelowContent = false,
 }) => {
   return (
     <div className="space-y-8 animate-fadeIn">
@@ -45,7 +47,7 @@ const ContentPage: React.FC<ContentPageProps> = ({
       </div>
 
       <div className="glass rounded-2xl p-6 md:p-8 shadow-lg animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className={`grid grid-cols-1 ${!imageBelowContent ? 'lg:grid-cols-2' : ''} gap-8`}>
           <div className="space-y-6">
             <div>
               <h2 className="text-xl font-semibold mb-4">Key Components</h2>
@@ -76,16 +78,28 @@ const ContentPage: React.FC<ContentPageProps> = ({
             </div>
           </div>
 
-          <div className="space-y-6">
-            <div className="overflow-hidden rounded-xl border border-border/50">
-              <img 
-                src={imageUrl} 
-                alt={title} 
-                className="w-full h-auto object-cover aspect-video hover:scale-105 transition-transform duration-500" 
-              />
+          {!imageBelowContent && (
+            <div className="space-y-6">
+              <div className="overflow-hidden rounded-xl border border-border/50">
+                <img 
+                  src={imageUrl} 
+                  alt={title} 
+                  className="w-full h-auto object-cover aspect-video hover:scale-105 transition-transform duration-500" 
+                />
+              </div>
             </div>
-          </div>
+          )}
         </div>
+        
+        {imageBelowContent && (
+          <div className="mt-8 overflow-hidden rounded-xl border border-border/50">
+            <img 
+              src={imageUrl} 
+              alt={title} 
+              className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500" 
+            />
+          </div>
+        )}
       </div>
 
       {!hidePersonas && (

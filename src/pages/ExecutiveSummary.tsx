@@ -26,6 +26,7 @@ const ExecutiveSummary: React.FC = () => {
       ]}
       personas={[]}
       hidePersonas={true}
+      imageBelowContent={true}
     />
   );
 };
