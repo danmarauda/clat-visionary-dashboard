@@ -17,7 +17,6 @@ const DeliveryTimelinePage: React.FC = () => {
   const phases = [
     {
       title: "Phase 1: Discovery & Planning",
-      duration: "Weeks 1-4",
       description: "Comprehensive analysis of current systems, workflows, and requirements across all Éclat properties.",
       tasks: [
         "Stakeholder interviews and requirements gathering",
@@ -31,7 +30,6 @@ const DeliveryTimelinePage: React.FC = () => {
     },
     {
       title: "Phase 2: Core Platform Development",
-      duration: "Weeks 5-12",
       description: "Development of the foundational éclatOS platform architecture and essential modules.",
       tasks: [
         "Data model and API development",
@@ -45,7 +43,6 @@ const DeliveryTimelinePage: React.FC = () => {
     },
     {
       title: "Phase 3: Module Expansion",
-      duration: "Weeks 13-24",
       description: "Development and integration of remaining specialized modules with the core platform.",
       tasks: [
         "workspaceOS and communityOS module development",
@@ -59,7 +56,6 @@ const DeliveryTimelinePage: React.FC = () => {
     },
     {
       title: "Phase 4: Testing & Refinement",
-      duration: "Weeks 25-28",
       description: "Comprehensive testing and optimization of the entire éclatOS platform.",
       tasks: [
         "User acceptance testing with key stakeholders",
@@ -73,7 +69,6 @@ const DeliveryTimelinePage: React.FC = () => {
     },
     {
       title: "Phase 5: Pilot Deployment",
-      duration: "Weeks 29-32",
       description: "Controlled rollout to a single Éclat property with comprehensive support and monitoring.",
       tasks: [
         "Staff training and documentation delivery",
@@ -87,7 +82,6 @@ const DeliveryTimelinePage: React.FC = () => {
     },
     {
       title: "Phase 6: Full Deployment & Optimization",
-      duration: "Weeks 33-40",
       description: "Rollout across all Éclat properties with ongoing optimization and support.",
       tasks: [
         "Phased deployment across remaining properties",
@@ -117,7 +111,7 @@ const DeliveryTimelinePage: React.FC = () => {
             </div>
             <h1 className="text-4xl font-bold">Delivery Timeline</h1>
             <p className="text-lg text-muted-foreground">
-              A comprehensive 40-week implementation plan for the éclatOS Dashboard Suite, designed for minimal disruption and maximum value delivery.
+              A comprehensive implementation plan for the éclatOS Dashboard Suite, designed for minimal disruption and maximum value delivery.
             </p>
           </motion.div>
         </div>
@@ -162,12 +156,7 @@ const DeliveryTimelinePage: React.FC = () => {
                 <div className="ml-12">
                   <Card>
                     <CardHeader className="pb-2">
-                      <div className="flex justify-between items-start">
-                        <CardTitle>{phase.title}</CardTitle>
-                        <div className="px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full">
-                          {phase.duration}
-                        </div>
-                      </div>
+                      <CardTitle>{phase.title}</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                       <p className="text-muted-foreground">{phase.description}</p>
