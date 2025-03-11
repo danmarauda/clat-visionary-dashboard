@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -13,6 +14,7 @@ import HospitalityOSPage from "./pages/HospitalityOS";
 import BuildingOSPage from "./pages/BuildingOS";
 import WorkspaceOSPage from "./pages/WorkspaceOS";
 import AnalyticsOSPage from "./pages/AnalyticsOS";
+import CommunityOSPage from "./pages/CommunityOS";
 
 const queryClient = new QueryClient();
 
@@ -40,7 +42,7 @@ const App = () => (
             {/* OS Modules */}
             <Route path="/analytics-os" element={<AnalyticsOSPage />} />
             <Route path="/building-os" element={<BuildingOSPage />} />
-            <Route path="/community-os" element={<PlaceholderPage title="Community OS" />} />
+            <Route path="/community-os" element={<CommunityOSPage />} />
             <Route path="/design-os" element={<DesignOSPage />} />
             <Route path="/event-os" element={<EventOSPage />} />
             <Route path="/hospitality-os" element={<HospitalityOSPage />} />
