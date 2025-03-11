@@ -90,7 +90,7 @@ const ContentPage: React.FC<ContentPageProps> = ({
 
       {!hidePersonas && (
         personas.length > 0 ? (
-          <div className="animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
+          <div className="animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
             <h2 className="text-xl font-semibold mb-4">User Personas</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {personas.map((persona, index) => (
@@ -115,7 +115,7 @@ const ContentPage: React.FC<ContentPageProps> = ({
             </div>
           </div>
         ) : (
-          <div className="animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
+          <div className="animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
             <h2 className="text-xl font-semibold mb-4">User Personas</h2>
             <div className="glass rounded-xl p-5 border border-dashed border-border/50">
               <p className="text-center text-muted-foreground">No user personas defined yet. Add personas to better understand who will be using this module.</p>

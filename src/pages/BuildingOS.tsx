@@ -77,7 +77,7 @@ const BuildingOSPage: React.FC = () => {
         hideInputBoxes={true}
       />
       
-      {/* Additional Content Section */}
+      {/* Additional Content Section - Moved above the User Personas section */}
       <motion.div 
         className="mt-8 max-w-4xl mx-auto"
         variants={fadeIn}
