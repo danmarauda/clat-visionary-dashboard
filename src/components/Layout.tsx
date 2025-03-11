@@ -39,7 +39,7 @@ const Layout: React.FC = () => {
         
         <div className="flex flex-1">
           <main className="flex-1 pt-20 pb-12">
-            <div className="mx-auto px-0">
+            <div className="w-full px-6 mx-auto max-w-[1920px]">
               <Outlet />
             </div>
           </main>
