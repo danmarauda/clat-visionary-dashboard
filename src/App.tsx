@@ -12,6 +12,7 @@ import EventOSPage from "./pages/EventOS";
 import HospitalityOSPage from "./pages/HospitalityOS";
 import BuildingOSPage from "./pages/BuildingOS";
 import WorkspaceOSPage from "./pages/WorkspaceOS";
+import AnalyticsOSPage from "./pages/AnalyticsOS";
 
 const queryClient = new QueryClient();
 
@@ -37,7 +38,7 @@ const App = () => (
             <Route path="/executive-summary" element={<ExecutiveSummary />} />
             
             {/* OS Modules */}
-            <Route path="/analytics-os" element={<PlaceholderPage title="Analytics OS" />} />
+            <Route path="/analytics-os" element={<AnalyticsOSPage />} />
             <Route path="/building-os" element={<BuildingOSPage />} />
             <Route path="/community-os" element={<PlaceholderPage title="Community OS" />} />
             <Route path="/design-os" element={<DesignOSPage />} />
