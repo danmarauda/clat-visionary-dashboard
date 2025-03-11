@@ -15,7 +15,7 @@ import ContentPage from '@/components/ContentPage';
 
 const BuildingOSPage: React.FC = () => {
   const icon = Building2;
-  const title = "Building OS";
+  const title = "buildingOS";
   const description = "Intelligent building management system that optimizes infrastructure, energy usage, and maintenance across all Éclat properties.";
   const imageUrl = "/placeholder.svg"; // Using placeholder since the referenced image may not exist
   

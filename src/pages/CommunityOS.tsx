@@ -15,7 +15,7 @@ import ContentPage from '@/components/ContentPage';
 
 const CommunityOSPage: React.FC = () => {
   const icon = Users;
-  const title = "Community OS";
+  const title = "communityOS";
   const description = "Sophisticated member engagement platform that fosters meaningful connections and enhances the Éclat community experience.";
   const imageUrl = "/placeholder.svg"; // Using placeholder since the referenced image may not exist
   

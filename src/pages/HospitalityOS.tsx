@@ -15,7 +15,7 @@ import ContentPage from '@/components/ContentPage';
 
 const HospitalityOSPage: React.FC = () => {
   const icon = Utensils;
-  const title = "Hospitality OS";
+  const title = "hospitalityOS";
   const description = "Sophisticated food & beverage management platform that elevates the dining and service experience across all Éclat properties.";
   const imageUrl = "/placeholder.svg"; // Using placeholder since the referenced image may not exist
   

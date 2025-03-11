@@ -14,7 +14,7 @@ import ContentPage from '@/components/ContentPage';
 
 const WorkspaceOSPage: React.FC = () => {
   const icon = Briefcase;
-  const title = "Workspace OS";
+  const title = "workspaceOS";
   const description = "Intelligent workspace management platform that optimizes space utilization and enhances the member experience across all Éclat properties.";
   const imageUrl = "/placeholder.svg"; // Using placeholder since the referenced image may not exist
   

@@ -20,14 +20,14 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   // OS Modules
-  { title: "Analytics OS", href: "/analytics-os", icon: <BarChart3 className="h-4 w-4" />, color: "text-module-analytics bg-module-analytics/10" },
-  { title: "Building OS", href: "/building-os", icon: <Building2 className="h-4 w-4" />, color: "text-module-building bg-module-building/10" },
-  { title: "Community OS", href: "/community-os", icon: <Users className="h-4 w-4" />, color: "text-module-community bg-module-community/10" },
-  { title: "Design OS", href: "/design-os", icon: <Paintbrush className="h-4 w-4" />, color: "text-module-design bg-module-design/10" },
-  { title: "Event OS", href: "/event-os", icon: <Calendar className="h-4 w-4" />, color: "text-module-event bg-module-event/10" },
-  { title: "Hospitality OS", href: "/hospitality-os", icon: <Utensils className="h-4 w-4" />, color: "text-module-hospitality bg-module-hospitality/10" },
-  { title: "Marketing OS", href: "/marketing-os", icon: <Megaphone className="h-4 w-4" />, color: "text-module-marketing bg-module-marketing/10" },
-  { title: "Workspace OS", href: "/workspace-os", icon: <Briefcase className="h-4 w-4" />, color: "text-module-workspace bg-module-workspace/10" },
+  { title: "analyticsOS", href: "/analytics-os", icon: <BarChart3 className="h-4 w-4" />, color: "text-module-analytics bg-module-analytics/10" },
+  { title: "buildingOS", href: "/building-os", icon: <Building2 className="h-4 w-4" />, color: "text-module-building bg-module-building/10" },
+  { title: "communityOS", href: "/community-os", icon: <Users className="h-4 w-4" />, color: "text-module-community bg-module-community/10" },
+  { title: "designOS", href: "/design-os", icon: <Paintbrush className="h-4 w-4" />, color: "text-module-design bg-module-design/10" },
+  { title: "eventOS", href: "/event-os", icon: <Calendar className="h-4 w-4" />, color: "text-module-event bg-module-event/10" },
+  { title: "hospitalityOS", href: "/hospitality-os", icon: <Utensils className="h-4 w-4" />, color: "text-module-hospitality bg-module-hospitality/10" },
+  { title: "marketingOS", href: "/marketing-os", icon: <Megaphone className="h-4 w-4" />, color: "text-module-marketing bg-module-marketing/10" },
+  { title: "workspaceOS", href: "/workspace-os", icon: <Briefcase className="h-4 w-4" />, color: "text-module-workspace bg-module-workspace/10" },
   
   // Project Sections
   { title: "Project Scope", href: "/project-scope", icon: <Layers className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" },

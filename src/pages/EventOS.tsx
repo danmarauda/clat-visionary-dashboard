@@ -15,7 +15,7 @@ import ContentPage from '@/components/ContentPage';
 
 const EventOSPage: React.FC = () => {
   const icon = Calendar;
-  const title = "Event OS";
+  const title = "eventOS";
   const description = "Comprehensive event management platform for planning, executing, and analyzing events across all Éclat properties.";
   const imageUrl = "/placeholder.svg"; // Using placeholder since the referenced image may not exist
   

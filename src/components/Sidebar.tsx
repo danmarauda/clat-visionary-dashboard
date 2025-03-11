@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { 
@@ -23,16 +22,16 @@ const navCategories = [
     ]
   },
   {
-    category: "OS MODULES",
+    category: "ÉCLAT OS MODULES",
     items: [
-      { id: 'building-os', name: 'Building OS', path: '/building-os', icon: Building },
-      { id: 'hospitality-os', name: 'Hospitality OS', path: '/hospitality-os', icon: Coffee },
-      { id: 'analytics-os', name: 'Analytics OS', path: '/analytics-os', icon: BarChart },
-      { id: 'workspace-os', name: 'Workspace OS', path: '/workspace-os', icon: Briefcase },
-      { id: 'community-os', name: 'Community OS', path: '/community-os', icon: Users },
-      { id: 'design-os', name: 'Design OS', path: '/design-os', icon: Pen },
-      { id: 'event-os', name: 'Event OS', path: '/event-os', icon: Calendar },
-      { id: 'marketing-os', name: 'Marketing OS', path: '/marketing-os', icon: BarChart },
+      { id: 'building-os', name: 'buildingOS', path: '/building-os', icon: Building },
+      { id: 'hospitality-os', name: 'hospitalityOS', path: '/hospitality-os', icon: Coffee },
+      { id: 'analytics-os', name: 'analyticsOS', path: '/analytics-os', icon: BarChart },
+      { id: 'workspace-os', name: 'workspaceOS', path: '/workspace-os', icon: Briefcase },
+      { id: 'community-os', name: 'communityOS', path: '/community-os', icon: Users },
+      { id: 'design-os', name: 'designOS', path: '/design-os', icon: Pen },
+      { id: 'event-os', name: 'eventOS', path: '/event-os', icon: Calendar },
+      { id: 'marketing-os', name: 'marketingOS', path: '/marketing-os', icon: BarChart },
     ]
   },
   {

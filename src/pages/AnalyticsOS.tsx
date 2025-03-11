@@ -15,7 +15,7 @@ import ContentPage from '@/components/ContentPage';
 
 const AnalyticsOSPage: React.FC = () => {
   const icon = BarChart3;
-  const title = "Analytics OS";
+  const title = "analyticsOS";
   const description = "Comprehensive data analytics and business intelligence platform providing actionable insights across all Éclat operations.";
   const imageUrl = "/placeholder.svg"; // Using placeholder since the referenced image may not exist
   

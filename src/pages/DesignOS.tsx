@@ -15,7 +15,7 @@ import ContentPage from '@/components/ContentPage';
 
 const DesignOSPage: React.FC = () => {
   const icon = Paintbrush;
-  const title = "Design OS";
+  const title = "designOS";
   const description = "Comprehensive design and construction management platform for creating and evolving Éclat's physical spaces.";
   const imageUrl = "/placeholder.svg"; // Using placeholder since the referenced image may not exist
   
