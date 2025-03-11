@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -18,6 +17,7 @@ import AnalyticsOSPage from "./pages/AnalyticsOS";
 import CommunityOSPage from "./pages/CommunityOS";
 import DeliveryTimeline from "./pages/DeliveryTimeline";
 import ParlorPorticoPage from "./pages/ParlorPortico";
+import Dashboard from "./pages/Dashboard";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +42,7 @@ const App = () => (
             <Route path="/" element={<Home />} />
             <Route path="/executive-summary" element={<ExecutiveSummary />} />
             <Route path="/current-landscape" element={<CurrentLandscape />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             
             {/* OS Modules */}
             <Route path="/analytics-os" element={<AnalyticsOSPage />} />
