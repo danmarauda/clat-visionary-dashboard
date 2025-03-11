@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -51,173 +50,151 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
   openCopilot
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const position = window.scrollY;
-      setIsVisible(position > 100);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Helper function to get module color
   const getModuleColor = (path: string) => {
     const navItem = navItems.find(item => item.href === path);
     return navItem?.color || "text-white bg-gray-800/40";
   };
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 100, opacity: 0 }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="fixed bottom-4 left-0 right-0 z-50 flex justify-center px-4"
+    <div className="fixed bottom-8 left-0 right-0 z-50 flex justify-center px-4">
+      <div className="relative w-full max-w-6xl">
+        <motion.nav
+          className="flex items-center justify-between px-4 py-2 rounded-full glass shadow-lg"
+          layout
         >
-          <div className="relative w-full max-w-6xl">
-            <motion.nav
-              className="flex items-center justify-between px-4 py-2 rounded-full glass shadow-lg"
-              layout
+          {/* Voice Assistant */}
+          <motion.div className="flex items-center gap-2" layout>
+            <button
+              onClick={toggleVoiceAssistant}
+              className={cn(
+                "relative flex items-center justify-center rounded-full p-2 transition-all",
+                isListening 
+                  ? "bg-white/20 text-white animate-pulse" 
+                  : "hover:bg-accent/10 text-foreground"
+              )}
+              aria-label={isListening ? "Stop listening" : "Start voice assistant"}
             >
-              {/* Voice Assistant */}
-              <motion.div className="flex items-center gap-2" layout>
-                <button
-                  onClick={toggleVoiceAssistant}
-                  className={cn(
-                    "relative flex items-center justify-center rounded-full p-2 transition-all",
-                    isListening 
-                      ? "bg-white/20 text-white animate-pulse" 
-                      : "hover:bg-accent/10 text-foreground"
-                  )}
-                  aria-label={isListening ? "Stop listening" : "Start voice assistant"}
-                >
-                  <Mic className="h-5 w-5" />
-                  {isListening && (
-                    <span className="absolute -top-8 whitespace-nowrap text-xs font-medium text-white bg-black/80 px-2 py-1 rounded-md">
-                      Listening...
-                    </span>
-                  )}
-                </button>
-                <span className="font-medium text-foreground hidden sm:inline">
-                  {isListening ? "Listening..." : "Voice Assistant"}
+              <Mic className="h-5 w-5" />
+              {isListening && (
+                <span className="absolute -top-8 whitespace-nowrap text-xs font-medium text-white bg-black/80 px-2 py-1 rounded-md">
+                  Listening...
                 </span>
-              </motion.div>
+              )}
+            </button>
+            <span className="font-medium text-foreground hidden sm:inline">
+              {isListening ? "Listening..." : "Voice Assistant"}
+            </span>
+          </motion.div>
 
-              {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center space-x-1 overflow-x-auto max-w-3xl scrollbar-none">
-                <div className="flex items-center space-x-1">
-                  {navItems.map((item) => {
-                    const isActive = location.pathname === item.href;
-                    const isHovered = hoveredItem === item.href;
-                    return (
-                      <Link
-                        key={item.title}
-                        to={item.href}
-                        onMouseEnter={() => setHoveredItem(item.href)}
-                        onMouseLeave={() => setHoveredItem(null)}
-                        className={cn(
-                          "px-3 py-1.5 rounded-full text-sm transition-all duration-300 flex items-center gap-1.5 whitespace-nowrap",
-                          isActive || isHovered
-                            ? item.color
-                            : "text-muted-foreground hover:text-foreground hover:bg-gray-800/40"
-                        )}
-                      >
-                        {item.icon}
-                        {(isActive || isHovered) && <span>{item.title}</span>}
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-1 overflow-x-auto max-w-3xl scrollbar-none">
+            <div className="flex items-center space-x-1">
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.href;
+                const isHovered = hoveredItem === item.href;
+                return (
+                  <Link
+                    key={item.title}
+                    to={item.href}
+                    onMouseEnter={() => setHoveredItem(item.href)}
+                    onMouseLeave={() => setHoveredItem(null)}
+                    className={cn(
+                      "px-3 py-1.5 rounded-full text-sm transition-all duration-300 flex items-center gap-1.5 whitespace-nowrap",
+                      isActive || isHovered
+                        ? item.color
+                        : "text-muted-foreground hover:text-foreground hover:bg-gray-800/40"
+                    )}
+                  >
+                    {item.icon}
+                    {(isActive || isHovered) && <span>{item.title}</span>}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
 
-              {/* Actions on the right */}
-              <div className="flex items-center gap-2">
-                {/* Copilot Button */}
+          {/* Actions on the right */}
+          <div className="flex items-center gap-2">
+            {/* Copilot Button */}
+            <button
+              onClick={openCopilot}
+              className="rounded-full p-2 text-foreground hover:bg-accent/10 transition-all hidden sm:flex items-center gap-1.5"
+              aria-label="Open Copilot"
+            >
+              <Bot className="h-5 w-5" />
+              <span className="text-sm font-medium">Copilot</span>
+            </button>
+
+            {/* Mobile Menu Toggle */}
+            <button
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden flex items-center justify-center w-9 h-9 rounded-full hover:bg-accent transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
+        </motion.nav>
+
+        {/* Mobile Navigation Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="absolute bottom-full left-0 right-0 mb-2 p-2 rounded-xl neo-blur shadow-lg md:hidden"
+            >
+              <div className="flex flex-col space-y-1 max-h-[70vh] overflow-y-auto">
+                {/* Copilot Button for Mobile */}
                 <button
-                  onClick={openCopilot}
-                  className="rounded-full p-2 text-foreground hover:bg-accent/10 transition-all hidden sm:flex items-center gap-1.5"
-                  aria-label="Open Copilot"
+                  onClick={() => {
+                    setIsOpen(false);
+                    openCopilot();
+                  }}
+                  className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all text-muted-foreground hover:text-foreground hover:bg-gray-800/40"
                 >
-                  <Bot className="h-5 w-5" />
-                  <span className="text-sm font-medium">Copilot</span>
+                  <div className="flex items-center justify-center w-6 h-6">
+                    <Bot className="h-4 w-4" />
+                  </div>
+                  <span>Open Copilot</span>
+                  <ChevronRight className="h-4 w-4 ml-auto" />
                 </button>
 
-                {/* Mobile Menu Toggle */}
-                <button
-                  type="button"
-                  onClick={() => setIsOpen(!isOpen)}
-                  className="md:hidden flex items-center justify-center w-9 h-9 rounded-full hover:bg-accent transition-colors"
-                  aria-label="Toggle menu"
-                >
-                  {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-                </button>
-              </div>
-            </motion.nav>
-
-            {/* Mobile Navigation Menu */}
-            <AnimatePresence>
-              {isOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute bottom-full left-0 right-0 mb-2 p-2 rounded-xl neo-blur shadow-lg md:hidden"
-                >
-                  <div className="flex flex-col space-y-1 max-h-[70vh] overflow-y-auto">
-                    {/* Copilot Button for Mobile */}
-                    <button
-                      onClick={() => {
-                        setIsOpen(false);
-                        openCopilot();
-                      }}
-                      className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all text-muted-foreground hover:text-foreground hover:bg-gray-800/40"
+                {/* Navigation Items */}
+                {navItems.map((item) => {
+                  const isActive = location.pathname === item.href;
+                  return (
+                    <Link
+                      key={item.title}
+                      to={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        "flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all",
+                        isActive
+                          ? item.color
+                          : "text-muted-foreground hover:text-foreground hover:bg-gray-800/40"
+                      )}
                     >
                       <div className="flex items-center justify-center w-6 h-6">
-                        <Bot className="h-4 w-4" />
+                        {item.icon}
                       </div>
-                      <span>Open Copilot</span>
+                      <span>{item.title}</span>
                       <ChevronRight className="h-4 w-4 ml-auto" />
-                    </button>
-
-                    {/* Navigation Items */}
-                    {navItems.map((item) => {
-                      const isActive = location.pathname === item.href;
-                      return (
-                        <Link
-                          key={item.title}
-                          to={item.href}
-                          onClick={() => setIsOpen(false)}
-                          className={cn(
-                            "flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all",
-                            isActive
-                              ? item.color
-                              : "text-muted-foreground hover:text-foreground hover:bg-gray-800/40"
-                          )}
-                        >
-                          <div className="flex items-center justify-center w-6 h-6">
-                            {item.icon}
-                          </div>
-                          <span>{item.title}</span>
-                          <ChevronRight className="h-4 w-4 ml-auto" />
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+                    </Link>
+                  );
+                })}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
   );
 };
 
