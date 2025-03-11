@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, LayoutDashboard, Link2, Settings } from 'lucide-react';
@@ -16,8 +17,8 @@ const Home: React.FC = () => {
         <h2 className="text-4xl font-light leading-tight tracking-wide">One platform.</h2>
         <h2 className="text-4xl font-light leading-tight tracking-wide">Every luxury experience.</h2>
         
-        <div className="my-16">
-          <span className="text-6xl font-semibold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+        <div className="my-24 py-8">
+          <span className="text-8xl font-semibold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
             éclatOS
           </span>
         </div>
