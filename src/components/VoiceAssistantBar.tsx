@@ -76,7 +76,7 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
               className="flex items-center justify-between px-4 py-2 rounded-full bg-background/90 backdrop-blur-lg border border-border/40 shadow-lg"
               layout
             >
-              {/* Logo/Brand + Voice Assistant */}
+              {/* Voice Assistant */}
               <motion.div className="flex items-center gap-2" layout>
                 <button
                   onClick={toggleVoiceAssistant}
@@ -101,23 +101,26 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
               </motion.div>
 
               {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center space-x-1 overflow-x-auto max-w-3xl scrollbar-hide">
+              <div className="hidden md:flex items-center space-x-1 overflow-x-auto max-w-3xl scrollbar-none">
                 <div className="flex items-center space-x-1">
-                  {navItems.map((item) => (
-                    <Link
-                      key={item.title}
-                      to={item.href}
-                      className={cn(
-                        "px-3 py-1.5 rounded-full text-sm transition-all duration-300 flex items-center gap-1.5 whitespace-nowrap",
-                        location.pathname === item.href
-                          ? "bg-primary/10 text-primary font-medium"
-                          : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                      )}
-                    >
-                      {item.icon}
-                      <span className="hidden lg:inline">{item.title}</span>
-                    </Link>
-                  ))}
+                  {navItems.map((item) => {
+                    const isActive = location.pathname === item.href;
+                    return (
+                      <Link
+                        key={item.title}
+                        to={item.href}
+                        className={cn(
+                          "px-3 py-1.5 rounded-full text-sm transition-all duration-300 flex items-center gap-1.5 whitespace-nowrap",
+                          isActive
+                            ? "bg-primary/10 text-primary font-medium"
+                            : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                        )}
+                      >
+                        {item.icon}
+                        {isActive && <span>{item.title}</span>}
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
 
