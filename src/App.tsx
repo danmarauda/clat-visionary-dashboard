@@ -7,10 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import ExecutiveSummary from "./pages/ExecutiveSummary";
-import AIAnalytics from "./pages/AIAnalytics";
-import BuildingOS from "./pages/BuildingOS";
-import Dashboard from "./pages/Dashboard";
-import Gallery from "./pages/Gallery";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,29 +31,26 @@ const App = () => (
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/executive-summary" element={<ExecutiveSummary />} />
-            <Route path="/ai-analytics" element={<AIAnalytics />} />
-            <Route path="/building-os" element={<BuildingOS />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/gallery" element={<Gallery />} />
             
-            {/* Placeholder routes for other sections */}
-            <Route path="/user-profiles" element={<PlaceholderPage title="User Profiles" />} />
-            <Route path="/data-integrations" element={<PlaceholderPage title="Data Integrations" />} />
-            <Route path="/reporting" element={<PlaceholderPage title="Reporting & Metrics" />} />
-            <Route path="/sustainability" element={<PlaceholderPage title="Sustainability" />} />
-            <Route path="/connectivity" element={<PlaceholderPage title="Connectivity" />} />
-            <Route path="/security" element={<PlaceholderPage title="Security & Compliance" />} />
-            <Route path="/performance" element={<PlaceholderPage title="Performance" />} />
-            <Route path="/spatial-mapping" element={<PlaceholderPage title="Spatial Mapping" />} />
-            <Route path="/scheduling" element={<PlaceholderPage title="Scheduling" />} />
-            <Route path="/communication" element={<PlaceholderPage title="Communication" />} />
-            <Route path="/developer-tools" element={<PlaceholderPage title="Developer Tools" />} />
-            <Route path="/visualization" element={<PlaceholderPage title="Visualization" />} />
-            <Route path="/global-management" element={<PlaceholderPage title="Global Management" />} />
-            <Route path="/advanced-settings" element={<PlaceholderPage title="Advanced Settings" />} />
-            <Route path="/modules" element={<PlaceholderPage title="Modules" />} />
-            <Route path="/documentation" element={<PlaceholderPage title="Documentation" />} />
-            <Route path="/support" element={<PlaceholderPage title="Support" />} />
+            {/* OS Modules */}
+            <Route path="/analytics-os" element={<PlaceholderPage title="Analytics OS" />} />
+            <Route path="/building-os" element={<PlaceholderPage title="Building OS" />} />
+            <Route path="/community-os" element={<PlaceholderPage title="Community OS" />} />
+            <Route path="/design-os" element={<PlaceholderPage title="Design OS" />} />
+            <Route path="/event-os" element={<PlaceholderPage title="Event OS" />} />
+            <Route path="/hospitality-os" element={<PlaceholderPage title="Hospitality OS" />} />
+            <Route path="/marketing-os" element={<PlaceholderPage title="Marketing OS" />} />
+            <Route path="/workspace-os" element={<PlaceholderPage title="Workspace OS" />} />
+            
+            {/* Project Sections */}
+            <Route path="/project-scope" element={<PlaceholderPage title="Project Scope" />} />
+            <Route path="/budget" element={<PlaceholderPage title="Budget" />} />
+            <Route path="/timeline" element={<PlaceholderPage title="Delivery Timeline" />} />
+            <Route path="/team" element={<PlaceholderPage title="Team" />} />
+            <Route path="/testimonials" element={<PlaceholderPage title="Testimonials" />} />
+            <Route path="/contact" element={<PlaceholderPage title="Contact" />} />
+            <Route path="/gallery" element={<PlaceholderPage title="Project Gallery" />} />
+            <Route path="/module-gallery" element={<PlaceholderPage title="Module Gallery" />} />
           </Route>
           
           {/* 404 route */}
