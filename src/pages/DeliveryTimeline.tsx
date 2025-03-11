@@ -111,7 +111,7 @@ const DeliveryTimelinePage: React.FC = () => {
             </div>
             <h1 className="text-4xl font-bold">Delivery Timeline</h1>
             <p className="text-lg text-muted-foreground">
-              A comprehensive implementation plan for the éclatOS, designed for minimal disruption and maximum value delivery.
+              A comprehensive implementation plan for éclatOS, designed for minimal disruption and maximum value delivery.
             </p>
           </motion.div>
         </div>
