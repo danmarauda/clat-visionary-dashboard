@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -47,6 +46,20 @@ const App = () => (
             <Route path="/budget" element={<PlaceholderPage title="Budget" />} />
             <Route path="/timeline" element={<PlaceholderPage title="Delivery Timeline" />} />
             <Route path="/team" element={<PlaceholderPage title="Team" />} />
+            
+            {/* Business Units */}
+            <Route path="/business-units" element={<PlaceholderPage title="Business Units" />} />
+            <Route path="/bureau" element={<PlaceholderPage title="Bureau" />} />
+            <Route path="/parlor-portico" element={<PlaceholderPage title="Parlor & Portico" />} />
+            <Route path="/galerie" element={<PlaceholderPage title="Galerie" />} />
+            <Route path="/forme" element={<PlaceholderPage title="Forme" />} />
+            <Route path="/notel" element={<PlaceholderPage title="Notel" />} />
+            
+            {/* Support */}
+            <Route path="/support" element={<PlaceholderPage title="Support" />} />
+            <Route path="/settings" element={<PlaceholderPage title="Settings" />} />
+            
+            {/* Other pages */}
             <Route path="/testimonials" element={<PlaceholderPage title="Testimonials" />} />
             <Route path="/contact" element={<PlaceholderPage title="Contact" />} />
             <Route path="/gallery" element={<PlaceholderPage title="Project Gallery" />} />

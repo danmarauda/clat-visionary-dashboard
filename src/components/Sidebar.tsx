@@ -2,39 +2,57 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { 
-  Home, BarChart, Building, Book, Cpu, Database, 
-  PieChart, Users, Settings, LayoutDashboard, Braces, 
-  HelpCircle, Map, Calendar, FileText, MessageSquare, 
-  AirVent, Wifi, Shield, Zap, PanelLeft, 
-  GalleryHorizontalEnd, Columns, Globe, ChevronRight, ChevronLeft
+  LayoutDashboard, FileText, Briefcase, Clock, DollarSign, 
+  Users, MessageSquare, Building, Store, Activity, 
+  Coffee, BarChart, Pen, Calendar, Wrench, 
+  BookOpen, HelpCircle, Settings, ChevronRight, ChevronLeft
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-// Define navigation items
-const navItems = [
-  { id: 'home', name: 'Home', path: '/', icon: Home },
-  { id: 'executive-summary', name: 'Executive Summary', path: '/executive-summary', icon: FileText },
-  { id: 'ai-analytics', name: 'AI & Analytics', path: '/ai-analytics', icon: Cpu },
-  { id: 'building-os', name: 'Building OS', path: '/building-os', icon: Building },
-  { id: 'dashboard', name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
-  { id: 'user-profiles', name: 'User Profiles', path: '/user-profiles', icon: Users },
-  { id: 'data-integrations', name: 'Data Integrations', path: '/data-integrations', icon: Database },
-  { id: 'reporting', name: 'Reporting & Metrics', path: '/reporting', icon: BarChart },
-  { id: 'sustainability', name: 'Sustainability', path: '/sustainability', icon: AirVent },
-  { id: 'connectivity', name: 'Connectivity', path: '/connectivity', icon: Wifi },
-  { id: 'security', name: 'Security & Compliance', path: '/security', icon: Shield },
-  { id: 'performance', name: 'Performance', path: '/performance', icon: Zap },
-  { id: 'spatial-mapping', name: 'Spatial Mapping', path: '/spatial-mapping', icon: Map },
-  { id: 'scheduling', name: 'Scheduling', path: '/scheduling', icon: Calendar },
-  { id: 'communication', name: 'Communication', path: '/communication', icon: MessageSquare },
-  { id: 'developer-tools', name: 'Developer Tools', path: '/developer-tools', icon: Braces },
-  { id: 'visualization', name: 'Visualization', path: '/visualization', icon: PieChart },
-  { id: 'global-management', name: 'Global Management', path: '/global-management', icon: Globe },
-  { id: 'advanced-settings', name: 'Advanced Settings', path: '/advanced-settings', icon: Settings },
-  { id: 'gallery', name: 'Project Gallery', path: '/gallery', icon: GalleryHorizontalEnd },
-  { id: 'modules', name: 'Modules', path: '/modules', icon: Columns },
-  { id: 'documentation', name: 'Documentation', path: '/documentation', icon: Book },
-  { id: 'support', name: 'Support', path: '/support', icon: HelpCircle },
+// Define navigation items by category
+const navCategories = [
+  {
+    category: "PROPOSAL",
+    items: [
+      { id: 'dashboard', name: 'Dashboard', path: '/', icon: LayoutDashboard },
+      { id: 'executive-summary', name: 'Executive Summary', path: '/executive-summary', icon: FileText },
+      { id: 'project-scope', name: 'Project Scope', path: '/project-scope', icon: Briefcase },
+      { id: 'timeline', name: 'Timeline', path: '/timeline', icon: Clock },
+      { id: 'budget', name: 'Budget', path: '/budget', icon: DollarSign },
+    ]
+  },
+  {
+    category: "OS MODULES",
+    items: [
+      { id: 'building-os', name: 'Building OS', path: '/building-os', icon: Building },
+      { id: 'hospitality-os', name: 'Hospitality OS', path: '/hospitality-os', icon: Coffee },
+      { id: 'analytics-os', name: 'Analytics OS', path: '/analytics-os', icon: BarChart },
+      { id: 'workspace-os', name: 'Workspace OS', path: '/workspace-os', icon: Briefcase },
+      { id: 'community-os', name: 'Community OS', path: '/community-os', icon: Users },
+      { id: 'design-os', name: 'Design OS', path: '/design-os', icon: Pen },
+      { id: 'event-os', name: 'Event OS', path: '/event-os', icon: Calendar },
+      { id: 'marketing-os', name: 'Marketing OS', path: '/marketing-os', icon: BarChart },
+    ]
+  },
+  {
+    category: "BUSINESS UNITS",
+    items: [
+      { id: 'business-units', name: 'Business Units', path: '/business-units', icon: Briefcase },
+      { id: 'bureau', name: 'Bureau', path: '/bureau', icon: BookOpen },
+      { id: 'parlor-portico', name: 'Parlor & Portico', path: '/parlor-portico', icon: Building },
+      { id: 'galerie', name: 'Galerie', path: '/galerie', icon: Store },
+      { id: 'forme', name: 'Forme', path: '/forme', icon: Activity },
+      { id: 'notel', name: 'Notel', path: '/notel', icon: Building },
+      { id: 'team', name: 'Team', path: '/team', icon: Users },
+    ]
+  },
+  {
+    category: "SUPPORT",
+    items: [
+      { id: 'support', name: 'Support', path: '/support', icon: HelpCircle },
+      { id: 'settings', name: 'Settings', path: '/settings', icon: Settings },
+    ]
+  }
 ];
 
 interface SidebarProps {
@@ -58,7 +76,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
   return (
     <aside 
       className={cn(
-        "fixed left-0 top-0 z-30 h-screen bg-gradient-to-b from-card to-background/95 border-r border-border/40 shadow-xl transition-all duration-300 ease-in-out",
+        "fixed left-0 top-0 z-30 h-screen bg-background border-r border-border/40 shadow-xl transition-all duration-300 ease-in-out",
         isCollapsed ? "w-[70px]" : "w-[280px]",
       )}
     >
@@ -84,40 +102,54 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
             </button>
           </div>
 
-          <div className="scrollbar-none flex-1 overflow-y-auto py-4 px-3">
-            <nav className="flex flex-col gap-1">
-              {navItems.map((item) => {
-                const isActive = currentPath === item.path;
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => navigate(item.path)}
-                    className={cn(
-                      "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all",
-                      isActive
-                        ? "bg-primary/10 text-primary"
-                        : "text-muted-foreground hover:bg-accent/10 hover:text-accent"
-                    )}
-                  >
-                    <item.icon className={cn("h-5 w-5", isActive ? "text-primary" : "text-muted-foreground")} />
-                    {!isCollapsed && <span className="animate-fadeIn">{item.name}</span>}
-                  </button>
-                );
-              })}
-            </nav>
+          <div className="scrollbar-none flex-1 overflow-y-auto py-4">
+            {navCategories.map((category, categoryIndex) => (
+              <div key={categoryIndex} className="mb-6">
+                {!isCollapsed && (
+                  <div className="px-4 mb-2">
+                    <p className="text-xs font-medium text-muted-foreground tracking-wider">
+                      {category.category}
+                    </p>
+                  </div>
+                )}
+                <nav className="flex flex-col gap-1 px-3">
+                  {category.items.map((item) => {
+                    const isActive = currentPath === item.path || 
+                                    (item.path === '/' && currentPath === '/');
+                    return (
+                      <button
+                        key={item.id}
+                        onClick={() => navigate(item.path)}
+                        className={cn(
+                          "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-all",
+                          isActive
+                            ? "bg-primary/10 text-primary"
+                            : "text-muted-foreground hover:bg-accent/10 hover:text-accent"
+                        )}
+                      >
+                        <item.icon className={cn("h-5 w-5", isActive ? "text-primary" : "text-muted-foreground")} />
+                        {!isCollapsed && <span className="animate-fadeIn">{item.name}</span>}
+                      </button>
+                    );
+                  })}
+                </nav>
+              </div>
+            ))}
           </div>
         </div>
 
         {!isCollapsed && (
-          <div className="glass mx-3 mb-4 rounded-xl p-4 animate-fadeIn">
-            <div className="flex flex-col space-y-2">
-              <p className="text-xs font-medium text-muted-foreground">
-                Éclat OS Dashboard Suite
-              </p>
-              <p className="text-xs text-muted-foreground">
-                Version 1.0.0
-              </p>
-            </div>
+          <div className="p-4 mx-2 mb-4">
+            <button className="w-full flex items-center justify-center gap-2 bg-background hover:bg-accent/10 border border-border/60 rounded-lg py-2 px-4 text-sm font-medium transition-colors">
+              <div className="h-4 w-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+              </div>
+              Download Proposal
+            </button>
           </div>
         )}
       </div>

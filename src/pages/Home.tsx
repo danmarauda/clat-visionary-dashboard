@@ -1,125 +1,85 @@
 
 import React from 'react';
-import { Home as HomeIcon, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ArrowRight, LayoutDashboard, Link2, Settings } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
-const features = [
-  {
-    id: 'ai-analytics',
-    title: 'AI & Analytics',
-    description: 'Advanced analytics and AI-powered insights for workspace optimization.',
-    path: '/ai-analytics',
-  },
-  {
-    id: 'building-os',
-    title: 'Building OS',
-    description: 'Comprehensive building management system for modern workspaces.',
-    path: '/building-os',
-  },
-  {
-    id: 'dashboard',
-    title: 'Dashboard',
-    description: 'Intuitive dashboards for monitoring all aspects of your workspace.',
-    path: '/dashboard',
-  },
-  {
-    id: 'security',
-    title: 'Security & Compliance',
-    description: 'Enterprise-grade security and compliance features built-in.',
-    path: '/security',
-  },
-];
 
 const Home: React.FC = () => {
   return (
     <div className="space-y-12">
-      <div className="text-center space-y-4 max-w-3xl mx-auto animate-fadeIn">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gradient-primary">
-          Éclat OS
-        </h1>
-        <p className="text-xl text-muted-foreground">
-          The luxury workspace management platform for the modern enterprise
+      <div className="space-y-2">
+        <h1 className="text-3xl font-bold">EclatOS Proposal</h1>
+        <p className="text-muted-foreground">Enterprise Operating System for Luxury Experiences</p>
+      </div>
+
+      <div className="flex flex-col items-center text-center py-12 space-y-4">
+        <h2 className="text-4xl font-bold">One platform.</h2>
+        <h2 className="text-4xl font-bold">Every luxury experience.</h2>
+        <p className="max-w-3xl text-muted-foreground mt-4">
+          A comprehensive operating system unifying Éclat's diverse business verticals through intelligent automation
+          and seamless integration.
         </p>
       </div>
 
-      <div className="glass overflow-hidden rounded-2xl border border-white/10 shadow-xl animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-        <div className="aspect-video relative overflow-hidden">
-          <img 
-            src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
-            alt="Éclat OS Dashboard Preview"
-            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
-          <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
-              Proposal and Dashboard Suite
-            </h2>
-            <p className="text-white/80 max-w-xl">
-              Explore our comprehensive solution designed to transform workspace management through elegant design and powerful features.
+      <div className="space-y-8">
+        <div>
+          <h2 className="text-2xl font-bold mb-3">Unified Business Platform</h2>
+          <p className="text-muted-foreground">
+            Seamlessly integrated solutions for every Eclat business vertical
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="glass p-6 rounded-xl space-y-4">
+            <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center">
+              <LayoutDashboard className="h-5 w-5 text-primary" />
+            </div>
+            <h3 className="text-xl font-semibold">Centralized Management</h3>
+            <p className="text-muted-foreground">
+              Manage all business verticals from a single, unified platform with
+              real-time insights and controls.
+            </p>
+          </div>
+
+          <div className="glass p-6 rounded-xl space-y-4">
+            <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center">
+              <Link2 className="h-5 w-5 text-primary" />
+            </div>
+            <h3 className="text-xl font-semibold">Seamless Integration</h3>
+            <p className="text-muted-foreground">
+              Connect all your business processes and data flows with our
+              intelligent integration framework.
+            </p>
+          </div>
+
+          <div className="glass p-6 rounded-xl space-y-4">
+            <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center">
+              <Settings className="h-5 w-5 text-primary" />
+            </div>
+            <h3 className="text-xl font-semibold">Intelligent Automation</h3>
+            <p className="text-muted-foreground">
+              Automate routine tasks and workflows with AI-powered tools that
+              learn and adapt to your business.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {features.map((feature, index) => (
-          <Link 
-            key={feature.id}
-            to={feature.path}
-            className={cn(
-              "group glass rounded-xl p-6 border border-white/5 transition-all duration-300",
-              "hover:border-primary/20 hover:shadow-lg",
-              "animate-fadeInUp"
-            )}
-            style={{ animationDelay: `${0.3 + index * 0.1}s` }}
-          >
-            <div className="flex flex-col h-full justify-between space-y-4">
-              <div>
-                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground">
-                  {feature.description}
-                </p>
-              </div>
-              <div className="flex justify-end">
-                <div className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <ArrowRight className="h-5 w-5 text-primary" />
-                </div>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
-
-      <div className="neo-blur rounded-2xl p-6 sm:p-8 animate-fadeInUp" style={{ animationDelay: '0.5s' }}>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="md:col-span-2 space-y-4">
-            <h2 className="text-2xl font-bold">Ready to explore?</h2>
+      <div className="neo-blur rounded-xl p-8 mt-12">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="space-y-4 mb-6 md:mb-0">
+            <h2 className="text-2xl font-bold">Ready to explore the full proposal?</h2>
             <p className="text-muted-foreground">
-              Navigate through our proposal and dashboard suite to discover how Éclat OS can transform your workspace management experience.
+              Navigate through the sidebar to discover all aspects of the EclatOS platform.
             </p>
-            <div className="flex flex-wrap gap-3 pt-2">
-              <Link 
-                to="/executive-summary"
-                className="px-4 py-2 rounded-lg bg-primary hover:bg-primary/90 text-white font-medium transition-colors"
-              >
-                Executive Summary
-              </Link>
-              <Link 
-                to="/gallery"
-                className="px-4 py-2 rounded-lg bg-card hover:bg-card/80 border border-border/50 font-medium transition-colors"
-              >
-                View Gallery
-              </Link>
-            </div>
           </div>
-          <div className="flex items-center justify-center">
-            <div className="h-24 w-24 rounded-full bg-gradient-to-tr from-primary to-primary/40 flex items-center justify-center shadow-lg animate-float">
-              <HomeIcon className="h-10 w-10 text-white" />
-            </div>
-          </div>
+          <Link 
+            to="/executive-summary"
+            className="px-6 py-3 rounded-lg bg-primary hover:bg-primary/90 text-white font-medium transition-colors flex items-center gap-2"
+          >
+            Start Tour
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </div>
