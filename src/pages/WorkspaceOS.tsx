@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { 
   Briefcase, 
@@ -62,7 +63,7 @@ const WorkspaceOSPage: React.FC = () => {
   };
   
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="w-full max-w-4xl mx-auto px-0">
       <div className="flex flex-col items-center text-center py-6">
         <h2 className="text-4xl font-light leading-tight tracking-wide">Smart Spaces.</h2>
         <h2 className="text-4xl font-light leading-tight tracking-wide">Seamless Experience.</h2>
@@ -77,7 +78,7 @@ const WorkspaceOSPage: React.FC = () => {
       </div>
       
       {/* Key Components Section */}
-      <div className="space-y-8 animate-fadeIn max-w-4xl mx-auto">
+      <div className="space-y-8 animate-fadeIn">
         <div className="glass rounded-2xl p-6 md:p-8 shadow-lg animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="space-y-6">
@@ -110,7 +111,7 @@ const WorkspaceOSPage: React.FC = () => {
       </div>
       
       {/* Business Impact Section */}
-      <div className="mt-8 max-w-4xl mx-auto">
+      <div className="mt-8">
         <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
           <h2 className="text-xl font-semibold mb-6">Business Impact</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -160,7 +161,7 @@ const WorkspaceOSPage: React.FC = () => {
       </div>
       
       {/* Integration Points Section */}
-      <div className="mt-8 max-w-4xl mx-auto">
+      <div className="mt-8">
         <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
           <h2 className="text-xl font-semibold mb-6">Integration Points</h2>
           <p className="text-muted-foreground mb-4">
@@ -203,7 +204,7 @@ const WorkspaceOSPage: React.FC = () => {
       </div>
       
       {/* Design Approach Section */}
-      <div className="mt-8 max-w-4xl mx-auto">
+      <div className="mt-8">
         <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
           <h2 className="text-xl font-semibold mb-4">Design Approach</h2>
           <ul className="space-y-2">
@@ -220,7 +221,7 @@ const WorkspaceOSPage: React.FC = () => {
       </div>
       
       {/* User Personas Section - Moved to bottom */}
-      <div className="mt-8 max-w-4xl mx-auto">
+      <div className="mt-8">
         <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
           <h2 className="text-xl font-semibold mb-4">User Personas</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

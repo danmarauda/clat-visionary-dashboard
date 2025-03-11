@@ -32,11 +32,11 @@ const Layout: React.FC = () => {
       
       <main 
         className={cn(
-          "min-h-screen transition-all duration-300 pt-20 pb-12 px-6 md:px-8",
+          "min-h-screen transition-all duration-300 pt-20 pb-12",
           isCollapsed ? "ml-[70px]" : "ml-[280px]"
         )}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="mx-auto px-0">
           <Outlet />
         </div>
       </main>
