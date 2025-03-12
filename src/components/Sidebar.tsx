@@ -1,10 +1,12 @@
+
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { 
   LayoutDashboard, FileText, Briefcase, Clock, DollarSign, 
   Users, MessageSquare, Building, Store, Activity, 
   Coffee, BarChart, Pen, Calendar, Wrench, 
-  BookOpen, HelpCircle, Settings, ChevronRight, ChevronLeft
+  BookOpen, HelpCircle, Settings, ChevronRight, ChevronLeft,
+  NotebookText
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import UserProfileButton from './UserProfileButton';
@@ -43,7 +45,7 @@ const navCategories = [
       { id: 'parlor-portico', name: 'Parlor & Portico', path: '/parlor-portico', icon: Building },
       { id: 'galerie', name: 'Galerie', path: '/galerie', icon: Store },
       { id: 'forme', name: 'Forme', path: '/forme', icon: Activity },
-      { id: 'notel', name: 'Notel', path: '/notel', icon: Building },
+      { id: 'noted', name: 'Noted', path: '/notel', icon: NotebookText },
       { id: 'team', name: 'Team', path: '/team', icon: Users },
     ]
   },
