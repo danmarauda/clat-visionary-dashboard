@@ -11,7 +11,7 @@ const ExecutiveSummary: React.FC = () => {
       <div className="mt-6 mb-8 flex justify-between">
         <Link to="/">
           <button
-            className="rounded-full p-2 text-foreground hover:bg-accent/10 transition-all flex items-center gap-1.5 text-sm font-medium"
+            className="rounded-full p-2 text-foreground hover:text-foreground hover:bg-accent/10 transition-all flex items-center gap-1.5 text-sm font-medium"
             aria-label="Previous: Home"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -20,7 +20,7 @@ const ExecutiveSummary: React.FC = () => {
         </Link>
         <Link to="/current-landscape">
           <button
-            className="rounded-full p-2 text-module-analytics bg-module-analytics/10 hover:bg-module-analytics/20 transition-all flex items-center gap-1.5 text-sm font-medium"
+            className="rounded-full p-2 text-foreground hover:text-module-analytics hover:bg-module-analytics/10 transition-all flex items-center gap-1.5 text-sm font-medium"
             aria-label="Next: Current Landscape"
           >
             <span>Current Landscape</span>

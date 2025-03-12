@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { FileText, ArrowRight } from 'lucide-react';
 
@@ -59,14 +60,14 @@ const CurrentLandscape: React.FC = () => {
       <div className="flex justify-between">
         <a 
           href="/executive-summary" 
-          className="group inline-flex items-center gap-2 text-primary font-medium hover:underline"
+          className="group inline-flex items-center gap-2 text-foreground hover:text-primary font-medium hover:underline rounded-full p-2 transition-all"
         >
           <ArrowRight className="h-4 w-4 rotate-180 transition-transform group-hover:-translate-x-1" />
           Previous: Executive Summary
         </a>
         <a 
           href="/analytics-os" 
-          className="group inline-flex items-center gap-2 text-primary font-medium hover:underline"
+          className="group inline-flex items-center gap-2 text-foreground hover:text-module-analytics font-medium hover:underline rounded-full p-2 transition-all"
         >
           Next: Analytics OS
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
