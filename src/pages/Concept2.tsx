@@ -1,15 +1,10 @@
 
 import { Button } from "@/components/ui/button";
-import { Menu, X, Circle, Fingerprint, Users, Building, BarChart, 
+import { Circle, Fingerprint, Users, Building, BarChart, 
          Calendar, Pen, Coffee, MessageSquare, ArrowRight, CheckCircle2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-
-interface NavItem {
-    label: string;
-    href: string;
-}
 
 interface OSModule {
     id: string;
@@ -21,13 +16,6 @@ interface OSModule {
     status?: string;
     tags?: string[];
 }
-
-const NAV_ITEMS: NavItem[] = [
-    { label: "Overview", href: "#overview" },
-    { label: "Modules", href: "#modules" },
-    { label: "Integration", href: "#integration" },
-    { label: "Timeline", href: "#timeline" },
-];
 
 const OS_MODULES: OSModule[] = [
     {
@@ -121,57 +109,6 @@ const OS_MODULES: OSModule[] = [
     },
 ];
 
-function NavigationMenu({
-    isMenuOpen,
-    setIsMenuOpen,
-}: {
-    isMenuOpen: boolean;
-    setIsMenuOpen: (value: boolean) => void;
-}) {
-    return (
-        <motion.div
-            className={cn("md:hidden fixed inset-x-0 top-[4rem]")}
-            initial={{ opacity: 0, y: -10 }}
-            animate={{
-                opacity: isMenuOpen ? 1 : 0,
-                y: isMenuOpen ? 0 : -10,
-            }}
-            transition={{ duration: 0.2 }}
-        >
-            <div className="mx-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10">
-                <div className="p-4 space-y-3">
-                    {NAV_ITEMS.map((item) => (
-                        <a
-                            key={item.label}
-                            href={item.href}
-                            className="block px-4 py-3 text-sm text-white/70 hover:text-white rounded-lg
-                                hover:bg-white/5 transition-colors"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            {item.label}
-                        </a>
-                    ))}
-                    <div className="grid grid-cols-2 gap-3 pt-3 border-t border-white/10">
-                        <Button
-                            variant="ghost"
-                            className="w-full text-white/70 hover:text-white hover:bg-white/5"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            Contact
-                        </Button>
-                        <Button
-                            className="w-full bg-primary text-white hover:bg-primary/90"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            Explore
-                        </Button>
-                    </div>
-                </div>
-            </div>
-        </motion.div>
-    );
-}
-
 const BusinessImpact = () => {
     const impacts = [
         {
@@ -235,17 +172,6 @@ const BusinessImpact = () => {
 };
 
 const Concept2 = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
     return (
         <div className="relative min-h-screen bg-black text-white overflow-hidden -mt-20 -mx-6">
             <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
@@ -262,91 +188,6 @@ const Concept2 = () => {
                     SYSTEM
                 </div>
             </div>
-
-            <nav
-                className={cn(
-                    "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-                    scrolled
-                        ? "bg-black/50 backdrop-blur-xl border-b border-white/5"
-                        : ""
-                )}
-            >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-16">
-                        <a
-                            href="/"
-                            className="text-xl font-medium tracking-tight flex items-center gap-2"
-                            aria-label="Product Homepage"
-                        >
-                            <div className="relative w-8 h-8">
-                                <div className="absolute inset-0 bg-primary/20 rounded-xl blur-sm" />
-                                <div
-                                    className="relative w-full h-full rounded-xl bg-black border border-primary/20 
-                                    flex items-center justify-center"
-                                >
-                                    <Circle className="h-4 w-4 text-primary" />
-                                </div>
-                            </div>
-                            éclatOS
-                        </a>
-
-                        <div className="hidden md:flex items-center gap-8">
-                            {NAV_ITEMS.map((item) => (
-                                <a
-                                    key={item.label}
-                                    href={item.href}
-                                    className="text-sm text-white/70 hover:text-white transition-colors relative group"
-                                    aria-label={item.label}
-                                >
-                                    <span className="relative z-10">
-                                        {item.label}
-                                    </span>
-                                    <span
-                                        className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all 
-                                        group-hover:w-full"
-                                    />
-                                </a>
-                            ))}
-                        </div>
-
-                        <div className="hidden md:flex items-center gap-4">
-                            <Button
-                                variant="ghost"
-                                className="text-white/70 hover:text-white hover:bg-white/5"
-                                aria-label="Contact Us"
-                            >
-                                Contact
-                            </Button>
-                            <Button
-                                className="bg-primary text-white hover:bg-primary/90"
-                                aria-label="Explore Modules"
-                            >
-                                Explore
-                            </Button>
-                        </div>
-
-                        <Button
-                            variant="ghost"
-                            size="icon"
-                            className="md:hidden text-white/70 hover:text-white hover:bg-white/5"
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                            aria-expanded={isMenuOpen}
-                        >
-                            {isMenuOpen ? (
-                                <X className="h-5 w-5" />
-                            ) : (
-                                <Menu className="h-5 w-5" />
-                            )}
-                        </Button>
-                    </div>
-                </div>
-
-                <NavigationMenu
-                    isMenuOpen={isMenuOpen}
-                    setIsMenuOpen={setIsMenuOpen}
-                />
-            </nav>
 
             <div className="relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
