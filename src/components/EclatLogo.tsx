@@ -28,7 +28,7 @@ const EclatLogo: React.FC<EclatLogoProps> = ({
     <div 
       className={cn(
         "rounded-xl flex items-center justify-center font-bold",
-        isLight ? "bg-primary text-white" : "bg-transparent border-2 border-primary text-primary",
+        isLight ? "bg-transparent border-2 border-primary text-primary" : "bg-primary text-white",
         sizeClasses,
         className
       )}
