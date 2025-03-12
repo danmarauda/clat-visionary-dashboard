@@ -134,43 +134,6 @@ const ExecutiveSummary: React.FC = () => {
         </div>
       </div>
 
-      {/* Business Units Section */}
-      <div className="mt-8">
-        <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
-          <h2 className="text-xl font-semibold mb-6">Business Units</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <h3 className="text-xl font-medium">Bureau</h3>
-                <p className="text-muted-foreground">Creative agency and strategic consulting services focused on brand development and experience design.</p>
-              </div>
-              
-              <div className="space-y-2">
-                <h3 className="text-xl font-medium">Parlor & Portico</h3>
-                <p className="text-muted-foreground">Premium business club and hospitality offerings with exclusive membership experiences.</p>
-              </div>
-              
-              <div className="space-y-2">
-                <h3 className="text-xl font-medium">Galerie</h3>
-                <p className="text-muted-foreground">Curated exhibition and art programming space supporting cultural engagement initiatives.</p>
-              </div>
-            </div>
-            
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <h3 className="text-xl font-medium">Forme</h3>
-                <p className="text-muted-foreground">Wellness and lifestyle brand focused on holistic well-being and physical space design.</p>
-              </div>
-              
-              <div className="space-y-2">
-                <h3 className="text-xl font-medium">Notel</h3>
-                <p className="text-muted-foreground">Boutique hospitality concept reimagining the traditional hotel experience for modern travelers.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Implementation Timeline Section */}
       <div className="mt-8">
         <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
@@ -261,3 +224,4 @@ const ExecutiveSummary: React.FC = () => {
 };
 
 export default ExecutiveSummary;
+
