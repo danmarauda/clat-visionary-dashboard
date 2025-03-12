@@ -143,7 +143,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
 
         {!isCollapsed && (
           <div className="p-4 mx-2 mb-4">
-            <UserProfileButton userName="Jesse Hayes" userRole="Creative Director" />
+            <UserProfileButton userName="Jesse Hayes" userRole="Founder/Director" />
           </div>
         )}
       </div>

@@ -12,8 +12,8 @@ interface UserProfileButtonProps {
 }
 
 const UserProfileButton: React.FC<UserProfileButtonProps> = ({
-  userName = "John Doe",
-  userRole = "Product Manager",
+  userName = "Jesse Hayes",
+  userRole = "Founder/Director",
   className,
   onClick
 }) => {
