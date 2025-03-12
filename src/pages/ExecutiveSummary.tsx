@@ -10,18 +10,22 @@ const ExecutiveSummary: React.FC = () => {
       {/* Navigation Buttons - Moved to top */}
       <div className="mt-6 mb-8 flex justify-between">
         <Link to="/">
-          <GreenButton 
-            label="Previous: Home" 
-            icon={<ArrowLeft className="h-4 w-4" />}
-            className="px-6"
-          />
+          <button
+            className="rounded-full p-2 text-foreground hover:bg-accent/10 transition-all flex items-center gap-1.5 text-sm font-medium"
+            aria-label="Previous: Home"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            <span>Home</span>
+          </button>
         </Link>
         <Link to="/current-landscape">
-          <GreenButton 
-            label="Next: Current Landscape" 
-            icon={<ArrowRight className="h-4 w-4" />}
-            className="px-6"
-          />
+          <button
+            className="rounded-full p-2 text-module-analytics bg-module-analytics/10 hover:bg-module-analytics/20 transition-all flex items-center gap-1.5 text-sm font-medium"
+            aria-label="Next: Current Landscape"
+          >
+            <span>Current Landscape</span>
+            <ArrowRight className="h-4 w-4" />
+          </button>
         </Link>
       </div>
     
