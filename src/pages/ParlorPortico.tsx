@@ -1,38 +1,32 @@
 
 import React from 'react';
-import ContentPage from '@/components/ContentPage';
 import { Coffee, Users, Building, Calendar, Bookmark } from 'lucide-react';
+import { GreenButton } from '@/components/ui/GreenButton';
 
 const ParlorPorticoPage: React.FC = () => {
   return (
     <div className="space-y-10 animate-fadeIn">
-      <div className="text-center mt-4">
-        <span className="text-sm font-light px-4 py-2 rounded-full border border-white/10 bg-white/5">
-          Business Club & Hospitality
-        </span>
-      </div>
-
-      <div className="flex flex-col items-center text-center py-8 space-y-1 mt-16">
-        <h2 className="text-4xl font-light leading-tight tracking-wide">Exclusive Spaces.</h2>
-        <h2 className="text-4xl font-light leading-tight tracking-wide">Exceptional Service.</h2>
-        
-        <p className="max-w-2xl text-sm text-muted-foreground mt-8">
-          Premium business club and hospitality offerings, combining exclusive membership 
-          experiences with world-class service in elegant settings.
-        </p>
+      <div className="relative rounded-2xl overflow-hidden border border-border/40 shadow-lg">
+        <img 
+          src="/lovable-uploads/875ae15b-f940-40e5-a0c2-34bba9321221.png" 
+          alt="Parlor & Portico" 
+          className="w-full h-auto object-cover"
+        />
+        <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/80 to-transparent">
+          <h1 className="text-3xl md:text-4xl font-bold text-white">Parlor & Portico</h1>
+          <p className="text-white/80 mt-2">Business Club & Hospitality Services</p>
+        </div>
       </div>
       
       <div className="space-y-6">
-        <div className="relative rounded-2xl overflow-hidden border border-border/40 shadow-lg">
-          <img 
-            src="/lovable-uploads/875ae15b-f940-40e5-a0c2-34bba9321221.png" 
-            alt="Parlor & Portico" 
-            className="w-full h-auto object-cover"
-          />
-          <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/80 to-transparent">
-            <h1 className="text-3xl md:text-4xl font-bold text-white">Parlor & Portico</h1>
-            <p className="text-white/80 mt-2">Business Club & Hospitality Services</p>
-          </div>
+        <div className="flex flex-col items-center text-center py-4">
+          <h2 className="text-4xl font-light leading-tight tracking-wide">Exclusive Spaces.</h2>
+          <h2 className="text-4xl font-light leading-tight tracking-wide">Exceptional Service.</h2>
+          
+          <p className="max-w-2xl text-sm text-muted-foreground mt-8">
+            Premium business club and hospitality offerings, combining exclusive membership 
+            experiences with world-class service in elegant settings.
+          </p>
         </div>
         
         <p className="text-muted-foreground text-lg">
@@ -127,6 +121,17 @@ const ParlorPorticoPage: React.FC = () => {
             </ul>
           </div>
         </div>
+      </div>
+
+      <div className="flex justify-center gap-6 pt-4">
+        <GreenButton 
+          label="Business Club" 
+          className="px-6"
+        />
+        <GreenButton 
+          label="Portico Experience" 
+          className="px-6"
+        />
       </div>
     </div>
   );

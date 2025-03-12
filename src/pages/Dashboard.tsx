@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { BarChart3, Users, Calendar, ArrowRight, Clock, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -73,7 +72,6 @@ const Dashboard: React.FC = () => {
             </div>
           </div>
           
-          {/* Metrics Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {metrics.map((metric, index) => (
               <div key={index} className="glass rounded-lg p-6 transition-all hover:border-white/20">
@@ -91,9 +89,7 @@ const Dashboard: React.FC = () => {
             ))}
           </div>
           
-          {/* Main Content */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Insights */}
             <div className="lg:col-span-2 glass rounded-lg p-6">
               <h2 className="text-xl font-light mb-6">Key Insights</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -111,12 +107,10 @@ const Dashboard: React.FC = () => {
               </div>
             </div>
             
-            {/* Today's Schedule */}
             <div className="glass rounded-lg p-6">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-light">Today's Schedule</h2>
                 <GreenButton 
-                  variant="ghost" 
                   label="View Calendar" 
                   className="h-8 text-xs" 
                   icon={<ArrowRight className="ml-1 h-3 w-3" />}
@@ -141,7 +135,6 @@ const Dashboard: React.FC = () => {
             </div>
           </div>
           
-          {/* Stats Footer */}
           <div className="glass rounded-lg p-6">
             <div className="grid grid-cols-3 divide-x divide-white/5">
               {[

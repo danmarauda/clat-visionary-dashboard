@@ -16,7 +16,6 @@ export const GreenButton = ({
 }: GreenButtonProps) => {
     return (
         <Button
-            variant="ghost"
             className={cn(
                 "group relative h-12 px-4 rounded-lg overflow-hidden transition-all duration-500",
                 className
