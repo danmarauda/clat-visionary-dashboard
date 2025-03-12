@@ -1,12 +1,30 @@
 
 import React from 'react';
 import { GreenButton } from '@/components/ui/GreenButton';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ExecutiveSummary: React.FC = () => {
   return (
     <div className="w-full mx-auto px-4 md:px-6">
+      {/* Navigation Buttons - Moved to top */}
+      <div className="mt-6 mb-8 flex justify-between">
+        <Link to="/">
+          <GreenButton 
+            label="Previous: Home" 
+            icon={<ArrowLeft className="h-4 w-4" />}
+            className="px-6"
+          />
+        </Link>
+        <Link to="/current-landscape">
+          <GreenButton 
+            label="Next: Current Landscape" 
+            icon={<ArrowRight className="h-4 w-4" />}
+            className="px-6"
+          />
+        </Link>
+      </div>
+    
       <div className="flex flex-col items-center text-center py-6">
         <h2 className="text-4xl font-light leading-tight tracking-wide">Strategic Vision.</h2>
         <h2 className="text-4xl font-light leading-tight tracking-wide">Luxury Innovation.</h2>
@@ -202,26 +220,8 @@ const ExecutiveSummary: React.FC = () => {
           className="px-6"
         />
       </div>
-      
-      <div className="mt-2 flex justify-between">
-        <Link 
-          to="/" 
-          className="group inline-flex items-center gap-2 text-primary font-medium hover:underline"
-        >
-          <ArrowRight className="h-4 w-4 rotate-180 transition-transform group-hover:-translate-x-1" />
-          Previous: Home
-        </Link>
-        <Link 
-          to="/current-landscape" 
-          className="group inline-flex items-center gap-2 text-primary font-medium hover:underline"
-        >
-          Next: Current Landscape
-          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </Link>
-      </div>
     </div>
   );
 };
 
 export default ExecutiveSummary;
-
