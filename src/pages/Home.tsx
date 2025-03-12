@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, LayoutDashboard, Link2, Settings } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { GreenButton } from '@/components/ui/GreenButton';
 
 const Home: React.FC = () => {
   return (
@@ -81,12 +82,12 @@ const Home: React.FC = () => {
               Navigate through the sidebar to discover all aspects of the éclatOS platform.
             </p>
           </div>
-          <Link 
-            to="/executive-summary"
-            className="px-6 py-3 rounded-lg bg-primary hover:bg-primary/90 text-white font-light text-sm transition-colors flex items-center gap-2"
-          >
-            Start Tour
-            <ArrowRight className="h-4 w-4" />
+          <Link to="/executive-summary">
+            <GreenButton 
+              label="Start Tour" 
+              className="px-6 h-12 w-auto" 
+              icon={<ArrowRight className="h-4 w-4" />}
+            />
           </Link>
         </div>
       </div>

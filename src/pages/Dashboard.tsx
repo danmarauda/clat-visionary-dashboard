@@ -1,7 +1,8 @@
+
 import React from 'react';
-import { Button } from "@/components/ui/button";
-import { LayoutDashboard, BarChart3, Users, Calendar, ArrowRight, Clock, Search } from "lucide-react";
+import { BarChart3, Users, Calendar, ArrowRight, Clock, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { GreenButton } from "@/components/ui/GreenButton";
 
 const Dashboard: React.FC = () => {
   const metrics = [
@@ -64,10 +65,11 @@ const Dashboard: React.FC = () => {
                   className="pl-9 h-10 pr-4 bg-secondary/50 border border-border/40 rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-primary/30"
                 />
               </div>
-              <Button className="h-10 px-4 text-sm font-light bg-primary text-primary-foreground hover:bg-primary/90 transition-all group">
-                Export
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <GreenButton 
+                label="Export" 
+                className="h-10 w-auto" 
+                icon={<ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />}
+              />
             </div>
           </div>
           
@@ -113,10 +115,12 @@ const Dashboard: React.FC = () => {
             <div className="glass rounded-lg p-6">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-light">Today's Schedule</h2>
-                <Button variant="ghost" size="sm" className="text-xs">
-                  View Calendar
-                  <ArrowRight className="ml-1 h-3 w-3" />
-                </Button>
+                <GreenButton 
+                  variant="ghost" 
+                  label="View Calendar" 
+                  className="h-8 text-xs" 
+                  icon={<ArrowRight className="ml-1 h-3 w-3" />}
+                />
               </div>
               <div className="space-y-4">
                 {upcomingEvents.map((event, index) => (
