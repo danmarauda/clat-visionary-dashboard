@@ -6,7 +6,7 @@ import {
   Users, MessageSquare, Building, Store, Activity, 
   Coffee, BarChart, Pen, Calendar, Wrench, 
   BookOpen, HelpCircle, Settings, ChevronRight, ChevronLeft,
-  NotebookText
+  NotebookText, Lightbulb
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import UserProfileButton from './UserProfileButton';
@@ -47,6 +47,12 @@ const navCategories = [
       { id: 'forme', name: 'Forme', path: '/forme', icon: Activity },
       { id: 'noted', name: 'Noted', path: '/notel', icon: NotebookText },
       { id: 'team', name: 'Team', path: '/team', icon: Users },
+    ]
+  },
+  {
+    category: "CONCEPTS",
+    items: [
+      { id: 'concept-1', name: 'Concept 1', path: '/concept-1', icon: Lightbulb },
     ]
   },
   {

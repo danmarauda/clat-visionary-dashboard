@@ -19,6 +19,7 @@ import CommunityOSPage from "./pages/CommunityOS";
 import DeliveryTimeline from "./pages/DeliveryTimeline";
 import ParlorPorticoPage from "./pages/ParlorPortico";
 import Dashboard from "./pages/Dashboard";
+import Concept1 from "./pages/Concept1";
 
 const queryClient = new QueryClient();
 
@@ -68,6 +69,9 @@ const App = () => (
             <Route path="/galerie" element={<PlaceholderPage title="Galerie" />} />
             <Route path="/forme" element={<PlaceholderPage title="Forme" />} />
             <Route path="/notel" element={<PlaceholderPage title="Noted" />} />
+            
+            {/* Concepts */}
+            <Route path="/concept-1" element={<Concept1 />} />
             
             {/* Support */}
             <Route path="/support" element={<PlaceholderPage title="Support" />} />
