@@ -5,7 +5,7 @@ import { GreenButton } from '@/components/ui/GreenButton';
 
 const ParlorPorticoPage: React.FC = () => {
   return (
-    <div className="space-y-10 animate-fadeIn">
+    <div className="animate-fadeIn">
       <div className="relative rounded-2xl overflow-hidden border border-border/40 shadow-lg">
         <img 
           src="/lovable-uploads/875ae15b-f940-40e5-a0c2-34bba9321221.png" 
@@ -18,22 +18,20 @@ const ParlorPorticoPage: React.FC = () => {
         </div>
       </div>
       
-      <div className="space-y-6">
-        <div className="flex flex-col items-center text-center py-4">
-          <h2 className="text-4xl font-light leading-tight tracking-wide">Exclusive Spaces.</h2>
-          <h2 className="text-4xl font-light leading-tight tracking-wide">Exceptional Service.</h2>
-          
-          <p className="max-w-2xl text-sm text-muted-foreground mt-8">
-            Premium business club and hospitality offerings, combining exclusive membership 
-            experiences with world-class service in elegant settings.
-          </p>
-        </div>
+      <div className="flex flex-col items-center text-center py-10 space-y-2">
+        <h2 className="text-4xl font-light leading-tight tracking-wide">Exclusive Spaces.</h2>
+        <h2 className="text-4xl font-light leading-tight tracking-wide">Exceptional Service.</h2>
         
-        <p className="text-muted-foreground text-lg">
-          Parlor & Portico represents our premium business club and hospitality offerings, 
-          combining exclusive membership experiences with world-class service in elegant settings.
+        <p className="max-w-2xl text-sm text-muted-foreground mt-6">
+          Premium business club and hospitality offerings, combining exclusive membership 
+          experiences with world-class service in elegant settings.
         </p>
       </div>
+
+      <p className="text-muted-foreground text-lg mb-10">
+        Parlor & Portico represents our premium business club and hospitality offerings, 
+        combining exclusive membership experiences with world-class service in elegant settings.
+      </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="glass rounded-xl p-6 space-y-4">
@@ -87,7 +85,7 @@ const ParlorPorticoPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="glass rounded-xl p-6 space-y-6">
+      <div className="glass rounded-xl p-6 space-y-6 mt-8">
         <h2 className="text-2xl font-semibold">éclatOS Integration</h2>
         <p className="text-muted-foreground">
           The Parlor & Portico experience will be enhanced through deep integration with the éclatOS platform, 
@@ -123,7 +121,7 @@ const ParlorPorticoPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex justify-center gap-6 pt-4">
+      <div className="flex justify-center gap-6 pt-8 pb-4">
         <GreenButton 
           label="Business Club" 
           className="px-6"
