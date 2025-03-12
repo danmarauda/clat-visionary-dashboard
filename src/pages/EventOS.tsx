@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { 
   Calendar, 
   Users, 
@@ -11,7 +10,6 @@ import {
   CheckCircle2, 
   ArrowRight 
 } from 'lucide-react';
-import ContentPage from '@/components/ContentPage';
 
 const EventOSPage: React.FC = () => {
   const icon = Calendar;
@@ -55,29 +53,22 @@ const EventOSPage: React.FC = () => {
     }
   ];
   
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.5 }
-    }
-  };
-  
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="w-full mx-auto px-4 md:px-6">
+      <div className="flex flex-col items-center text-center py-6">
+        <h2 className="text-4xl font-light leading-tight tracking-wide">Professional Events.</h2>
+        <h2 className="text-4xl font-light leading-tight tracking-wide">Seamless Execution.</h2>
+        <div className="my-4">
+          <h2 className="text-4xl font-light leading-tight tracking-wide text-module-event">eventOS</h2>
+        </div>
+        
+        <p className="max-w-2xl text-sm text-muted-foreground mt-8">
+          {description}
+        </p>
+      </div>
+      
       {/* Key Components Section */}
       <div className="space-y-8 animate-fadeIn">
-        <div className="space-y-2">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
-              <Calendar className="h-5 w-5 text-primary" />
-            </div>
-            <h1 className="text-2xl font-bold sm:text-3xl md:text-4xl text-gradient-primary">{title}</h1>
-          </div>
-          <p className="text-muted-foreground max-w-3xl">{description}</p>
-        </div>
-
         <div className="glass rounded-2xl p-6 md:p-8 shadow-lg animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="space-y-6">
@@ -110,12 +101,7 @@ const EventOSPage: React.FC = () => {
       </div>
       
       {/* Business Impact Section */}
-      <motion.div 
-        className="mt-8 max-w-4xl mx-auto"
-        variants={fadeIn}
-        initial="hidden"
-        animate="visible"
-      >
+      <div className="mt-8">
         <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
           <h2 className="text-xl font-semibold mb-6">Business Impact</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -162,15 +148,10 @@ const EventOSPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </motion.div>
-
+      </div>
+      
       {/* Integration Points Section */}
-      <motion.div 
-        className="mt-8 max-w-4xl mx-auto"
-        variants={fadeIn}
-        initial="hidden"
-        animate="visible"
-      >
+      <div className="mt-8">
         <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
           <h2 className="text-xl font-semibold mb-6">Integration Points</h2>
           <p className="text-muted-foreground mb-4">
@@ -210,15 +191,10 @@ const EventOSPage: React.FC = () => {
             </li>
           </ul>
         </div>
-      </motion.div>
+      </div>
       
-      {/* Design Approach - Now below Integration Points */}
-      <motion.div 
-        className="mt-8 max-w-4xl mx-auto"
-        variants={fadeIn}
-        initial="hidden"
-        animate="visible"
-      >
+      {/* Design Approach Section */}
+      <div className="mt-8">
         <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
           <h2 className="text-xl font-semibold mb-4">Design Approach</h2>
           <ul className="space-y-2">
@@ -232,15 +208,10 @@ const EventOSPage: React.FC = () => {
             ))}
           </ul>
         </div>
-      </motion.div>
+      </div>
       
-      {/* User Personas - Moved to bottom */}
-      <motion.div 
-        className="mt-8 max-w-4xl mx-auto"
-        variants={fadeIn}
-        initial="hidden"
-        animate="visible"
-      >
+      {/* User Personas Section - Moved to bottom */}
+      <div className="mt-8">
         <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
           <h2 className="text-xl font-semibold mb-4">User Personas</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -265,23 +236,23 @@ const EventOSPage: React.FC = () => {
             ))}
           </div>
         </div>
-      </motion.div>
-      
-      <div className="mt-8 max-w-4xl mx-auto flex justify-between">
-        <a 
-          href="/design-os" 
-          className="group inline-flex items-center gap-2 text-module-event font-medium hover:underline"
-        >
-          <ArrowRight className="h-4 w-4 rotate-180 transition-transform group-hover:-translate-x-1" />
-          Previous: Design OS
-        </a>
-        <a 
-          href="/hospitality-os" 
-          className="group inline-flex items-center gap-2 text-module-event font-medium hover:underline"
-        >
-          Next: Hospitality OS
-          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </a>
+        
+        <div className="mt-8 flex justify-between">
+          <a 
+            href="/design-os" 
+            className="group inline-flex items-center gap-2 text-module-event font-medium hover:underline"
+          >
+            <ArrowRight className="h-4 w-4 rotate-180 transition-transform group-hover:-translate-x-1" />
+            Previous: Design OS
+          </a>
+          <a 
+            href="/hospitality-os" 
+            className="group inline-flex items-center gap-2 text-module-event font-medium hover:underline"
+          >
+            Next: Hospitality OS
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
       </div>
     </div>
   );

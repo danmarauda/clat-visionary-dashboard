@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { 
   Users, 
   MessageSquare, 
@@ -54,35 +53,22 @@ const CommunityOSPage: React.FC = () => {
     }
   ];
   
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.5 }
-    }
-  };
-  
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="text-center mt-4">
-        <span className="text-sm font-light px-4 py-2 rounded-full border border-white/10 bg-white/5">
-          Community Engagement
-        </span>
-      </div>
-
-      <div className="flex flex-col items-center text-center py-8 space-y-1 mt-16">
+    <div className="w-full mx-auto px-4 md:px-6">
+      <div className="flex flex-col items-center text-center py-6">
         <h2 className="text-4xl font-light leading-tight tracking-wide">Meaningful Connections.</h2>
         <h2 className="text-4xl font-light leading-tight tracking-wide">Vibrant Community.</h2>
+        <div className="my-4">
+          <h2 className="text-4xl font-light leading-tight tracking-wide text-module-community">communityOS</h2>
+        </div>
         
         <p className="max-w-2xl text-sm text-muted-foreground mt-8">
-          Sophisticated member engagement platform that fosters meaningful connections 
-          and enhances the Éclat community experience.
+          {description}
         </p>
       </div>
       
       {/* Key Components Section */}
-      <div className="space-y-8 animate-fadeIn max-w-4xl mx-auto">
+      <div className="space-y-8 animate-fadeIn">
         <div className="glass rounded-2xl p-6 md:p-8 shadow-lg animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="space-y-6">
@@ -115,12 +101,7 @@ const CommunityOSPage: React.FC = () => {
       </div>
       
       {/* Business Impact Section */}
-      <motion.div 
-        className="mt-8 max-w-4xl mx-auto"
-        variants={fadeIn}
-        initial="hidden"
-        animate="visible"
-      >
+      <div className="mt-8">
         <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
           <h2 className="text-xl font-semibold mb-6">Business Impact</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -167,15 +148,10 @@ const CommunityOSPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
       
       {/* Integration Points Section */}
-      <motion.div 
-        className="mt-8 max-w-4xl mx-auto"
-        variants={fadeIn}
-        initial="hidden"
-        animate="visible"
-      >
+      <div className="mt-8">
         <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
           <h2 className="text-xl font-semibold mb-6">Integration Points</h2>
           <p className="text-muted-foreground mb-4">
@@ -215,15 +191,10 @@ const CommunityOSPage: React.FC = () => {
             </li>
           </ul>
         </div>
-      </motion.div>
+      </div>
       
       {/* Design Approach Section */}
-      <motion.div 
-        className="mt-8 max-w-4xl mx-auto"
-        variants={fadeIn}
-        initial="hidden"
-        animate="visible"
-      >
+      <div className="mt-8">
         <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
           <h2 className="text-xl font-semibold mb-4">Design Approach</h2>
           <ul className="space-y-2">
@@ -237,15 +208,10 @@ const CommunityOSPage: React.FC = () => {
             ))}
           </ul>
         </div>
-      </motion.div>
+      </div>
       
       {/* User Personas Section - Moved to bottom */}
-      <motion.div 
-        className="mt-8 max-w-4xl mx-auto"
-        variants={fadeIn}
-        initial="hidden"
-        animate="visible"
-      >
+      <div className="mt-8">
         <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
           <h2 className="text-xl font-semibold mb-4">User Personas</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -287,7 +253,7 @@ const CommunityOSPage: React.FC = () => {
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
