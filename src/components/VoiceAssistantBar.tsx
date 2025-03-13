@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -32,6 +33,7 @@ const navItems: NavItem[] = [
   { title: "Project Scope", href: "/project-scope", icon: <Layers className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" },
   { title: "Budget", href: "/budget", icon: <LineChart className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" },
   { title: "Delivery Timeline", href: "/timeline", icon: <Clock className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" },
+  { title: "Delivery Gantt", href: "/gantt-chart", icon: <BarChart3 className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" },
   { title: "Team", href: "/team", icon: <UserRound className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" },
   { title: "Module Gallery", href: "/module-gallery", icon: <LayoutGrid className="h-4 w-4" />, color: "text-gray-300 bg-gray-700/30" }
 ];
@@ -64,24 +66,41 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
           layout
         >
           {/* Voice Assistant */}
-          <motion.div className="flex items-center gap-2" layout>
-            <button
+          <motion.div 
+            className="flex items-center gap-2" 
+            layout
+          >
+            <motion.button
               onClick={toggleVoiceAssistant}
               className={cn(
                 "relative flex items-center justify-center rounded-full p-2 transition-all",
                 isListening 
-                  ? "bg-white/20 text-white animate-pulse" 
+                  ? "bg-white/20 text-white" 
                   : "hover:bg-accent/10 text-foreground"
               )}
               aria-label={isListening ? "Stop listening" : "Start voice assistant"}
+              animate={isListening ? {
+                scale: [1, 1.1, 1],
+                opacity: [1, 0.8, 1],
+              } : {}}
+              transition={isListening ? {
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              } : {}}
             >
               <Mic className="h-5 w-5" />
               {isListening && (
-                <span className="absolute -top-8 whitespace-nowrap text-xs font-medium text-white bg-black/80 px-2 py-1 rounded-md">
+                <motion.span 
+                  className="absolute -top-8 whitespace-nowrap text-xs font-medium text-white bg-black/80 px-2 py-1 rounded-md"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                >
                   Listening...
-                </span>
+                </motion.span>
               )}
-            </button>
+            </motion.button>
             <span className="font-medium text-foreground hidden sm:inline">
               {isListening ? "Listening..." : "Voice Assistant"}
             </span>
