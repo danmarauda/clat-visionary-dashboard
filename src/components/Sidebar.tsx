@@ -54,6 +54,7 @@ const navCategories = [
     items: [
       { id: 'concept-1', name: 'Concept 1', path: '/concept-1', icon: Lightbulb },
       { id: 'concept-2', name: 'Concept 2', path: '/concept-2', icon: Lightbulb },
+      { id: 'concept-3', name: 'Concept 3', path: '/concept-3', icon: Lightbulb },
     ]
   },
   {
