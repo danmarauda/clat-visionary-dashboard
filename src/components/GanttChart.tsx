@@ -56,18 +56,15 @@ export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
   // Calculate the width of the chart based on zoom level
   const chartWidth = projectDurationInDays * 15 * zoomLevel;
 
-  // Calculate the total height needed based on phases and tasks
-  const totalHeight = phases.reduce((total, phase) => {
-    // Base height for the phase
-    const phaseHeight = 40; 
-    // Height for all tasks in the phase (each task is 30px)
-    const tasksHeight = phase.tasks.length * 30;
-    // Add some padding
-    const padding = 10;
-    
-    return total + phaseHeight + tasksHeight + padding;
-  }, 0);
-
+  // Calculate total number of tasks across all phases
+  const totalTasks = phases.reduce((sum, phase) => sum + phase.tasks.length, 0);
+  // Number of phases
+  const totalPhases = phases.length;
+  
+  // Calculate heights for phase headers and task rows
+  const phaseHeaderHeight = 40; // Height for each phase header
+  const taskRowHeight = Math.floor((1800 - (totalPhases * phaseHeaderHeight)) / totalTasks); // Dynamically calculate height for each task row
+  
   // Update scroll position when resizing
   useEffect(() => {
     const handleResize = () => {
@@ -180,10 +177,9 @@ export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
       <div 
         ref={containerRef}
         id="gantt-container"
-        className="border rounded-md overflow-x-auto overflow-y-auto w-full"
-        style={{ height: 'auto', maxHeight: '80vh' }}
+        className="border rounded-md overflow-x-auto w-full h-[1800px]"
       >
-        <div className="relative" style={{ minWidth: `${chartWidth}px`, width: '100%' }}>
+        <div className="relative" style={{ minWidth: `${chartWidth}px`, width: '100%', height: '100%' }}>
           {/* Month headers */}
           <div className="h-8 bg-muted/50 border-b flex relative sticky top-0 z-10">
             {months.map((month, index) => (
@@ -199,21 +195,24 @@ export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
           </div>
           
           {/* Gantt chart content */}
-          <div className="relative">
+          <div className="relative" style={{ height: 'calc(100% - 32px)' }}>
             {phases.map((phase, phaseIndex) => (
               <div 
                 key={phase.id}
                 className="relative"
+                style={{ 
+                  height: `${(phase.tasks.length * taskRowHeight) + phaseHeaderHeight}px`,
+                }}
               >
                 {/* Phase header */}
-                <div className="flex border-b bg-muted/30">
+                <div className="flex border-b bg-muted/30" style={{ height: `${phaseHeaderHeight}px` }}>
                   {/* Phase label */}
-                  <div className="sticky left-0 w-64 p-2 z-10 bg-background/95 h-10 flex items-center border-r">
+                  <div className="sticky left-0 w-64 p-2 z-10 bg-background/95 flex items-center border-r" style={{ height: `${phaseHeaderHeight}px` }}>
                     <h3 className="font-medium text-sm truncate">{phase.title}</h3>
                   </div>
                   
                   {/* Phase bar */}
-                  <div className="flex-1 h-10 relative">
+                  <div className="flex-1 relative" style={{ height: `${phaseHeaderHeight}px` }}>
                     <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger asChild>
@@ -235,22 +234,29 @@ export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
                 </div>
                 
                 {/* Tasks */}
-                <div className="flex flex-col">
+                <div className="flex flex-col" style={{ height: `${phase.tasks.length * taskRowHeight}px` }}>
                   {phase.tasks.map((task, taskIndex) => (
-                    <div key={task.id} className="flex border-b">
+                    <div 
+                      key={task.id} 
+                      className="flex border-b"
+                      style={{ height: `${taskRowHeight}px` }}
+                    >
                       {/* Task label */}
-                      <div className="sticky left-0 w-64 p-2 z-10 bg-background/95 h-10 flex items-center pl-8 border-r">
+                      <div className="sticky left-0 w-64 p-2 z-10 bg-background/95 flex items-center pl-8 border-r" style={{ height: `${taskRowHeight}px` }}>
                         <span className="text-xs truncate">{task.title}</span>
                       </div>
                       
                       {/* Task bar */}
-                      <div className="flex-1 h-10 relative">
+                      <div className="flex-1 relative" style={{ height: `${taskRowHeight}px` }}>
                         <TooltipProvider>
                           <Tooltip>
                             <TooltipTrigger asChild>
                               <div 
-                                className={`absolute h-6 rounded-sm border ${getColorClass(phase.color)} top-2`}
-                                style={getBarStyles(task.start, task.end)}
+                                className={`absolute h-6 rounded-sm border ${getColorClass(phase.color)}`}
+                                style={{
+                                  ...getBarStyles(task.start, task.end),
+                                  top: `${(taskRowHeight - 24) / 2}px` // Center the bar vertically
+                                }}
                               >
                                 <div className="text-xs text-white truncate px-2 py-0.5">
                                   {task.title}
