@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -20,6 +21,7 @@ import ParlorPorticoPage from "./pages/ParlorPortico";
 import Dashboard from "./pages/Dashboard";
 import Concept1 from "./pages/Concept1";
 import Concept2 from "./pages/Concept2";
+import Concept3 from "./pages/Concept3";
 import CopilotProvider from "./components/CopilotProvider";
 
 const queryClient = new QueryClient();
@@ -75,6 +77,7 @@ const App = () => (
               {/* Concepts */}
               <Route path="/concept-1" element={<Concept1 />} />
               <Route path="/concept-2" element={<Concept2 />} />
+              <Route path="/concept-3" element={<Concept3 />} />
               
               {/* Support */}
               <Route path="/support" element={<PlaceholderPage title="Support" />} />

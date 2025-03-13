@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -109,6 +110,10 @@ export default {
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' }
+        },
+        "infinite-slider": {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(calc(-100% - 2.5rem))' }
         }
       },
       animation: {
@@ -119,7 +124,8 @@ export default {
         slideInLeft: "slideInLeft 0.6s ease-out forwards",
         slideInRight: "slideInRight 0.6s ease-out forwards",
         pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        float: "float 3s ease-in-out infinite"
+        float: "float 3s ease-in-out infinite",
+        "infinite-slider": "infinite-slider 25s linear infinite"
       }
     }
   },

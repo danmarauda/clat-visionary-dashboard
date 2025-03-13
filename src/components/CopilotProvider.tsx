@@ -23,8 +23,8 @@ const CopilotProvider: React.FC<CopilotProviderProps> = ({ children }) => {
   
   return (
     <CopilotSidebar
-      isOpen={open}
-      onClose={() => setOpen(false)}
+      defaultOpen={open}
+      onOpenChange={setOpen}
       instructions="You are the éclatOS assistant. Help users understand the various OS modules, navigate the platform, and provide information about luxury experiences and enterprise operations."
       labels={{
         title: "éclatOS Copilot",
