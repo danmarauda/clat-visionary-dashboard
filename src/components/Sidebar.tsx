@@ -5,7 +5,7 @@ import {
   Users, MessageSquare, Building, Store, Activity, 
   Coffee, BarChart, Pen, Calendar, Wrench, 
   BookOpen, HelpCircle, Settings, ChevronRight, ChevronLeft,
-  NotebookText, Lightbulb
+  NotebookText, Lightbulb, ChartGantt
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import UserProfileButton from './UserProfileButton';
@@ -20,6 +20,7 @@ const navCategories = [
       { id: 'current-landscape', name: 'Current Landscape', path: '/current-landscape', icon: Activity },
       { id: 'project-scope', name: 'Project Scope', path: '/project-scope', icon: Briefcase },
       { id: 'timeline', name: 'Timeline', path: '/timeline', icon: Clock },
+      { id: 'delivery-gantt', name: 'Delivery Gantt', path: '/gantt-chart', icon: ChartGantt },
       { id: 'budget', name: 'Budget', path: '/budget', icon: DollarSign },
     ]
   },
