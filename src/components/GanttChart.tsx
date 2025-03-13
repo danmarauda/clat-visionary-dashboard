@@ -56,6 +56,18 @@ export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
   // Calculate the width of the chart based on zoom level
   const chartWidth = projectDurationInDays * 15 * zoomLevel;
 
+  // Calculate the total height needed based on phases and tasks
+  const totalHeight = phases.reduce((total, phase) => {
+    // Base height for the phase
+    const phaseHeight = 40; 
+    // Height for all tasks in the phase (each task is 30px)
+    const tasksHeight = phase.tasks.length * 30;
+    // Add some padding
+    const padding = 10;
+    
+    return total + phaseHeight + tasksHeight + padding;
+  }, 0);
+
   // Update scroll position when resizing
   useEffect(() => {
     const handleResize = () => {
@@ -138,7 +150,7 @@ export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
   const months = getMonths();
   
   return (
-    <div className="flex flex-col h-full w-full">
+    <div className="flex flex-col w-full h-full">
       <div className="flex justify-between mb-4">
         <div className="flex items-center gap-2">
           <Button variant="outline" size="sm" onClick={() => handleScroll('left')}>
@@ -168,12 +180,12 @@ export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
       <div 
         ref={containerRef}
         id="gantt-container"
-        className="border rounded-md overflow-x-auto overflow-y-hidden w-full"
-        style={{ height: 'calc(100% - 40px)' }}
+        className="border rounded-md overflow-x-auto overflow-y-auto w-full"
+        style={{ height: 'auto', maxHeight: '80vh' }}
       >
         <div className="relative" style={{ minWidth: `${chartWidth}px`, width: '100%' }}>
           {/* Month headers */}
-          <div className="h-8 bg-muted/50 border-b flex relative">
+          <div className="h-8 bg-muted/50 border-b flex relative sticky top-0 z-10">
             {months.map((month, index) => (
               <div 
                 key={`${month.month}-${month.year}-${index}`}
@@ -187,67 +199,74 @@ export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
           </div>
           
           {/* Gantt chart content */}
-          <div className="relative" style={{ height: `${phases.length * 160 - 40}px` }}>
+          <div className="relative">
             {phases.map((phase, phaseIndex) => (
               <div 
                 key={phase.id}
-                className="relative flex flex-col border-b"
-                style={{ 
-                  height: phaseIndex === phases.length - 1 ? '160px' : '120px',
-                  top: `${phaseIndex * 120}px` 
-                }}
+                className="relative"
               >
-                {/* Phase label */}
-                <div className="absolute left-0 w-64 p-2 z-10 bg-background/90 h-full border-r">
-                  <h3 className="font-medium text-sm truncate">{phase.title}</h3>
-                </div>
-                
-                {/* Phase bar */}
-                <div className="ml-64 pt-2 h-10 relative">
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <div 
-                          className={`absolute h-6 rounded-md border ${getColorClass(phase.color)} opacity-70`}
-                          style={getBarStyles(phase.start, phase.end)}
-                        ></div>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <div className="text-xs">
-                          <p className="font-medium">{phase.title}</p>
-                          <p>Start: {format(phase.start, 'MMM d, yyyy')}</p>
-                          <p>End: {format(phase.end, 'MMM d, yyyy')}</p>
-                        </div>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
+                {/* Phase header */}
+                <div className="flex border-b bg-muted/30">
+                  {/* Phase label */}
+                  <div className="sticky left-0 w-64 p-2 z-10 bg-background/95 h-10 flex items-center border-r">
+                    <h3 className="font-medium text-sm truncate">{phase.title}</h3>
+                  </div>
+                  
+                  {/* Phase bar */}
+                  <div className="flex-1 h-10 relative">
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <div 
+                            className={`absolute h-6 rounded-md border ${getColorClass(phase.color)} opacity-70 top-2`}
+                            style={getBarStyles(phase.start, phase.end)}
+                          ></div>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <div className="text-xs">
+                            <p className="font-medium">{phase.title}</p>
+                            <p>Start: {format(phase.start, 'MMM d, yyyy')}</p>
+                            <p>End: {format(phase.end, 'MMM d, yyyy')}</p>
+                          </div>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </div>
                 </div>
                 
                 {/* Tasks */}
-                <div className="ml-64 h-full relative">
+                <div className="flex flex-col">
                   {phase.tasks.map((task, taskIndex) => (
-                    <div key={task.id} className="h-6 relative mt-1">
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <div 
-                              className={`absolute h-5 rounded-sm border ${getColorClass(phase.color)}`}
-                              style={getBarStyles(task.start, task.end)}
-                            >
-                              <div className="text-xs text-white truncate px-2 py-0.5">
-                                {task.title}
+                    <div key={task.id} className="flex border-b">
+                      {/* Task label */}
+                      <div className="sticky left-0 w-64 p-2 z-10 bg-background/95 h-10 flex items-center pl-8 border-r">
+                        <span className="text-xs truncate">{task.title}</span>
+                      </div>
+                      
+                      {/* Task bar */}
+                      <div className="flex-1 h-10 relative">
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <div 
+                                className={`absolute h-6 rounded-sm border ${getColorClass(phase.color)} top-2`}
+                                style={getBarStyles(task.start, task.end)}
+                              >
+                                <div className="text-xs text-white truncate px-2 py-0.5">
+                                  {task.title}
+                                </div>
                               </div>
-                            </div>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <div className="text-xs">
-                              <p className="font-medium">{task.title}</p>
-                              <p>Start: {format(task.start, 'MMM d, yyyy')}</p>
-                              <p>End: {format(task.end, 'MMM d, yyyy')}</p>
-                            </div>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <div className="text-xs">
+                                <p className="font-medium">{task.title}</p>
+                                <p>Start: {format(task.start, 'MMM d, yyyy')}</p>
+                                <p>End: {format(task.end, 'MMM d, yyyy')}</p>
+                              </div>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </div>
                     </div>
                   ))}
                 </div>
