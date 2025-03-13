@@ -14,7 +14,6 @@ const GanttChartPage: React.FC = () => {
     }
   };
 
-  // Using the same phase data as in DeliveryTimeline
   const phases = [
     {
       id: "phase-1",
@@ -251,7 +250,7 @@ const GanttChartPage: React.FC = () => {
       color: "indigo"
     }
   ];
-  
+
   return (
     <div className="w-full px-4 py-8 pb-24">
       <div className="w-full mx-auto">
@@ -284,7 +283,7 @@ const GanttChartPage: React.FC = () => {
               <CardTitle>éclatOS Implementation Gantt Chart</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="h-[700px] w-full">
+              <div className="h-[1000px] w-full">
                 <GanttChart phases={phases} />
               </div>
             </CardContent>
@@ -318,4 +317,3 @@ const GanttChartPage: React.FC = () => {
 };
 
 export default GanttChartPage;
-
