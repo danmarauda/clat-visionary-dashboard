@@ -280,6 +280,17 @@ const GanttChartPage: React.FC = () => {
           initial="hidden"
           animate="visible"
         >
+          <Card>
+            <CardHeader>
+              <CardTitle>éclatOS Implementation Gantt Chart</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="h-[600px] w-full">
+                <GanttChart phases={phases} />
+              </div>
+            </CardContent>
+          </Card>
+
           <Card className="mb-8">
             <CardHeader>
               <CardTitle>Implementation Approach</CardTitle>
@@ -296,17 +307,6 @@ const GanttChartPage: React.FC = () => {
                 <li><span className="font-medium">Critical Path:</span> Identify key milestones that impact the overall timeline</li>
                 <li><span className="font-medium">Resource Allocation:</span> Plan resource needs across the implementation phases</li>
               </ul>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>éclatOS Implementation Gantt Chart</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="h-[600px] w-full">
-                <GanttChart phases={phases} />
-              </div>
             </CardContent>
           </Card>
         </motion.div>
