@@ -1,3 +1,4 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -283,7 +284,7 @@ const GanttChartPage: React.FC = () => {
               <CardTitle>éclatOS Implementation Gantt Chart</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="h-[1000px] w-full">
+              <div className="h-[1500px] w-full">
                 <GanttChart phases={phases} />
               </div>
             </CardContent>
