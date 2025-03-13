@@ -17,6 +17,7 @@ import WorkspaceOSPage from "./pages/WorkspaceOS";
 import AnalyticsOSPage from "./pages/AnalyticsOS";
 import CommunityOSPage from "./pages/CommunityOS";
 import DeliveryTimeline from "./pages/DeliveryTimeline";
+import GanttChart from "./pages/GanttChart";
 import ParlorPorticoPage from "./pages/ParlorPortico";
 import Dashboard from "./pages/Dashboard";
 import Concept1 from "./pages/Concept1";
@@ -65,6 +66,7 @@ const App = () => (
               <Route path="/project-scope" element={<PlaceholderPage title="Project Scope" />} />
               <Route path="/budget" element={<PlaceholderPage title="Budget" />} />
               <Route path="/timeline" element={<DeliveryTimeline />} />
+              <Route path="/gantt-chart" element={<GanttChart />} />
               <Route path="/team" element={<PlaceholderPage title="Team" />} />
               
               {/* Business Units */}

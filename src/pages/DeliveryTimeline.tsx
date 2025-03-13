@@ -2,7 +2,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle2, ArrowRight, Clock, Calendar, CheckCheck, Layers, Zap, Users } from "lucide-react";
+import { CheckCircle2, ArrowRight, Clock, Calendar, CheckCheck, Layers, Zap, Users, BarChart } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const DeliveryTimelinePage: React.FC = () => {
   const fadeIn = {
@@ -113,6 +115,15 @@ const DeliveryTimelinePage: React.FC = () => {
             <p className="text-lg text-muted-foreground">
               A comprehensive implementation plan for éclatOS, designed for minimal disruption and maximum value delivery.
             </p>
+            
+            <div className="mt-2">
+              <Button variant="outline" size="sm" asChild>
+                <Link to="/gantt-chart" className="flex items-center gap-2">
+                  <BarChart className="h-4 w-4" />
+                  <span>View as Gantt Chart</span>
+                </Link>
+              </Button>
+            </div>
           </motion.div>
         </div>
 
@@ -213,10 +224,10 @@ const DeliveryTimelinePage: React.FC = () => {
             Previous: Budget
           </a>
           <a 
-            href="/team" 
+            href="/gantt-chart" 
             className="group inline-flex items-center gap-2 text-primary font-medium hover:underline"
           >
-            Next: Team
+            Next: Gantt Chart
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>
         </motion.div>
