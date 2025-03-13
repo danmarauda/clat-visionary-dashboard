@@ -22,6 +22,7 @@ import Dashboard from "./pages/Dashboard";
 import Concept1 from "./pages/Concept1";
 import Concept2 from "./pages/Concept2";
 import Concept3 from "./pages/Concept3";
+import Concept4 from "./pages/Concept4";
 import CopilotProvider from "./components/CopilotProvider";
 
 const queryClient = new QueryClient();
@@ -78,6 +79,7 @@ const App = () => (
               <Route path="/concept-1" element={<Concept1 />} />
               <Route path="/concept-2" element={<Concept2 />} />
               <Route path="/concept-3" element={<Concept3 />} />
+              <Route path="/concept-4" element={<Concept4 />} />
               
               {/* Support */}
               <Route path="/support" element={<PlaceholderPage title="Support" />} />
