@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { format } from 'date-fns';
 import { Button } from "@/components/ui/button";
 import { 
@@ -39,6 +39,7 @@ interface GanttChartProps {
 export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
   const [zoomLevel, setZoomLevel] = useState(1);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
   
   // Find the earliest start date and latest end date from all phases and tasks
   const earliestDate = new Date(Math.min(
@@ -54,6 +55,18 @@ export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
   
   // Calculate the width of the chart based on zoom level
   const chartWidth = projectDurationInDays * 15 * zoomLevel;
+
+  // Update scroll position when resizing
+  useEffect(() => {
+    const handleResize = () => {
+      if (containerRef.current) {
+        setScrollPosition(containerRef.current.scrollLeft);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   
   // Calculate months to display as headers
   const getMonths = () => {
@@ -116,17 +129,16 @@ export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
   // Handle scrolling
   const handleScroll = (direction: 'left' | 'right') => {
     const scrollAmount = direction === 'left' ? -200 : 200;
-    const container = document.getElementById('gantt-container');
-    if (container) {
-      container.scrollLeft += scrollAmount;
-      setScrollPosition(container.scrollLeft);
+    if (containerRef.current) {
+      containerRef.current.scrollLeft += scrollAmount;
+      setScrollPosition(containerRef.current.scrollLeft);
     }
   };
   
   const months = getMonths();
   
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full w-full">
       <div className="flex justify-between mb-4">
         <div className="flex items-center gap-2">
           <Button variant="outline" size="sm" onClick={() => handleScroll('left')}>
@@ -154,11 +166,12 @@ export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
       </div>
       
       <div 
+        ref={containerRef}
         id="gantt-container"
-        className="border rounded-md overflow-x-auto overflow-y-hidden"
+        className="border rounded-md overflow-x-auto overflow-y-hidden w-full"
         style={{ height: 'calc(100% - 40px)' }}
       >
-        <div className="relative" style={{ minWidth: `${chartWidth}px` }}>
+        <div className="relative" style={{ minWidth: `${chartWidth}px`, width: '100%' }}>
           {/* Month headers */}
           <div className="h-8 bg-muted/50 border-b flex relative">
             {months.map((month, index) => (
@@ -174,12 +187,15 @@ export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
           </div>
           
           {/* Gantt chart content */}
-          <div className="relative" style={{ height: `${phases.length * 160}px` }}>
+          <div className="relative" style={{ height: `${phases.length * 160 - 40}px` }}>
             {phases.map((phase, phaseIndex) => (
               <div 
                 key={phase.id}
-                className="relative h-40 flex flex-col border-b"
-                style={{ top: `${phaseIndex * 160}px` }}
+                className="relative flex flex-col border-b"
+                style={{ 
+                  height: phaseIndex === phases.length - 1 ? '160px' : '120px',
+                  top: `${phaseIndex * 120}px` 
+                }}
               >
                 {/* Phase label */}
                 <div className="absolute left-0 w-64 p-2 z-10 bg-background/90 h-full border-r">

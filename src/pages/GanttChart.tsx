@@ -254,8 +254,8 @@ const GanttChartPage: React.FC = () => {
   ];
   
   return (
-    <div className="container mx-auto px-4 py-8 pb-24">
-      <div className="max-w-6xl mx-auto">
+    <div className="w-full px-4 py-8 pb-24">
+      <div className="w-full mx-auto">
         <div className="mb-8">
           <motion.div 
             className="flex flex-col gap-4"
@@ -280,7 +280,7 @@ const GanttChartPage: React.FC = () => {
           initial="hidden"
           animate="visible"
         >
-          <Card>
+          <Card className="w-full">
             <CardHeader>
               <CardTitle>éclatOS Implementation Gantt Chart</CardTitle>
             </CardHeader>
@@ -291,7 +291,7 @@ const GanttChartPage: React.FC = () => {
             </CardContent>
           </Card>
 
-          <Card className="mb-8">
+          <Card className="mb-8 w-full">
             <CardHeader>
               <CardTitle>Implementation Approach</CardTitle>
             </CardHeader>
@@ -312,7 +312,7 @@ const GanttChartPage: React.FC = () => {
         </motion.div>
 
         <motion.div 
-          className="mt-12 flex justify-between"
+          className="mt-12 flex justify-between w-full"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
