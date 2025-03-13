@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -285,28 +284,9 @@ const GanttChartPage: React.FC = () => {
               <CardTitle>éclatOS Implementation Gantt Chart</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="h-[600px] w-full">
+              <div className="h-[700px] w-full">
                 <GanttChart phases={phases} />
               </div>
-            </CardContent>
-          </Card>
-
-          <Card className="mb-8 w-full">
-            <CardHeader>
-              <CardTitle>Implementation Approach</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <p>
-                This Gantt chart visualization displays our éclatOS implementation timeline, showing the relationship between phases and tasks across the project lifecycle. Key features:
-              </p>
-              
-              <ul className="list-disc pl-5 space-y-2">
-                <li><span className="font-medium">Phase Overlaps:</span> See how phases overlap for parallel development</li>
-                <li><span className="font-medium">Task Dependencies:</span> Understand the sequence and relationships between tasks</li>
-                <li><span className="font-medium">Timeline Scale:</span> Visualize the project scope across months and quarters</li>
-                <li><span className="font-medium">Critical Path:</span> Identify key milestones that impact the overall timeline</li>
-                <li><span className="font-medium">Resource Allocation:</span> Plan resource needs across the implementation phases</li>
-              </ul>
             </CardContent>
           </Card>
         </motion.div>
@@ -338,3 +318,4 @@ const GanttChartPage: React.FC = () => {
 };
 
 export default GanttChartPage;
+
