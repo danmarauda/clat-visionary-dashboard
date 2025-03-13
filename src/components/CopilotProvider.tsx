@@ -7,12 +7,12 @@ interface CopilotProviderProps {
 }
 
 const CopilotProvider: React.FC<CopilotProviderProps> = ({ children }) => {
-  const [open, setOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   
   // Listen for custom events to toggle the copilot
   React.useEffect(() => {
     const handleToggleCopilot = () => {
-      setOpen(prev => !prev);
+      setSidebarOpen(prev => !prev);
     };
     
     window.addEventListener('toggle-copilot', handleToggleCopilot);
@@ -23,8 +23,8 @@ const CopilotProvider: React.FC<CopilotProviderProps> = ({ children }) => {
   
   return (
     <CopilotSidebar
-      open={open}
-      onOpenChange={setOpen}
+      isOpen={sidebarOpen}
+      setIsOpen={setSidebarOpen}
       instructions="You are the éclatOS assistant. Help users understand the various OS modules, navigate the platform, and provide information about luxury experiences and enterprise operations."
       labels={{
         title: "éclatOS Copilot",
