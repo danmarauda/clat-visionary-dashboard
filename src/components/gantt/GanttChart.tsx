@@ -84,8 +84,8 @@ export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
       <div 
         ref={containerRef}
         id="gantt-container"
-        className="border rounded-md overflow-x-auto overflow-y-auto w-full"
-        style={{ height: 'auto', maxHeight: '80vh' }}
+        className="border rounded-md overflow-x-auto w-full"
+        style={{ width: '100%' }}
       >
         <div className="relative" style={{ minWidth: `${chartWidth}px`, width: '100%' }}>
           {/* Month headers */}
