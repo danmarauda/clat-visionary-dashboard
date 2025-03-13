@@ -44,7 +44,7 @@ export const GanttControls: React.FC<GanttControlsProps> = ({
         </span>
       </div>
       <div className="flex items-center gap-2">
-        <Button variant="outline" size="sm" onClick={handleZoomOut} disabled={zoomLevel <= 0.5}>
+        <Button variant="outline" size="sm" onClick={handleZoomOut} disabled={zoomLevel <= 0.25}>
           <ZoomOut className="h-4 w-4" />
         </Button>
         <span className="text-sm mx-2">{Math.round(zoomLevel * 100)}%</span>

@@ -58,7 +58,7 @@ export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
   };
   
   const handleZoomOut = () => {
-    setZoomLevel(prev => Math.max(prev - 0.25, 0.5));
+    setZoomLevel(prev => Math.max(prev - 0.25, 0.25));
   };
   
   // Handle scrolling
