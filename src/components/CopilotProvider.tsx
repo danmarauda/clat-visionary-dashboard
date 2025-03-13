@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { CopilotSidebar } from "@copilotkit/react-ui";
+import CopilotSidebar from './CopilotSidebar';
 
 interface CopilotProviderProps {
   children: React.ReactNode;
@@ -22,17 +22,15 @@ const CopilotProvider: React.FC<CopilotProviderProps> = ({ children }) => {
   }, []);
   
   return (
-    <CopilotSidebar
-      isOpen={sidebarOpen}
-      setIsOpen={setSidebarOpen}
-      instructions="You are the éclatOS assistant. Help users understand the various OS modules, navigate the platform, and provide information about luxury experiences and enterprise operations."
-      labels={{
-        title: "éclatOS Copilot",
-        initial: "How can I assist you with your luxury enterprise needs today?"
-      }}
-    >
+    <>
+      <CopilotSidebar 
+        isOpen={sidebarOpen} 
+        onClose={() => setSidebarOpen(false)}
+        isListening={false}
+        toggleVoiceAssistant={() => {}}
+      />
       {children}
-    </CopilotSidebar>
+    </>
   );
 };
 
