@@ -3,6 +3,7 @@ import React, { useState, useRef } from 'react';
 import { GanttControls } from './GanttControls';
 import { MonthHeaders } from './MonthHeaders';
 import { PhaseRow } from './PhaseRow';
+import { GanttMarker } from './GanttMarker';
 import { getColorClass } from './GanttUtils';
 import { useGanttData } from '@/hooks/useGanttData';
 
@@ -69,6 +70,41 @@ export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
       setScrollPosition(containerRef.current.scrollLeft);
     }
   };
+
+  // Generate phase markers
+  const generatePhaseMarkers = () => {
+    const markers = [];
+    
+    for (const phase of phases) {
+      // Create start marker
+      const startStyle = getBarStyles(phase.start, phase.start);
+      markers.push(
+        <GanttMarker
+          key={`start-${phase.id}`}
+          date={phase.start}
+          label={`Start: ${phase.title}`}
+          position={startStyle.left}
+          type="diamond"
+          color={`text-${phase.color}-500`}
+        />
+      );
+      
+      // Create end marker
+      const endStyle = getBarStyles(phase.end, phase.end);
+      markers.push(
+        <GanttMarker
+          key={`end-${phase.id}`}
+          date={phase.end}
+          label={`End: ${phase.title}`}
+          position={endStyle.left}
+          type="flag"
+          color={`text-${phase.color}-500`}
+        />
+      );
+    }
+    
+    return markers;
+  };
   
   return (
     <div className="flex flex-col w-full h-full">
@@ -90,6 +126,11 @@ export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
         <div className="relative" style={{ minWidth: `${chartWidth}px`, width: '100%' }}>
           {/* Month headers */}
           <MonthHeaders months={months} />
+          
+          {/* Phase markers */}
+          <div className="relative">
+            {generatePhaseMarkers()}
+          </div>
           
           {/* Gantt chart content */}
           <div className="relative">

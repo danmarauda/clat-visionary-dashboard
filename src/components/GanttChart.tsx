@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { format } from 'date-fns';
 import { Button } from "@/components/ui/button";
 import { 
@@ -13,7 +13,9 @@ import {
   ChevronRight,
   ZoomIn,
   ZoomOut,
-  CalendarRange
+  CalendarRange,
+  Flag,
+  Diamond
 } from "lucide-react";
 
 interface Task {
@@ -37,9 +39,9 @@ interface GanttChartProps {
 }
 
 export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
-  const [zoomLevel, setZoomLevel] = useState(1);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [zoomLevel, setZoomLevel] = React.useState(1);
+  const [scrollPosition, setScrollPosition] = React.useState(0);
+  const containerRef = React.useRef<HTMLDivElement>(null);
   
   // Find the earliest start date and latest end date from all phases and tasks
   const earliestDate = new Date(Math.min(
@@ -66,7 +68,7 @@ export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
   const taskRowHeight = Math.floor((1800 - (totalPhases * phaseHeaderHeight)) / totalTasks); // Dynamically calculate height for each task row
   
   // Update scroll position when resizing
-  useEffect(() => {
+  React.useEffect(() => {
     const handleResize = () => {
       if (containerRef.current) {
         setScrollPosition(containerRef.current.scrollLeft);
@@ -124,6 +126,56 @@ export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
     };
     
     return colorMap[color] || 'bg-gray-500 border-gray-600';
+  };
+  
+  // Generate phase markers
+  const generatePhaseMarkers = () => {
+    return phases.flatMap(phase => {
+      const startStyle = getBarStyles(phase.start, phase.start);
+      const endStyle = getBarStyles(phase.end, phase.end);
+      
+      return [
+        <TooltipProvider key={`start-${phase.id}`}>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div 
+                className={`absolute top-0 z-20 flex flex-col items-center`}
+                style={{ left: startStyle.left }}
+              >
+                <Diamond className={`h-5 w-5 text-${phase.color}-500`} />
+                <div className={`h-[1800px] border-l border-dashed text-${phase.color}-500 opacity-30`}></div>
+              </div>
+            </TooltipTrigger>
+            <TooltipContent>
+              <div className="text-xs">
+                <p className="font-medium">Start: {phase.title}</p>
+                <p>{format(phase.start, 'MMM d, yyyy')}</p>
+              </div>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>,
+        
+        <TooltipProvider key={`end-${phase.id}`}>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div 
+                className={`absolute top-0 z-20 flex flex-col items-center`}
+                style={{ left: endStyle.left }}
+              >
+                <Flag className={`h-5 w-5 text-${phase.color}-500`} />
+                <div className={`h-[1800px] border-l border-dashed text-${phase.color}-500 opacity-30`}></div>
+              </div>
+            </TooltipTrigger>
+            <TooltipContent>
+              <div className="text-xs">
+                <p className="font-medium">End: {phase.title}</p>
+                <p>{format(phase.end, 'MMM d, yyyy')}</p>
+              </div>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      ];
+    });
   };
   
   // Handle zoom in/out
@@ -193,6 +245,9 @@ export const GanttChart: React.FC<GanttChartProps> = ({ phases }) => {
               </div>
             ))}
           </div>
+          
+          {/* Phase markers */}
+          {generatePhaseMarkers()}
           
           {/* Gantt chart content */}
           <div className="relative" style={{ height: 'calc(100% - 32px)' }}>
