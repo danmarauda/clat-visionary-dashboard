@@ -23,13 +23,13 @@ const CopilotProvider: React.FC<CopilotProviderProps> = ({ children }) => {
   
   return (
     <>
+      {children}
       <CopilotSidebar 
         isOpen={sidebarOpen} 
         onClose={() => setSidebarOpen(false)}
         isListening={false}
         toggleVoiceAssistant={() => {}}
       />
-      {children}
     </>
   );
 };

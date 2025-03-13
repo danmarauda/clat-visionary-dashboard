@@ -3,7 +3,6 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Bell, Settings, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import EclatLogo from './EclatLogo';
 
 interface NavbarProps {
   sidebarCollapsed: boolean;
