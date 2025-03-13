@@ -284,7 +284,7 @@ const GanttChartPage: React.FC = () => {
               <CardTitle>éclatOS Implementation Gantt Chart</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="h-[1500px] w-full">
+              <div className="h-[1800px] w-full">
                 <GanttChart phases={phases} />
               </div>
             </CardContent>
