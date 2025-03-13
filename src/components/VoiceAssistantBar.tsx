@@ -120,7 +120,7 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
             <button
               onClick={openCopilot}
               className="rounded-full p-2 text-foreground hover:bg-accent/10 transition-all hidden sm:flex items-center gap-1.5"
-              aria-label="Open Copilot"
+              aria-label="Toggle Copilot"
             >
               <Bot className="h-5 w-5" />
               <span className="text-sm font-medium">Copilot</span>
@@ -160,7 +160,7 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
                   <div className="flex items-center justify-center w-6 h-6">
                     <Bot className="h-4 w-4" />
                   </div>
-                  <span>Open Copilot</span>
+                  <span>Toggle Copilot</span>
                   <ChevronRight className="h-4 w-4 ml-auto" />
                 </button>
 

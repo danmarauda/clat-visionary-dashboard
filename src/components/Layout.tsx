@@ -59,7 +59,7 @@ const Layout: React.FC = () => {
           isListening={isListening} 
           toggleVoiceAssistant={toggleVoiceAssistant}
           openCopilot={() => {
-            // The CopilotKit sidebar is controlled elsewhere
+            // Dispatch the toggle event to show/hide the copilot
             const event = new CustomEvent('toggle-copilot');
             window.dispatchEvent(event);
           }}
