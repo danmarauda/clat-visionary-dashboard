@@ -5,7 +5,8 @@ import {
   Users, MessageSquare, Building, Store, Activity, 
   Coffee, BarChart, Pen, Calendar, Wrench, 
   BookOpen, HelpCircle, Settings, ChevronRight, ChevronLeft,
-  NotebookText, Lightbulb, ChartGantt
+  NotebookText, Lightbulb, ChartGantt, FileSearch, Building2,
+  Brain, FlaskConical, Network, LineChart
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import UserProfileButton from './UserProfileButton';
@@ -13,15 +14,15 @@ import EclatLogo from './EclatLogo';
 
 const navCategories = [
   {
-    category: "PROPOSAL",
+    category: "RESEARCH",
     items: [
-      { id: 'dashboard', name: 'Dashboard', path: '/', icon: LayoutDashboard },
-      { id: 'executive-summary', name: 'Executive Summary', path: '/executive-summary', icon: FileText },
-      { id: 'current-landscape', name: 'Current Landscape', path: '/current-landscape', icon: Activity },
-      { id: 'project-scope', name: 'Project Scope', path: '/project-scope', icon: Briefcase },
-      { id: 'timeline', name: 'Timeline', path: '/timeline', icon: Clock },
-      { id: 'delivery-gantt', name: 'Delivery Gantt', path: '/gantt-chart', icon: ChartGantt },
-      { id: 'budget', name: 'Budget', path: '/budget', icon: DollarSign },
+      { id: 'research', name: 'Overview', path: '/research', icon: FileSearch },
+      { id: 'company-profile', name: 'Company Profile', path: '/research/company-profile', icon: Building2 },
+      { id: 'leadership', name: 'Leadership Analysis', path: '/research/leadership', icon: Users },
+      { id: 'technology', name: 'Technology Ecosystem', path: '/research/technology', icon: Brain },
+      { id: 'operations', name: 'Business Operations', path: '/research/operations', icon: FlaskConical },
+      { id: 'automation', name: 'Automation Opportunities', path: '/research/automation', icon: Network },
+      { id: 'implementation', name: 'Implementation Roadmap', path: '/research/implementation', icon: LineChart },
     ]
   },
   {

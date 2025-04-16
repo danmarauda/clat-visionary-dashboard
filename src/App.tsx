@@ -27,6 +27,12 @@ import CopilotProvider from "./components/CopilotProvider";
 
 // Client Research Section
 import ClientResearch from "./pages/research/ClientResearch";
+import CompanyProfile from "./pages/research/CompanyProfile";
+import LeadershipAnalysis from "./pages/research/LeadershipAnalysis";
+import TechnologyEcosystem from "./pages/research/TechnologyEcosystem";
+import BusinessOperations from "./pages/research/BusinessOperations";
+import AutomationOpportunities from "./pages/research/AutomationOpportunities";
+import ImplementationRoadmap from "./pages/research/ImplementationRoadmap";
 
 const queryClient = new QueryClient();
 
@@ -53,6 +59,12 @@ const App = () => (
               
               {/* Client Research Section */}
               <Route path="/research" element={<ClientResearch />} />
+              <Route path="/research/company-profile" element={<CompanyProfile />} />
+              <Route path="/research/leadership" element={<LeadershipAnalysis />} />
+              <Route path="/research/technology" element={<TechnologyEcosystem />} />
+              <Route path="/research/operations" element={<BusinessOperations />} />
+              <Route path="/research/automation" element={<AutomationOpportunities />} />
+              <Route path="/research/implementation" element={<ImplementationRoadmap />} />
               
               {/* Proposal Section */}
               <Route path="/executive-summary" element={<ExecutiveSummary />} />
