@@ -1,25 +1,48 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Scale, Gavel, AlertTriangle, CheckCircle2, XCircle } from 'lucide-react';
+import { FileText, Scale, Gavel, AlertTriangle } from 'lucide-react';
 import { format } from 'date-fns';
 import GradientCard from '@/components/atoms/GradientCard';
+import LegalRequirementsTable from '@/components/research/LegalRequirementsTable';
 
-interface Requirement {
-  item: string;
-  mandated: boolean;
-  citation: string;
-}
-
-const requirements: Requirement[] = [
-  { item: "High-risk work licence", mandated: false, citation: "OHS Regulations 2017, Sch 3" },
-  { item: "Verification of Competency (VOC)", mandated: true, citation: "OHS Act 2004 s.21, Regs 2017" },
-  { item: "Relevant unit of competency", mandated: true, citation: "RTO/Industry Standard" },
-  { item: "Site- or EBA-imposed VOC requirement", mandated: true, citation: "Enterprise/Union Rule" },
-  { item: "Risk assessment & electrical safety", mandated: true, citation: "OHS Act 2004, ESV Guidance" },
-  { item: "Union stoppage for non-safety reason", mandated: false, citation: "Fair Work Act/Federal Court" },
-  { item: "Union stoppage for safety reason", mandated: true, citation: "OHS Act 2004 s.74" }
-];
+const requirements = [
+  { 
+    item: "High-risk work licence", 
+    mandated: false, 
+    citation: "OHS Regulations 2017, Sch 3" 
+  },
+  { 
+    item: "Verification of Competency (VOC)", 
+    mandated: false, 
+    citation: "OHS Act 2004 s.21 (general duty)" 
+  },
+  { 
+    item: "Relevant unit of competency", 
+    mandated: false, 
+    citation: "Industry Standard (RIISAM213E)" 
+  },
+  { 
+    item: "Site- or EBA-imposed VOC requirement", 
+    mandated: 'maybe', 
+    citation: "Enterprise Agreement/Site Rules" 
+  },
+  { 
+    item: "Risk assessment & electrical safety", 
+    mandated: true, 
+    citation: "OHS Act 2004, ESV Guidance" 
+  },
+  { 
+    item: "Union stoppage for non-safety reason", 
+    mandated: false, 
+    citation: "Fair Work Act 2009 (Cth)" 
+  },
+  { 
+    item: "Union stoppage for safety reason", 
+    mandated: true, 
+    citation: "OHS Act 2004 s.74" 
+  }
+] as const;
 
 const LegalReport = () => {
   return (
@@ -51,7 +74,8 @@ const LegalReport = () => {
               </div>
               <h1 className="text-4xl font-light leading-tight tracking-wide">Victorian Court of Law</h1>
               <h2 className="text-4xl font-light leading-tight tracking-wide text-primary">Australia</h2>
-              <p className="text-muted-foreground mt-4">
+              <h3 className="text-2xl font-light mt-4">Victorian Construction Legislation Report</h3>
+              <p className="text-muted-foreground mt-2">
                 {format(new Date(2025, 3, 16), 'EEEE, MMMM do yyyy')}
               </p>
             </div>
@@ -68,37 +92,7 @@ const LegalReport = () => {
               </div>
               <h2 className="text-xl font-semibold">Legal Requirements</h2>
             </div>
-
-            <div className="grid gap-4">
-              {requirements.map((req, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  className="flex items-start justify-between p-4 rounded-lg bg-white/5 border border-white/10"
-                >
-                  <div className="flex items-start gap-3">
-                    {req.mandated ? (
-                      <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5" />
-                    ) : (
-                      <XCircle className="h-5 w-5 text-red-500 mt-0.5" />
-                    )}
-                    <div>
-                      <p className="font-medium">{req.item}</p>
-                      <p className="text-sm text-white/60 mt-1">{req.citation}</p>
-                    </div>
-                  </div>
-                  <span className={`text-xs px-2.5 py-1 rounded-full ${
-                    req.mandated 
-                      ? "bg-green-500/10 text-green-500 border border-green-500/20"
-                      : "bg-red-500/10 text-red-500 border border-red-500/20"
-                  }`}>
-                    {req.mandated ? "Required" : "Not Required"}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
+            <LegalRequirementsTable requirements={requirements} />
           </GradientCard>
 
           {/* Executive Summary */}
@@ -113,11 +107,24 @@ const LegalReport = () => {
               <h2 className="text-xl font-semibold">Executive Summary</h2>
             </div>
             <p className="text-white/70 leading-relaxed">
-              This report provides a clear, impartial, and legally robust analysis as to whether a licence or
-              Verification of Competency (VOC) is required to set up and operate a portable light tower in
-              Victoria, Australia, with full reference to relevant legislation, industrial instruments, and judicial
-              precedent.
+              After thorough examination of Victorian legislation and regulations, I conclude that there is no specific legal requirement under Victorian law for operators of portable light towers to hold a Verification of Competency (VOC) certification. While employers have general duties to ensure workplace safety and adequate training, the specific requirement for VOC certification for portable light tower operation is not mandated in Victorian legislation.
             </p>
+          </GradientCard>
+
+          {/* Conclusion */}
+          <GradientCard 
+            gradientColors={["from-green-500/20", "via-green-400/20", "to-green-300/20"]}
+            className="mb-8"
+          >
+            <div className="p-6 rounded-lg border border-green-500/20 bg-green-500/5">
+              <h2 className="text-xl font-semibold text-green-400 mb-4">Key Conclusion</h2>
+              <p className="text-white/90 leading-relaxed">
+                Based on thorough examination of the applicable legislation and regulations, there is no specific legal requirement under Victorian law for operators of portable light towers to hold VOC certification. The operation of portable light towers does not constitute "high risk work" requiring licensing under Schedule 3 of the OHS Regulations.
+              </p>
+              <p className="text-white/90 leading-relaxed mt-4">
+                Union action to stop work solely on the basis that workers lack VOC certification for portable light towers would likely constitute unlawful industrial action, as such action would not be in response to a genuine safety concern based on a contravention of OHS legislation.
+              </p>
+            </div>
           </GradientCard>
 
           {/* Important Notice */}
