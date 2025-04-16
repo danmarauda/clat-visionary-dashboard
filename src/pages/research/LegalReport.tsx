@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Scale, Gavel, AlertTriangle, Shield } from 'lucide-react';
@@ -131,6 +130,41 @@ const LegalReport = () => {
             </div>
           </GradientCard>
 
+          {/* Citations Section */}
+          <GradientCard 
+            gradientColors={["from-blue-500/20", "via-blue-400/20", "to-blue-300/20"]}
+            className="mb-8"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2 rounded-lg bg-white/10">
+                <FileText className="h-5 w-5 text-primary" />
+              </div>
+              <h2 className="text-xl font-semibold">Legal Citations</h2>
+            </div>
+            <div className="space-y-4 text-white/90">
+              <h3 className="font-semibold text-primary">Occupational Health and Safety Act 2004 (Vic)</h3>
+              <ul className="list-disc list-inside space-y-2 pl-4">
+                <li>Section 21(1) - General duties of employers</li>
+                <li>Section 21(2)(e) - Requirement for information, instruction, training</li>
+                <li>Section 74 - Right to cease unsafe work</li>
+              </ul>
+              
+              <h3 className="font-semibold text-primary mt-6">OHS Regulations 2017 (Vic)</h3>
+              <ul className="list-disc list-inside space-y-2 pl-4">
+                <li>Schedule 3 - High Risk Work Licence Classes</li>
+                <li>Regulation 128 - Requirement to hold licence</li>
+                <li>Regulation 129 - Employer obligations regarding licensed work</li>
+              </ul>
+              
+              <h3 className="font-semibold text-primary mt-6">Fair Work Act 2009 (Cth)</h3>
+              <ul className="list-disc list-inside space-y-2 pl-4">
+                <li>Section 19 - Definition of industrial action</li>
+                <li>Section 418 - Powers to stop industrial action</li>
+                <li>Section 546 - Pecuniary penalty orders</li>
+              </ul>
+            </div>
+          </GradientCard>
+
           {/* Executive Summary */}
           <GradientCard 
             gradientColors={["from-purple-500/20", "via-purple-400/20", "to-purple-300/20"]}
@@ -144,6 +178,25 @@ const LegalReport = () => {
             </div>
             <p className="text-white/70 leading-relaxed">
               After thorough examination of Victorian legislation and regulations, I conclude that there is no specific legal requirement under Victorian law for operators of portable light towers to hold a Verification of Competency (VOC) certification. While employers have general duties to ensure workplace safety and adequate training, the specific requirement for VOC certification for portable light tower operation is not mandated in Victorian legislation.
+            </p>
+          </GradientCard>
+
+          {/* Legal Standing Notice */}
+          <GradientCard 
+            gradientColors={["from-purple-500/20", "via-purple-400/20", "to-purple-300/20"]}
+            className="mb-8"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 rounded-lg bg-white/10">
+                <Scale className="h-5 w-5 text-primary" />
+              </div>
+              <h2 className="text-xl font-semibold">Legal Standing</h2>
+            </div>
+            <p className="text-white/70 leading-relaxed">
+              This document is prepared with due reference to Victorian and Commonwealth industrial law,
+              the relevant codes of practice, and union policy statements, and adopts a fair and balanced
+              approach suitable for scrutiny in legal proceedings in Victoria. For determination of disputes in
+              specific circumstances, professional legal representation should be sought.
             </p>
           </GradientCard>
 
