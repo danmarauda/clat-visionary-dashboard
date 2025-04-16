@@ -6,6 +6,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { FileText, ExternalLink } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface CitationPopoverProps {
   children: React.ReactNode;
@@ -23,7 +24,16 @@ const CitationPopover: React.FC<CitationPopoverProps> = ({
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <span className="underline cursor-pointer text-primary/80 hover:text-primary transition-colors">
+        <span 
+          className={cn(
+            "inline-flex items-center gap-1 px-2 py-1 rounded-md",
+            "bg-secondary/20 text-primary hover:bg-secondary/30",
+            "transition-all duration-300 cursor-pointer",
+            "border border-white/10 hover:border-white/20",
+            "text-sm font-medium"
+          )}
+        >
+          <FileText className="h-3.5 w-3.5 mr-1" />
           {children}
         </span>
       </PopoverTrigger>
