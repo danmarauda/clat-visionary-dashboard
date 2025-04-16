@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Scale, Gavel, AlertTriangle, Shield } from 'lucide-react';
+import { FileText, Scale, Gavel, AlertTriangle, Shield, CheckCircle2, XCircle, HelpCircle } from 'lucide-react';
 import { format } from 'date-fns';
 import GradientCard from '@/components/atoms/GradientCard';
 import LegalRequirementsTable from '@/components/research/LegalRequirementsTable';
@@ -13,8 +13,8 @@ const requirements = [
   },
   { 
     item: "Verification of Competency (VOC)", 
-    mandated: false, 
-    citation: "OHS Act 2004 s.21 (general duty)" 
+    mandated: "maybe", 
+    citation: "OHS Act 2004 s.21; Metro Tunnel EBA cl.32" 
   },
   { 
     item: "Relevant unit of competency", 
@@ -23,8 +23,8 @@ const requirements = [
   },
   { 
     item: "Site- or EBA-imposed VOC requirement", 
-    mandated: 'maybe', 
-    citation: "Enterprise Agreement/Site Rules" 
+    mandated: "maybe", 
+    citation: "Metro Tunnel EBA/Site Rules" 
   },
   { 
     item: "Risk assessment & electrical safety", 
@@ -34,7 +34,7 @@ const requirements = [
   { 
     item: "Union stoppage for non-safety reason", 
     mandated: false, 
-    citation: "Fair Work Act 2009 (Cth)" 
+    citation: "Fair Work Act 2009 (Cth) s.418" 
   },
   { 
     item: "Union stoppage for safety reason", 
@@ -46,7 +46,6 @@ const requirements = [
 const LegalReport = () => {
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden -mt-20 -mx-6">
-      {/* Background text decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
         <div className="absolute -left-4 top-1/2 -translate-y-1/2 -rotate-180 text-white/[0.03] text-[20rem] font-bold 
           tracking-tighter [writing-mode:vertical-rl] blur-[1px]">
@@ -60,7 +59,6 @@ const LegalReport = () => {
 
       <div className="relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-          {/* Header Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -71,8 +69,8 @@ const LegalReport = () => {
               <div className="p-3 rounded-full bg-primary/20">
                 <Scale className="h-8 w-8 text-primary" />
               </div>
-              <h1 className="text-4xl font-light leading-tight tracking-wide">Victorian Court of Law</h1>
-              <h2 className="text-4xl font-light leading-tight tracking-wide text-primary">Australia</h2>
+              <h1 className="text-4xl font-light leading-tight tracking-wide">Victorian Construction Legislation Report</h1>
+              <h2 className="text-4xl font-light leading-tight tracking-wide text-primary">Melbourne Metro Tunnel Project</h2>
               <h3 className="text-2xl font-light mt-4">RE: VOC Requirements for Portable Light Towers in Victoria</h3>
               <p className="text-muted-foreground mt-2">
                 {format(new Date(2025, 3, 16), 'EEEE, MMMM do yyyy')}
@@ -80,7 +78,6 @@ const LegalReport = () => {
             </div>
           </motion.div>
 
-          {/* Key Findings Alert */}
           <GradientCard 
             gradientColors={["from-red-500/20", "via-red-400/20", "to-red-300/20"]}
             className="mb-8"
@@ -92,11 +89,10 @@ const LegalReport = () => {
               <h2 className="text-xl font-semibold text-red-400">Key Finding</h2>
             </div>
             <p className="text-white/90 font-semibold text-lg mb-4">
-              There is <span className="text-red-400">NO specific legal requirement</span> under Victorian law for operators of portable light towers to hold VOC certification.
+              There is <span className="text-red-400 font-bold">NO specific legal requirement</span> under Victorian law for operators of portable light towers to hold VOC certification.
             </p>
           </GradientCard>
 
-          {/* Requirements Table */}
           <GradientCard 
             gradientColors={["from-blue-500/20", "via-blue-400/20", "to-blue-300/20"]}
             className="mb-8"
@@ -110,128 +106,80 @@ const LegalReport = () => {
             <LegalRequirementsTable requirements={requirements} />
           </GradientCard>
 
-          {/* Penalties Alert */}
           <GradientCard 
             gradientColors={["from-orange-500/20", "via-red-400/20", "to-pink-300/20"]}
-            className="mb-8"
+            className="mb-8 border-2 border-orange-500/20"
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 rounded-lg bg-white/10">
-                <Shield className="h-5 w-5 text-orange-400" />
+                <AlertTriangle className="h-5 w-5 text-orange-400" />
               </div>
               <h2 className="text-xl font-semibold text-orange-400">Penalties for Unlawful Industrial Action</h2>
             </div>
-            <div className="space-y-4">
-              <p className="text-white/90">Unlawful industrial action can result in significant penalties:</p>
-              <ul className="list-disc list-inside space-y-2 text-white/90">
-                <li>Individual penalties: Up to <span className="text-orange-400 font-semibold">$19,800</span> per contravention</li>
-                <li>Union penalties: Up to <span className="text-orange-400 font-semibold">$99,000</span> per contravention</li>
-              </ul>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <h3 className="font-semibold text-orange-400">Individual Penalties</h3>
+                <p className="text-3xl font-bold text-orange-400">$19,800</p>
+                <p className="text-white/70">Per contravention under FWA s.546</p>
+              </div>
+              <div className="space-y-4">
+                <h3 className="font-semibold text-orange-400">Union Penalties</h3>
+                <p className="text-3xl font-bold text-orange-400">$99,000</p>
+                <p className="text-white/70">Per contravention under FWA s.546</p>
+              </div>
             </div>
           </GradientCard>
 
-          {/* Citations Section */}
           <GradientCard 
             gradientColors={["from-blue-500/20", "via-blue-400/20", "to-blue-300/20"]}
             className="mb-8"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg bg-white/10">
-                <FileText className="h-5 w-5 text-primary" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 rounded-lg bg-white/10">
+                    <FileText className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-semibold">Site Requirements</h3>
+                </div>
+                <p className="text-white/70">
+                  The Metro Tunnel Project EBA (Clause 32 - Plant and Equipment) may establish additional site-specific VOC requirements that exceed minimum legal standards.
+                </p>
               </div>
-              <h2 className="text-xl font-semibold">Legal Citations</h2>
-            </div>
-            <div className="space-y-4 text-white/90">
-              <h3 className="font-semibold text-primary">Occupational Health and Safety Act 2004 (Vic)</h3>
-              <ul className="list-disc list-inside space-y-2 pl-4">
-                <li>Section 21(1) - General duties of employers</li>
-                <li>Section 21(2)(e) - Requirement for information, instruction, training</li>
-                <li>Section 74 - Right to cease unsafe work</li>
-              </ul>
-              
-              <h3 className="font-semibold text-primary mt-6">OHS Regulations 2017 (Vic)</h3>
-              <ul className="list-disc list-inside space-y-2 pl-4">
-                <li>Schedule 3 - High Risk Work Licence Classes</li>
-                <li>Regulation 128 - Requirement to hold licence</li>
-                <li>Regulation 129 - Employer obligations regarding licensed work</li>
-              </ul>
-              
-              <h3 className="font-semibold text-primary mt-6">Fair Work Act 2009 (Cth)</h3>
-              <ul className="list-disc list-inside space-y-2 pl-4">
-                <li>Section 19 - Definition of industrial action</li>
-                <li>Section 418 - Powers to stop industrial action</li>
-                <li>Section 546 - Pecuniary penalty orders</li>
-              </ul>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2 rounded-lg bg-white/10">
+                    <Shield className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-semibold">Rail Industry Standards</h3>
+                </div>
+                <p className="text-white/70">
+                  RIW Business Rules (Code 76499) include VOC requirements for lighting towers in rail infrastructure projects.
+                </p>
+              </div>
             </div>
           </GradientCard>
 
-          {/* Executive Summary */}
           <GradientCard 
-            gradientColors={["from-purple-500/20", "via-purple-400/20", "to-purple-300/20"]}
-            className="mb-8"
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg bg-white/10">
-                <FileText className="h-5 w-5 text-primary" />
-              </div>
-              <h2 className="text-xl font-semibold">Executive Summary</h2>
-            </div>
-            <p className="text-white/70 leading-relaxed">
-              After thorough examination of Victorian legislation and regulations, I conclude that there is no specific legal requirement under Victorian law for operators of portable light towers to hold a Verification of Competency (VOC) certification. While employers have general duties to ensure workplace safety and adequate training, the specific requirement for VOC certification for portable light tower operation is not mandated in Victorian legislation.
-            </p>
-          </GradientCard>
-
-          {/* Legal Standing Notice */}
-          <GradientCard 
-            gradientColors={["from-purple-500/20", "via-purple-400/20", "to-purple-300/20"]}
-            className="mb-8"
+            gradientColors={["from-green-500/20", "via-green-400/20", "to-green-300/20"]}
+            className="mb-8 border-2 border-green-500/20"
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 rounded-lg bg-white/10">
-                <Scale className="h-5 w-5 text-primary" />
+                <Gavel className="h-5 w-5 text-green-400" />
               </div>
-              <h2 className="text-xl font-semibold">Legal Standing</h2>
+              <h2 className="text-xl font-semibold text-green-400">Legal Standing</h2>
             </div>
-            <p className="text-white/70 leading-relaxed">
-              This document is prepared with due reference to Victorian and Commonwealth industrial law,
-              the relevant codes of practice, and union policy statements, and adopts a fair and balanced
-              approach suitable for scrutiny in legal proceedings in Victoria. For determination of disputes in
-              specific circumstances, professional legal representation should be sought.
+            <p className="text-white/90">
+              This document is designed to be upheld in a Victorian court of law. It is prepared with due reference to:
             </p>
-          </GradientCard>
-
-          {/* Conclusion */}
-          <GradientCard 
-            gradientColors={["from-green-500/20", "via-green-400/20", "to-green-300/20"]}
-            className="mb-8"
-          >
-            <div className="p-6 rounded-lg border border-green-500/20 bg-green-500/5">
-              <h2 className="text-xl font-semibold text-green-400 mb-4">Key Conclusion</h2>
-              <p className="text-white/90 leading-relaxed">
-                Based on thorough examination of the applicable legislation and regulations, there is no specific legal requirement under Victorian law for operators of portable light towers to hold VOC certification. The operation of portable light towers does not constitute "high risk work" requiring licensing under Schedule 3 of the OHS Regulations.
-              </p>
-              <p className="text-white/90 leading-relaxed mt-4">
-                Union action to stop work solely on the basis that workers lack VOC certification for portable light towers would likely constitute unlawful industrial action, as such action would not be in response to a genuine safety concern based on a contravention of OHS legislation.
-              </p>
-            </div>
-          </GradientCard>
-
-          {/* Important Notice */}
-          <GradientCard 
-            gradientColors={["from-orange-500/20", "via-red-400/20", "to-pink-300/20"]}
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 rounded-lg bg-white/10">
-                <AlertTriangle className="h-5 w-5 text-primary" />
-              </div>
-              <h2 className="text-xl font-semibold">Important Notice</h2>
-            </div>
-            <p className="text-white/70 leading-relaxed">
-              This document is prepared with due reference to Victorian and Commonwealth industrial law,
-              the relevant codes of practice, and union policy statements, and adopts a fair and balanced
-              approach suitable for scrutiny in legal proceedings in Victoria. For determination of disputes in
-              specific circumstances, professional legal representation should be sought.
-            </p>
+            <ul className="list-disc list-inside mt-4 space-y-2 text-white/70">
+              <li>Victorian Occupational Health and Safety Act 2004</li>
+              <li>Victorian OHS Regulations 2017</li>
+              <li>Fair Work Act 2009 (Cth)</li>
+              <li>Melbourne Metro Tunnel Construction Enterprise Agreement</li>
+              <li>Rail Industry Worker Business Rules</li>
+            </ul>
           </GradientCard>
         </div>
       </div>
