@@ -1,15 +1,13 @@
-
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Bell, Settings, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface NavbarProps {
-  sidebarCollapsed: boolean;
   isCopilotOpen?: boolean;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ sidebarCollapsed, isCopilotOpen = false }) => {
+const Navbar: React.FC<NavbarProps> = ({ isCopilotOpen = false }) => {
   const navigate = useNavigate();
   const location = useLocation();
   
@@ -71,7 +69,7 @@ const Navbar: React.FC<NavbarProps> = ({ sidebarCollapsed, isCopilotOpen = false
     <div 
       className={cn(
         "fixed top-0 z-40 flex items-center justify-between h-16 transition-all duration-300 px-4 glass",
-        sidebarCollapsed ? "left-[70px]" : "left-[280px]",
+        "left-0",
         isCopilotOpen ? "right-[320px]" : "right-0"
       )}
     >
