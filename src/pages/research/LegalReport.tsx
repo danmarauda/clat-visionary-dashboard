@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Scale, Gavel, AlertTriangle, Shield, CheckCircle2, XCircle, HelpCircle, BookOpen, FileCheck, FilePdf } from 'lucide-react';
+import { FileText, Scale, Gavel, AlertTriangle, Shield, CheckCircle2, XCircle, HelpCircle, BookOpen, FileCheck } from 'lucide-react';
 import { format } from 'date-fns';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
@@ -186,7 +186,7 @@ const LegalReport = () => {
               className="fixed top-24 right-8 z-50"
               size="lg"
             >
-              <FilePdf className="mr-2 h-4 w-4" />
+              <FileText className="mr-2 h-4 w-4" />
               Export to PDF
             </Button>
           </motion.div>
