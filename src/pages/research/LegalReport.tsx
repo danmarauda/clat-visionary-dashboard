@@ -135,12 +135,55 @@ const LegalReport = () => {
 
   const handleExportPDF = () => {
     const element = document.getElementById('legal-report');
+    
+    const originalBackground = element.style.background;
+    const originalColor = element.style.color;
+    
+    element.style.background = '#000';
+    element.style.color = '#fff';
+    
+    element.classList.add('pdf-export-mode');
+    
+    const styleElement = document.createElement('style');
+    styleElement.textContent = `
+      .pdf-export-mode {
+        background-color: #000 !important;
+        color: #fff !important;
+      }
+      .pdf-export-mode * {
+        color: #fff !important;
+        background-color: transparent !important;
+      }
+      .pdf-export-mode table {
+        border-color: rgba(255, 255, 255, 0.2) !important;
+      }
+      .pdf-export-mode .border {
+        border-color: rgba(255, 255, 255, 0.2) !important;
+      }
+      .pdf-export-mode a {
+        color: #3b82f6 !important;
+      }
+    `;
+    document.head.appendChild(styleElement);
+
     const opt = {
       margin: 1,
       filename: `legal-report-${format(new Date(), 'yyyy-MM-dd')}.pdf`,
       image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+      html2canvas: { 
+        scale: 2,
+        backgroundColor: '#000000',
+        useCORS: true,
+        logging: true
+      },
+      jsPDF: { 
+        unit: 'in', 
+        format: 'a4', 
+        orientation: 'portrait',
+        putOnlyUsedFonts: true,
+        compress: true,
+        background: '#000000'
+      }
     };
 
     toast({
@@ -149,9 +192,27 @@ const LegalReport = () => {
     });
 
     html2pdf().set(opt).from(element).save().then(() => {
+      element.style.background = originalBackground;
+      element.style.color = originalColor;
+      element.classList.remove('pdf-export-mode');
+      document.head.removeChild(styleElement);
+      
       toast({
         title: "PDF Generated",
         description: "Your report has been downloaded successfully.",
+      });
+    }).catch((error) => {
+      console.error("PDF generation error:", error);
+      
+      element.style.background = originalBackground;
+      element.style.color = originalColor;
+      element.classList.remove('pdf-export-mode');
+      document.head.removeChild(styleElement);
+      
+      toast({
+        title: "PDF Generation Failed",
+        description: "There was an error generating your PDF.",
+        variant: "destructive"
       });
     });
   };
