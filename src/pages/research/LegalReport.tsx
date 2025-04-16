@@ -1,10 +1,12 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Scale, Gavel, AlertTriangle, Shield, CheckCircle2, XCircle, HelpCircle, BookOpen, FileCheck } from 'lucide-react';
+import { FileText, Scale, Gavel, AlertTriangle, Shield, CheckCircle2, XCircle, HelpCircle, BookOpen, FileCheck, FilePdf } from 'lucide-react';
 import { format } from 'date-fns';
+import { Button } from '@/components/ui/button';
+import { useToast } from '@/hooks/use-toast';
 import GradientCard from '@/components/atoms/GradientCard';
 import LegalRequirementsTable, { Requirement } from '@/components/research/LegalRequirementsTable';
+import html2pdf from 'html2pdf.js';
 
 const requirements: Requirement[] = [
   { 
@@ -129,26 +131,40 @@ const legislationReferences = [
 ];
 
 const LegalReport = () => {
-  return (
-    <div className="relative min-h-screen bg-black text-white overflow-hidden -mt-20 -mx-6">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
-        <div className="absolute -left-4 top-1/2 -translate-y-1/2 -rotate-180 text-white/[0.03] text-[20rem] font-bold 
-          tracking-tighter [writing-mode:vertical-rl] blur-[1px]">
-          LEGAL
-        </div>
-        <div className="absolute -right-4 top-1/2 -translate-y-1/2 -rotate-180 text-white/[0.03] text-[20rem] font-bold 
-          tracking-tighter [writing-mode:vertical-rl] blur-[1px]">
-          REPORT
-        </div>
-      </div>
+  const { toast } = useToast();
 
+  const handleExportPDF = () => {
+    const element = document.getElementById('legal-report');
+    const opt = {
+      margin: 1,
+      filename: `legal-report-${format(new Date(), 'yyyy-MM-dd')}.pdf`,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+
+    toast({
+      title: "Preparing PDF...",
+      description: "Your report will download shortly.",
+    });
+
+    html2pdf().set(opt).from(element).save().then(() => {
+      toast({
+        title: "PDF Generated",
+        description: "Your report has been downloaded successfully.",
+      });
+    });
+  };
+
+  return (
+    <div className="relative min-h-screen bg-black text-white -mt-20 -mx-6">
       <div className="relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+        <div id="legal-report" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-16"
+            className="flex justify-between items-center mb-16"
           >
             <div className="flex flex-col items-center gap-4">
               <div className="p-3 rounded-full bg-primary/20">
@@ -165,6 +181,14 @@ const LegalReport = () => {
                 <span>Document prepared to be upheld in Victorian court proceedings</span>
               </div>
             </div>
+            <Button
+              onClick={handleExportPDF}
+              className="fixed top-24 right-8 z-50"
+              size="lg"
+            >
+              <FilePdf className="mr-2 h-4 w-4" />
+              Export to PDF
+            </Button>
           </motion.div>
 
           <GradientCard 
