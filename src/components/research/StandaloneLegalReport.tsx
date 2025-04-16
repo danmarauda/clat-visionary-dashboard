@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { FileText } from 'lucide-react';
 import { format } from 'date-fns';
@@ -8,7 +7,6 @@ import html2pdf from 'html2pdf.js';
 import LegalRequirementsTable from './LegalRequirementsTable';
 import { Link } from 'react-router-dom';
 
-// Reusing the data from the main legal report
 const requirements = [
   { 
     item: "High-risk work licence", 
@@ -19,7 +17,7 @@ const requirements = [
   },
   { 
     item: "Verification of Competency (VOC)", 
-    mandated: "maybe", 
+    mandated: false, 
     citation: "OHS Act 2004 s.21; Metro Tunnel EBA cl.32",
     legislation: "General duty of care; EBA plant & equipment clause",
     link: "https://www.legislation.vic.gov.au/in-force/acts/occupational-health-and-safety-act-2004/037"
@@ -75,59 +73,6 @@ const penaltiesData = [
     description: "Per contravention under Fair Work Act s.546",
     citation: "Fair Work Act 2009 (Cth) s.546(2)(b)",
     link: "https://www.legislation.gov.au/Details/C2023C00360/Html/Volume_4#_Toc149455996"
-  }
-];
-
-const legislationReferences = [
-  {
-    title: "OHS Act 2004",
-    sections: [
-      { 
-        reference: "Section 21", 
-        description: "Duties of employers to employees",
-        link: "https://www.legislation.vic.gov.au/in-force/acts/occupational-health-and-safety-act-2004/037"
-      },
-      { 
-        reference: "Section 74", 
-        description: "Right to cease unsafe work",
-        link: "https://www.legislation.vic.gov.au/in-force/acts/occupational-health-and-safety-act-2004/037"
-      }
-    ]
-  },
-  {
-    title: "Fair Work Act 2009 (Cth)",
-    sections: [
-      { 
-        reference: "Section 19", 
-        description: "Meaning of industrial action",
-        link: "https://www.legislation.gov.au/Details/C2023C00360/Html/Volume_1#_Toc149455437"
-      },
-      { 
-        reference: "Section 418", 
-        description: "FWC must order that industrial action stop",
-        link: "https://www.legislation.gov.au/Details/C2023C00360/Html/Volume_2#_Toc149455609"
-      },
-      { 
-        reference: "Section 421", 
-        description: "Contravening an order stopping industrial action",
-        link: "https://www.legislation.gov.au/Details/C2023C00360/Html/Volume_2#_Toc149455614"
-      },
-      { 
-        reference: "Section 546", 
-        description: "Pecuniary penalty orders",
-        link: "https://www.legislation.gov.au/Details/C2023C00360/Html/Volume_4#_Toc149455996"
-      }
-    ]
-  },
-  {
-    title: "OHS Regulations 2017",
-    sections: [
-      { 
-        reference: "Schedule 3", 
-        description: "High Risk Work Licence Classes",
-        link: "https://www.legislation.vic.gov.au/in-force/statutory-rules/occupational-health-and-safety-regulations-2017/024"
-      }
-    ]
   }
 ];
 
@@ -221,12 +166,12 @@ const StandaloneLegalReport = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <div id="legal-report" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex justify-end mb-6">
+        <div className="flex justify-between items-center mb-12">
           <Link 
             to="/research/legal-report"
-            className="text-primary hover:text-primary/80 underline mr-4"
+            className="text-primary hover:text-primary/80 underline"
           >
-            Back to Full View
+            Back to Full Report
           </Link>
           <Button
             onClick={handleExportPDF}
@@ -237,22 +182,28 @@ const StandaloneLegalReport = () => {
         </div>
 
         <div className="flex flex-col items-center gap-4 mb-16">
-          <h1 className="text-4xl font-light leading-tight tracking-wide">Victorian Construction Legislation Report</h1>
+          <h1 className="text-4xl font-light leading-tight tracking-wide">Legal Analysis: VOC Requirements for Portable Light Towers in Victoria</h1>
           <h2 className="text-4xl font-light leading-tight tracking-wide text-primary">Melbourne Metro Tunnel Project</h2>
-          <h3 className="text-2xl font-light mt-4">RE: VOC Requirements for Portable Light Towers in Victoria</h3>
-          <p className="text-muted-foreground mt-2">
-            {format(new Date(2025, 3, 16), 'EEEE, MMMM do yyyy')}
-          </p>
+          <div className="text-muted-foreground">
+            <p>Document Date: {format(new Date(2025, 3, 16), 'MMMM d, yyyy')}</p>
+            <p>Reference: MMTP-VOC-42801</p>
+          </div>
         </div>
 
         <div className="space-y-8">
           <div className="p-6 border-2 border-red-500/20 rounded-lg bg-gradient-to-br from-red-500/20 via-red-400/20 to-red-300/20">
             <div className="flex items-center gap-3 mb-4">
-              <h2 className="text-xl font-semibold text-red-400">Key Finding</h2>
+              <h2 className="text-xl font-semibold text-red-400">Executive Summary</h2>
             </div>
-            <p className="text-white/90 font-semibold text-lg mb-4">
-              There is <span className="text-red-400 font-bold">NO specific legal requirement</span> under Victorian law for operators of portable light towers to hold VOC certification.
+            <p className="text-white/90 text-lg mb-4">
+              Based on comprehensive examination of applicable legislation, regulations, and industry standards, we conclude that:
             </p>
+            <ul className="list-disc pl-6 space-y-2 text-white/90">
+              <li>There is <span className="text-red-400 font-bold">NO specific legal requirement</span> under Victorian legislation for operators of portable light towers to hold VOC certification.</li>
+              <li>Portable light towers do not fall within the categories of "high risk work" equipment requiring licensing under Schedule 3 of the Victorian OHS Regulations 2017.</li>
+              <li>While not a legislative requirement, VOC certification may be mandated by contractual obligations, site-specific requirements, or Enterprise Bargaining Agreements (EBAs).</li>
+              <li>Industrial action solely due to lack of VOC would likely constitute unlawful industrial action under the Fair Work Act 2009 (Cth).</li>
+            </ul>
           </div>
 
           <div className="p-6 rounded-lg bg-gradient-to-br from-blue-500/20 via-blue-400/20 to-blue-300/20">
@@ -271,25 +222,6 @@ const StandaloneLegalReport = () => {
                 </div>
               ))}
             </div>
-          </div>
-
-          <div className="p-6 rounded-lg bg-gradient-to-br from-blue-500/20 via-blue-400/20 to-blue-300/20">
-            <h2 className="text-xl font-semibold mb-4">Legislative References</h2>
-            {legislationReferences.map((legislation, index) => (
-              <div key={index} className="mb-6 last:mb-0">
-                <h3 className="font-semibold text-primary mb-3">{legislation.title}</h3>
-                <div className="space-y-2">
-                  {legislation.sections.map((section, sIndex) => (
-                    <div key={sIndex} className="flex items-start gap-2">
-                      <div>
-                        <span className="text-white/90 font-medium">{section.reference}</span>
-                        <span className="text-white/70"> - {section.description} </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>
