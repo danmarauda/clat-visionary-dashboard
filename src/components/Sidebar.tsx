@@ -6,7 +6,7 @@ import {
   Coffee, BarChart, Pen, Calendar, Wrench, 
   BookOpen, HelpCircle, Settings, ChevronRight, ChevronLeft,
   NotebookText, Lightbulb, ChartGantt, FileSearch, Building2,
-  Brain, FlaskConical, Network, LineChart
+  Brain, FlaskConical, Network, LineChart, Scale
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import UserProfileButton from './UserProfileButton';
@@ -17,6 +17,7 @@ const navCategories = [
     category: "RESEARCH",
     items: [
       { id: 'research', name: 'Overview', path: '/research', icon: FileSearch },
+      { id: 'legal-report', name: 'Legal Report', path: '/research/legal-report', icon: Scale },
       { id: 'company-profile', name: 'Company Profile', path: '/research/company-profile', icon: Building2 },
       { id: 'leadership', name: 'Leadership Analysis', path: '/research/leadership', icon: Users },
       { id: 'technology', name: 'Technology Ecosystem', path: '/research/technology', icon: Brain },

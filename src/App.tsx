@@ -33,6 +33,7 @@ import TechnologyEcosystem from "./pages/research/TechnologyEcosystem";
 import BusinessOperations from "./pages/research/BusinessOperations";
 import AutomationOpportunities from "./pages/research/AutomationOpportunities";
 import ImplementationRoadmap from "./pages/research/ImplementationRoadmap";
+import LegalReport from "./pages/research/LegalReport";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +60,7 @@ const App = () => (
               
               {/* Client Research Section */}
               <Route path="/research" element={<ClientResearch />} />
+              <Route path="/research/legal-report" element={<LegalReport />} />
               <Route path="/research/company-profile" element={<CompanyProfile />} />
               <Route path="/research/leadership" element={<LeadershipAnalysis />} />
               <Route path="/research/technology" element={<TechnologyEcosystem />} />
