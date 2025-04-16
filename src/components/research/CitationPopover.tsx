@@ -14,21 +14,25 @@ interface CitationPopoverProps {
   citation: string;
   legislation?: string;
   link?: string;
+  color?: string;
+  className?: string;
 }
 
 const CitationPopover: React.FC<CitationPopoverProps> = ({
   children,
   citation,
   legislation,
-  link
+  link,
+  color = "hsl(var(--primary))",
+  className
 }) => {
   return (
     <Popover>
       <PopoverTrigger asChild>
         <StarBorder 
           as="span" 
-          className="cursor-pointer px-0 py-0"
-          color="hsl(var(--primary))"
+          className={cn("cursor-pointer px-0 py-0 w-[280px]", className)}
+          color={color}
           speed="8s"
         >
           <div className="flex items-center gap-1 py-1 px-3 text-sm">

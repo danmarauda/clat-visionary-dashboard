@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Scale, Gavel, AlertTriangle, Shield, CheckCircle2, XCircle, HelpCircle, BookOpen, FileCheck } from 'lucide-react';
@@ -181,15 +180,14 @@ const LegalReport = () => {
               There is <span className="text-red-400 font-bold">NO specific legal requirement</span> under Victorian law for operators of portable light towers to hold VOC certification.
             </p>
             <p className="text-white/70 text-sm">
-              <span className="font-semibold">Citation:</span> Occupational Health and Safety Regulations 2017 (Vic), Schedule 3 (High Risk Work Licence Classes){' '}
-              <a 
-                href="https://www.legislation.vic.gov.au/in-force/statutory-rules/occupational-health-and-safety-regulations-2017/024" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-blue-400 underline hover:text-blue-300"
+              <span className="font-semibold">Citation: </span>
+              <CitationPopover 
+                citation="Occupational Health and Safety Regulations 2017 (Vic), Schedule 3 (High Risk Work Licence Classes)"
+                link="https://www.legislation.vic.gov.au/in-force/statutory-rules/occupational-health-and-safety-regulations-2017/024"
+                color="rgb(239 68 68)"
               >
-                [Reference Link]
-              </a>
+                OHS Regulations 2017, Schedule 3
+              </CitationPopover>
             </p>
           </GradientCard>
 
@@ -274,14 +272,14 @@ const LegalReport = () => {
                   <p className="text-3xl font-bold text-orange-400">{penalty.amount}</p>
                   <p className="text-white/70">{penalty.description}</p>
                   <p className="text-sm text-white/60">
-                    Citation: <a 
-                      href={penalty.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline hover:text-orange-300"
+                    Citation: {' '}
+                    <CitationPopover 
+                      citation={penalty.citation}
+                      link={penalty.link}
+                      color="rgb(249 115 22)"
                     >
                       {penalty.citation}
-                    </a>
+                    </CitationPopover>
                   </p>
                 </div>
               ))}

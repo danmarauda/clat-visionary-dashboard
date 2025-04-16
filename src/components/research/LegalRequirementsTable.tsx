@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   Table,
@@ -24,6 +23,11 @@ interface LegalRequirementsTableProps {
 }
 
 const LegalRequirementsTable: React.FC<LegalRequirementsTableProps> = ({ requirements }) => {
+  const getStatusColor = (mandated: boolean | 'maybe') => {
+    if (mandated === 'maybe') return "hsl(var(--warning))";
+    return mandated ? "rgb(34 197 94)" : "rgb(239 68 68)";
+  };
+
   const getStatusIcon = (mandated: boolean | 'maybe') => {
     if (mandated === 'maybe') return <HelpCircle className="h-5 w-5 text-yellow-500" />;
     return mandated ? 
@@ -38,8 +42,8 @@ const LegalRequirementsTable: React.FC<LegalRequirementsTableProps> = ({ require
           <TableRow>
             <TableHead className="text-white font-semibold">Requirement</TableHead>
             <TableHead className="text-white font-semibold">Mandated by Law?</TableHead>
-            <TableHead className="text-white font-semibold">Citation/Authority</TableHead>
-            <TableHead className="text-white font-semibold">Legislation</TableHead>
+            <TableHead className="text-white font-semibold">Citation</TableHead>
+            <TableHead className="text-white font-semibold">Authority</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -63,17 +67,18 @@ const LegalRequirementsTable: React.FC<LegalRequirementsTableProps> = ({ require
                   </span>
                 </div>
               </TableCell>
-              <TableCell className="text-white/70">
+              <TableCell>
                 <CitationPopover 
                   citation={req.citation}
                   legislation={req.legislation}
                   link={req.link}
+                  color={getStatusColor(req.mandated)}
                 >
-                  {req.citation.length > 25 ? `${req.citation.substring(0, 22)}...` : req.citation}
+                  View Citation
                 </CitationPopover>
               </TableCell>
               <TableCell className="text-white/70">
-                {req.legislation || '-'}
+                {req.citation}
               </TableCell>
             </TableRow>
           ))}
