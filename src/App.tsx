@@ -62,13 +62,6 @@ const App = () => (
               {/* Client Research Section */}
               <Route path="/research" element={<ClientResearch />} />
               <Route path="/research/legal-report" element={<LegalReport />} />
-              <Route path="/research/legal-report/standalone" element={<StandaloneLegalReport />} />
-              <Route path="/research/company-profile" element={<CompanyProfile />} />
-              <Route path="/research/leadership" element={<LeadershipAnalysis />} />
-              <Route path="/research/technology" element={<TechnologyEcosystem />} />
-              <Route path="/research/operations" element={<BusinessOperations />} />
-              <Route path="/research/automation" element={<AutomationOpportunities />} />
-              <Route path="/research/implementation" element={<ImplementationRoadmap />} />
               
               {/* Proposal Section */}
               <Route path="/executive-summary" element={<ExecutiveSummary />} />
