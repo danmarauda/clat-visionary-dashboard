@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { FileText } from 'lucide-react';
@@ -8,9 +9,17 @@ import LegalReportHeader from '@/components/research/legal/LegalReportHeader';
 import TitleSection from '@/components/research/legal/TitleSection';
 import ExecutiveSummary from '@/components/research/legal/ExecutiveSummary';
 import RegulatoryFramework from '@/components/research/legal/RegulatoryFramework';
-import LegalRequirementsTable from '@/components/research/LegalRequirementsTable';
+import LegalRequirementsTable, { Requirement } from '@/components/research/LegalRequirementsTable';
+import VOCRequirementsSection from '@/components/research/legal/VOCRequirementsSection';
+import EmployerObligationsSection from '@/components/research/legal/EmployerObligationsSection';
+import ProjectRequirementsSection from '@/components/research/legal/ProjectRequirementsSection';
+import UnionPowersSection from '@/components/research/legal/UnionPowersSection';
+import PenaltiesSection from '@/components/research/legal/PenaltiesSection';
+import ConclusionsSection from '@/components/research/legal/ConclusionsSection';
+import ReferencesSection from '@/components/research/legal/ReferencesSection';
+import LegislationReferencesSection from '@/components/research/legal/LegislationReferencesSection';
 
-const requirements = [
+const requirements: Requirement[] = [
   { 
     item: "High-risk work licence", 
     mandated: false, 
@@ -20,7 +29,7 @@ const requirements = [
   },
   { 
     item: "Verification of Competency (VOC)", 
-    mandated: "maybe", 
+    mandated: 'maybe' as 'maybe', 
     citation: "OHS Act 2004 s.21; Metro Tunnel EBA cl.32",
     legislation: "General duty of care; EBA plant & equipment clause",
     link: "https://www.legislation.vic.gov.au/in-force/acts/occupational-health-and-safety-act-2004/037"
@@ -34,7 +43,7 @@ const requirements = [
   },
   { 
     item: "Site- or EBA-imposed VOC requirement", 
-    mandated: "maybe", 
+    mandated: 'maybe' as 'maybe', 
     citation: "Metro Tunnel EBA/Site Rules",
     legislation: "May be contractually binding if specifically included in EBA",
     link: "#"
@@ -232,12 +241,43 @@ const LegalReport = () => {
         <LegalReportHeader />
         <TitleSection />
         <ExecutiveSummary />
+        
+        {/* Main content sections */}
         <RegulatoryFramework />
-
+        <VOCRequirementsSection />
+        <EmployerObligationsSection />
+        <ProjectRequirementsSection />
+        <UnionPowersSection />
+        <PenaltiesSection penaltiesData={penaltiesData} />
+        <ConclusionsSection />
+        
         <div className="mb-12">
           <h2 className="text-2xl font-bold mb-4">VOC Requirements: At a Glance</h2>
           <LegalRequirementsTable requirements={requirements} />
         </div>
+        
+        <LegislationReferencesSection legislationReferences={legislationReferences} />
+        <ReferencesSection />
+        
+        {/* Disclaimer */}
+        <section className="mt-16 mb-8">
+          <div className="border-t border-white/10 pt-6">
+            <h2 className="text-xl font-bold mb-2">Disclaimer</h2>
+            <p className="text-sm text-white/70">
+              This legal analysis has been prepared based on the applicable legislation and regulations as of April 16, 2025. 
+              It is comprehensive but not exhaustive, and specific legal advice should be sought for particular situations. 
+              This document does not constitute formal legal advice and should not be relied upon as such. 
+              Legislation and regulatory requirements may change over time.
+            </p>
+          </div>
+        </section>
+        
+        {/* Footer */}
+        <footer className="mt-12 pt-6 border-t border-white/10 text-sm text-white/60 text-center">
+          <p>Legal Analysis: VOC Requirements for Portable Light Towers in Victoria</p>
+          <p>Reference: MMTP-VOC-42801</p>
+          <p>© 2025 - All Rights Reserved</p>
+        </footer>
       </div>
     </div>
   );
