@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {
   Table,
@@ -68,7 +69,7 @@ const LegalRequirementsTable: React.FC<LegalRequirementsTableProps> = ({ require
                   legislation={req.legislation}
                   link={req.link}
                 >
-                  {req.citation}
+                  {req.citation.length > 25 ? `${req.citation.substring(0, 22)}...` : req.citation}
                 </CitationPopover>
               </TableCell>
               <TableCell className="text-white/70">

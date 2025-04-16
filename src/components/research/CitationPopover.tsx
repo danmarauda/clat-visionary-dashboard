@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/popover";
 import { FileText, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { StarBorder } from '@/components/ui/star-border';
 
 interface CitationPopoverProps {
   children: React.ReactNode;
@@ -24,18 +25,17 @@ const CitationPopover: React.FC<CitationPopoverProps> = ({
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <span 
-          className={cn(
-            "inline-flex items-center gap-1 px-2 py-1 rounded-md",
-            "bg-secondary/20 text-primary hover:bg-secondary/30",
-            "transition-all duration-300 cursor-pointer",
-            "border border-white/10 hover:border-white/20",
-            "text-sm font-medium"
-          )}
+        <StarBorder 
+          as="span" 
+          className="cursor-pointer px-0 py-0"
+          color="hsl(var(--primary))"
+          speed="8s"
         >
-          <FileText className="h-3.5 w-3.5 mr-1" />
-          {children}
-        </span>
+          <div className="flex items-center gap-1 py-1 px-3 text-sm">
+            <FileText className="h-3.5 w-3.5" />
+            <span>{children}</span>
+          </div>
+        </StarBorder>
       </PopoverTrigger>
       <PopoverContent className="w-80 bg-background/95 backdrop-blur border-white/20">
         <div className="flex flex-col space-y-2">
