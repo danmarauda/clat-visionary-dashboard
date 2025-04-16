@@ -34,7 +34,6 @@ import BusinessOperations from "./pages/research/BusinessOperations";
 import AutomationOpportunities from "./pages/research/AutomationOpportunities";
 import ImplementationRoadmap from "./pages/research/ImplementationRoadmap";
 import LegalReport from "./pages/research/LegalReport";
-import StandaloneLegalReport from "./components/research/StandaloneLegalReport";
 
 const queryClient = new QueryClient();
 
