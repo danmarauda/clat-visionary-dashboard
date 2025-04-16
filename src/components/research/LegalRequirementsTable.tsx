@@ -8,7 +8,7 @@ import {
   TableRow,
   TableCell,
 } from "@/components/ui/table";
-import { CheckCircle2, XCircle, HelpCircle } from 'lucide-react';
+import { CheckCircle2, XCircle, HelpCircle, AlertTriangle } from 'lucide-react';
 
 interface Requirement {
   item: string;

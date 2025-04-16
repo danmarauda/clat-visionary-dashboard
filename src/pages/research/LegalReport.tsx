@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Scale, Gavel, AlertTriangle } from 'lucide-react';
+import { FileText, Scale, Gavel, AlertTriangle, Shield } from 'lucide-react';
 import { format } from 'date-fns';
 import GradientCard from '@/components/atoms/GradientCard';
 import LegalRequirementsTable from '@/components/research/LegalRequirementsTable';
@@ -42,7 +42,7 @@ const requirements = [
     mandated: true, 
     citation: "OHS Act 2004 s.74" 
   }
-] as const;
+];
 
 const LegalReport = () => {
   return (
@@ -74,12 +74,28 @@ const LegalReport = () => {
               </div>
               <h1 className="text-4xl font-light leading-tight tracking-wide">Victorian Court of Law</h1>
               <h2 className="text-4xl font-light leading-tight tracking-wide text-primary">Australia</h2>
-              <h3 className="text-2xl font-light mt-4">Victorian Construction Legislation Report</h3>
+              <h3 className="text-2xl font-light mt-4">RE: VOC Requirements for Portable Light Towers in Victoria</h3>
               <p className="text-muted-foreground mt-2">
                 {format(new Date(2025, 3, 16), 'EEEE, MMMM do yyyy')}
               </p>
             </div>
           </motion.div>
+
+          {/* Key Findings Alert */}
+          <GradientCard 
+            gradientColors={["from-red-500/20", "via-red-400/20", "to-red-300/20"]}
+            className="mb-8"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 rounded-lg bg-white/10">
+                <AlertTriangle className="h-5 w-5 text-red-400" />
+              </div>
+              <h2 className="text-xl font-semibold text-red-400">Key Finding</h2>
+            </div>
+            <p className="text-white/90 font-semibold text-lg mb-4">
+              There is <span className="text-red-400">NO specific legal requirement</span> under Victorian law for operators of portable light towers to hold VOC certification.
+            </p>
+          </GradientCard>
 
           {/* Requirements Table */}
           <GradientCard 
@@ -93,6 +109,26 @@ const LegalReport = () => {
               <h2 className="text-xl font-semibold">Legal Requirements</h2>
             </div>
             <LegalRequirementsTable requirements={requirements} />
+          </GradientCard>
+
+          {/* Penalties Alert */}
+          <GradientCard 
+            gradientColors={["from-orange-500/20", "via-red-400/20", "to-pink-300/20"]}
+            className="mb-8"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 rounded-lg bg-white/10">
+                <Shield className="h-5 w-5 text-orange-400" />
+              </div>
+              <h2 className="text-xl font-semibold text-orange-400">Penalties for Unlawful Industrial Action</h2>
+            </div>
+            <div className="space-y-4">
+              <p className="text-white/90">Unlawful industrial action can result in significant penalties:</p>
+              <ul className="list-disc list-inside space-y-2 text-white/90">
+                <li>Individual penalties: Up to <span className="text-orange-400 font-semibold">$19,800</span> per contravention</li>
+                <li>Union penalties: Up to <span className="text-orange-400 font-semibold">$99,000</span> per contravention</li>
+              </ul>
+            </div>
           </GradientCard>
 
           {/* Executive Summary */}
