@@ -56,6 +56,9 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route element={<Layout />}>
+              {/* Set LegalReport as the default route */}
+              <Route path="/" element={<LegalReport />} />
+              
               {/* Client Research Section */}
               <Route path="/research" element={<ClientResearch />} />
               <Route path="/research/legal-report" element={<LegalReport />} />
