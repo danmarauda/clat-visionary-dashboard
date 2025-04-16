@@ -7,6 +7,7 @@ import { useToast } from '@/hooks/use-toast';
 import GradientCard from '@/components/atoms/GradientCard';
 import LegalRequirementsTable, { Requirement } from '@/components/research/LegalRequirementsTable';
 import html2pdf from 'html2pdf.js';
+import { Link } from 'react-router-dom';
 
 const requirements: Requirement[] = [
   { 
@@ -221,6 +222,22 @@ const LegalReport = () => {
     <div className="min-h-screen bg-black text-white">
       <div className="relative">
         <div id="legal-report" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="flex justify-between items-center mb-4">
+            <Link 
+              to="/research/legal-report/standalone"
+              className="text-primary hover:text-primary/80 underline"
+            >
+              View Standalone Report
+            </Link>
+            <Button
+              onClick={handleExportPDF}
+              size="lg"
+            >
+              <FileText className="mr-2 h-4 w-4" />
+              Export to PDF
+            </Button>
+          </div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -242,14 +259,6 @@ const LegalReport = () => {
                 <span>Document prepared to be upheld in Victorian court proceedings</span>
               </div>
             </div>
-            <Button
-              onClick={handleExportPDF}
-              className="fixed top-24 right-8 z-50"
-              size="lg"
-            >
-              <FileText className="mr-2 h-4 w-4" />
-              Export to PDF
-            </Button>
           </motion.div>
 
           <GradientCard 
