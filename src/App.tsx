@@ -26,6 +26,15 @@ import Concept3 from "./pages/Concept3";
 import Concept4 from "./pages/Concept4";
 import CopilotProvider from "./components/CopilotProvider";
 
+// Client Research Section
+import ClientResearchOverview from "./pages/research/ClientResearchOverview";
+import CompanyProfile from "./pages/research/CompanyProfile";
+import LeadershipAnalysis from "./pages/research/LeadershipAnalysis";
+import BusinessOperations from "./pages/research/BusinessOperations";
+import TechnologyEcosystem from "./pages/research/TechnologyEcosystem";
+import AutomationOpportunities from "./pages/research/AutomationOpportunities";
+import ImplementationRoadmap from "./pages/research/ImplementationRoadmap";
+
 const queryClient = new QueryClient();
 
 // Placeholder component for routes we haven't created detailed pages for yet
@@ -48,6 +57,17 @@ const App = () => (
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<Home />} />
+              
+              {/* Client Research Section */}
+              <Route path="/research" element={<ClientResearchOverview />} />
+              <Route path="/research/company-profile" element={<CompanyProfile />} />
+              <Route path="/research/leadership-analysis" element={<LeadershipAnalysis />} />
+              <Route path="/research/business-operations" element={<BusinessOperations />} />
+              <Route path="/research/technology-ecosystem" element={<TechnologyEcosystem />} />
+              <Route path="/research/automation-opportunities" element={<AutomationOpportunities />} />
+              <Route path="/research/implementation-roadmap" element={<ImplementationRoadmap />} />
+              
+              {/* Proposal Section */}
               <Route path="/executive-summary" element={<ExecutiveSummary />} />
               <Route path="/current-landscape" element={<CurrentLandscape />} />
               <Route path="/dashboard" element={<Dashboard />} />
