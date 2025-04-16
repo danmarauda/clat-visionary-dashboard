@@ -4,6 +4,7 @@ import { FileText, Scale, Gavel, AlertTriangle, Shield, CheckCircle2, XCircle, H
 import { format } from 'date-fns';
 import GradientCard from '@/components/atoms/GradientCard';
 import LegalRequirementsTable, { Requirement } from '@/components/research/LegalRequirementsTable';
+import CitationPopover from '@/components/research/CitationPopover';
 
 const requirements: Requirement[] = [
   { 
