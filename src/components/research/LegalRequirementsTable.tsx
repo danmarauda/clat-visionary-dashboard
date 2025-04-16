@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   Table,
@@ -9,6 +8,7 @@ import {
   TableCell,
 } from "@/components/ui/table";
 import { CheckCircle2, XCircle, HelpCircle } from 'lucide-react';
+import CitationPopover from './CitationPopover';
 
 export interface Requirement {
   item: string;
@@ -63,14 +63,13 @@ const LegalRequirementsTable: React.FC<LegalRequirementsTableProps> = ({ require
                 </div>
               </TableCell>
               <TableCell className="text-white/70">
-                {req.link ? (
-                  <a href={req.link} target="_blank" rel="noopener noreferrer" 
-                     className="underline hover:text-primary transition-colors">
-                    {req.citation}
-                  </a>
-                ) : (
-                  req.citation
-                )}
+                <CitationPopover 
+                  citation={req.citation}
+                  legislation={req.legislation}
+                  link={req.link}
+                >
+                  {req.citation}
+                </CitationPopover>
               </TableCell>
               <TableCell className="text-white/70">
                 {req.legislation || '-'}

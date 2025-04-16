@@ -12,7 +12,7 @@ import { useCopilotState } from '@/hooks/useCopilotState';
 const Layout: React.FC = () => {
   const { showWelcome, closeWelcomeModal } = useWelcomeModal();
   const { isCopilotOpen } = useCopilotState();
-  const { isListening, toggleVoiceAssistant, processVoiceCommand } = useVoiceAssistant();
+  const { isListening, toggleVoiceAssistant } = useVoiceAssistant();
 
   return (
     <div className="min-h-screen bg-background text-foreground flex">
@@ -20,17 +20,11 @@ const Layout: React.FC = () => {
         "flex-1 flex flex-col transition-all duration-300",
         isCopilotOpen ? "mr-[320px]" : "mr-0"
       )}>
-        <Navbar 
-          isCopilotOpen={isCopilotOpen}
-        />
-        
-        <div className="flex flex-1">
-          <main className="flex-1 pt-20 pb-12">
-            <div className="w-full px-6 mx-auto max-w-[1920px]">
-              <Outlet />
-            </div>
-          </main>
-        </div>
+        <main className="flex-1">
+          <div className="w-full px-6 mx-auto max-w-[1920px]">
+            <Outlet />
+          </div>
+        </main>
 
         <VoiceAssistantBar 
           isListening={isListening} 
