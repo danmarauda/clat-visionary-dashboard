@@ -218,9 +218,9 @@ const LegalReport = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-black text-white -mt-20 -mx-6">
+    <div className="min-h-screen bg-black text-white">
       <div className="relative">
-        <div id="legal-report" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+        <div id="legal-report" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
