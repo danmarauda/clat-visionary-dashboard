@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -27,13 +26,7 @@ import Concept4 from "./pages/Concept4";
 import CopilotProvider from "./components/CopilotProvider";
 
 // Client Research Section
-import ClientResearchOverview from "./pages/research/ClientResearchOverview";
-import CompanyProfile from "./pages/research/CompanyProfile";
-import LeadershipAnalysis from "./pages/research/LeadershipAnalysis";
-import BusinessOperations from "./pages/research/BusinessOperations";
-import TechnologyEcosystem from "./pages/research/TechnologyEcosystem";
-import AutomationOpportunities from "./pages/research/AutomationOpportunities";
-import ImplementationRoadmap from "./pages/research/ImplementationRoadmap";
+import ClientResearch from "./pages/research/ClientResearch";
 
 const queryClient = new QueryClient();
 
@@ -59,13 +52,7 @@ const App = () => (
               <Route path="/" element={<Home />} />
               
               {/* Client Research Section */}
-              <Route path="/research" element={<ClientResearchOverview />} />
-              <Route path="/research/company-profile" element={<CompanyProfile />} />
-              <Route path="/research/leadership-analysis" element={<LeadershipAnalysis />} />
-              <Route path="/research/business-operations" element={<BusinessOperations />} />
-              <Route path="/research/technology-ecosystem" element={<TechnologyEcosystem />} />
-              <Route path="/research/automation-opportunities" element={<AutomationOpportunities />} />
-              <Route path="/research/implementation-roadmap" element={<ImplementationRoadmap />} />
+              <Route path="/research" element={<ClientResearch />} />
               
               {/* Proposal Section */}
               <Route path="/executive-summary" element={<ExecutiveSummary />} />
