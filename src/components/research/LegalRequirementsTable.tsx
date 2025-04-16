@@ -8,12 +8,14 @@ import {
   TableRow,
   TableCell,
 } from "@/components/ui/table";
-import { CheckCircle2, XCircle, HelpCircle, AlertTriangle } from 'lucide-react';
+import { CheckCircle2, XCircle, HelpCircle } from 'lucide-react';
 
-interface Requirement {
+export interface Requirement {
   item: string;
   mandated: boolean | 'maybe';
   citation: string;
+  legislation?: string;
+  link?: string;
 }
 
 interface LegalRequirementsTableProps {
@@ -36,6 +38,7 @@ const LegalRequirementsTable: React.FC<LegalRequirementsTableProps> = ({ require
             <TableHead className="text-white font-semibold">Requirement</TableHead>
             <TableHead className="text-white font-semibold">Mandated by Law?</TableHead>
             <TableHead className="text-white font-semibold">Citation/Authority</TableHead>
+            <TableHead className="text-white font-semibold">Legislation</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -59,7 +62,19 @@ const LegalRequirementsTable: React.FC<LegalRequirementsTableProps> = ({ require
                   </span>
                 </div>
               </TableCell>
-              <TableCell className="text-white/70">{req.citation}</TableCell>
+              <TableCell className="text-white/70">
+                {req.link ? (
+                  <a href={req.link} target="_blank" rel="noopener noreferrer" 
+                     className="underline hover:text-primary transition-colors">
+                    {req.citation}
+                  </a>
+                ) : (
+                  req.citation
+                )}
+              </TableCell>
+              <TableCell className="text-white/70">
+                {req.legislation || '-'}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
