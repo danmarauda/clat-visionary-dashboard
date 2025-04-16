@@ -56,8 +56,6 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route element={<Layout />}>
-              <Route path="/" element={<Home />} />
-              
               {/* Client Research Section */}
               <Route path="/research" element={<ClientResearch />} />
               <Route path="/research/legal-report" element={<LegalReport />} />
