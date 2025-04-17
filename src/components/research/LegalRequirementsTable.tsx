@@ -8,7 +8,7 @@ import {
   TableRow,
   TableCell,
 } from "@/components/ui/table";
-import { CheckCircle2, XCircle, HelpCircle } from 'lucide-react';
+import { CheckCircle2, XCircle, HelpCircle, ExternalLink } from 'lucide-react';
 
 export interface Requirement {
   item: string;
@@ -68,9 +68,21 @@ const LegalRequirementsTable: React.FC<LegalRequirementsTableProps> = ({ require
                 </div>
               </TableCell>
               <TableCell>
-                <span className="text-[#8B5CF6] font-semibold tracking-wide">
-                  {req.citation}
-                </span>
+                {req.link ? (
+                  <a 
+                    href={req.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#8B5CF6] font-semibold tracking-wide hover:text-[#9D70F9] flex items-center gap-1 group"
+                  >
+                    {req.citation}
+                    <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </a>
+                ) : (
+                  <span className="text-[#8B5CF6] font-semibold tracking-wide">
+                    {req.citation}
+                  </span>
+                )}
               </TableCell>
               <TableCell className="text-white/70">
                 {req.legislation || 'Not specified'}

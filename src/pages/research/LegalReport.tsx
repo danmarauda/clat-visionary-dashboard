@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Scale, Gavel, AlertTriangle, Shield, CheckCircle2, XCircle, HelpCircle, BookOpen, FileCheck } from 'lucide-react';
+import { FileText, Scale, Gavel, AlertTriangle, Shield, CheckCircle2, XCircle, HelpCircle, BookOpen, FileCheck, ExternalLink } from 'lucide-react';
 import { format } from 'date-fns';
 import GradientCard from '@/components/atoms/GradientCard';
 import LegalRequirementsTable, { Requirement } from '@/components/research/LegalRequirementsTable';
@@ -128,6 +128,23 @@ const legislationReferences = [
 ];
 
 const LegalReport = () => {
+  const renderCitation = (citation: string, link?: string) => {
+    if (link) {
+      return (
+        <a 
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#8B5CF6] font-semibold hover:text-[#9D70F9] flex items-center gap-1 inline-flex group"
+        >
+          <span>{citation}</span>
+          <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+        </a>
+      );
+    }
+    return <span className="text-[#8B5CF6] font-semibold">{citation}</span>;
+  };
+
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden -mt-20 -mx-6">
       <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
@@ -181,9 +198,10 @@ const LegalReport = () => {
             </p>
             <p className="text-white/70 text-sm">
               <span className="font-semibold text-[#8B5CF6]">Citation: </span>
-              <span className="text-[#8B5CF6]">
-                Occupational Health and Safety Regulations 2017 (Vic), Schedule 3 (High Risk Work Licence Classes)
-              </span>
+              {renderCitation(
+                "Occupational Health and Safety Regulations 2017 (Vic), Schedule 3 (High Risk Work Licence Classes)",
+                "https://www.legislation.vic.gov.au/in-force/statutory-rules/occupational-health-and-safety-regulations-2017/024"
+              )}
             </p>
           </GradientCard>
 
@@ -269,7 +287,7 @@ const LegalReport = () => {
                   <p className="text-white/70">{penalty.description}</p>
                   <p className="text-sm text-white/60">
                     <span className="font-semibold text-[#8B5CF6]">Citation: </span>
-                    <span className="text-[#8B5CF6]">{penalty.citation}</span>
+                    {renderCitation(penalty.citation, penalty.link)}
                   </p>
                 </div>
               ))}
@@ -407,9 +425,10 @@ const LegalReport = () => {
                           href={section.link} 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="text-sm text-primary/80 underline hover:text-primary"
+                          className="text-sm text-[#8B5CF6] hover:text-[#9D70F9] inline-flex items-center gap-1 group"
                         >
-                          [View Legislation]
+                          <span>[View Legislation]</span>
+                          <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                         </a>
                       </div>
                     </div>
