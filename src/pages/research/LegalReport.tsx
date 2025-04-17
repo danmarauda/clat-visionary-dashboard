@@ -4,7 +4,6 @@ import { FileText, Scale, Gavel, AlertTriangle, Shield, CheckCircle2, XCircle, H
 import { format } from 'date-fns';
 import GradientCard from '@/components/atoms/GradientCard';
 import LegalRequirementsTable, { Requirement } from '@/components/research/LegalRequirementsTable';
-import CitationPopover from '@/components/research/CitationPopover';
 
 const requirements: Requirement[] = [
   { 
@@ -181,14 +180,10 @@ const LegalReport = () => {
               There is <span className="text-red-400 font-bold">NO specific legal requirement</span> under Victorian law for operators of portable light towers to hold VOC certification.
             </p>
             <p className="text-white/70 text-sm">
-              <span className="font-semibold">Citation: </span>
-              <CitationPopover 
-                citation="Occupational Health and Safety Regulations 2017 (Vic), Schedule 3 (High Risk Work Licence Classes)"
-                link="https://www.legislation.vic.gov.au/in-force/statutory-rules/occupational-health-and-safety-regulations-2017/024"
-                color="rgb(239 68 68)"
-              >
-                OHS Regulations 2017, Schedule 3
-              </CitationPopover>
+              <span className="font-semibold text-[#8B5CF6]">Citation: </span>
+              <span className="text-[#8B5CF6]">
+                Occupational Health and Safety Regulations 2017 (Vic), Schedule 3 (High Risk Work Licence Classes)
+              </span>
             </p>
           </GradientCard>
 
@@ -273,14 +268,8 @@ const LegalReport = () => {
                   <p className="text-3xl font-bold text-orange-400">{penalty.amount}</p>
                   <p className="text-white/70">{penalty.description}</p>
                   <p className="text-sm text-white/60">
-                    Citation: {' '}
-                    <CitationPopover 
-                      citation={penalty.citation}
-                      link={penalty.link}
-                      color="rgb(249 115 22)"
-                    >
-                      {penalty.citation}
-                    </CitationPopover>
+                    <span className="font-semibold text-[#8B5CF6]">Citation: </span>
+                    <span className="text-[#8B5CF6]">{penalty.citation}</span>
                   </p>
                 </div>
               ))}
