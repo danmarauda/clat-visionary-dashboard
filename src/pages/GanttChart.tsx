@@ -265,9 +265,9 @@ const GanttChartPage: React.FC = () => {
               <CheckCircle2 className="mr-1 h-3.5 w-3.5" />
               Gantt Chart View
             </div>
-            <h1 className="text-4xl font-bold">Delivery Timeline</h1>
+            <h1 className="text-4xl font-bold">Gantt Chart</h1>
             <p className="text-lg text-muted-foreground">
-              A comprehensive implementation plan visualized as a Gantt chart to track project phases and milestones.
+              Visual project timeline with detailed task dependencies and milestones for éclatOS implementation.
             </p>
           </motion.div>
         </div>
@@ -299,7 +299,7 @@ const GanttChartPage: React.FC = () => {
             className="group inline-flex items-center gap-2 text-primary font-medium hover:underline"
           >
             <ArrowRight className="h-4 w-4 rotate-180 transition-transform group-hover:-translate-x-1" />
-            Previous: Timeline View
+            Previous: Budget
           </a>
           <a 
             href="/team" 
