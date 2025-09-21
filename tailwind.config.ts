@@ -114,14 +114,6 @@ export default {
         "infinite-slider": {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(calc(-100% - 2.5rem))' }
-        },
-        "star-movement-top": {
-          "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(90%)" }
-        },
-        "star-movement-bottom": {
-          "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-90%)" }
         }
       },
       animation: {
@@ -133,9 +125,7 @@ export default {
         slideInRight: "slideInRight 0.6s ease-out forwards",
         pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         float: "float 3s ease-in-out infinite",
-        "infinite-slider": "infinite-slider 25s linear infinite",
-        "star-movement-top": "star-movement-top 6s linear infinite",
-        "star-movement-bottom": "star-movement-bottom 6s linear infinite"
+        "infinite-slider": "infinite-slider 25s linear infinite"
       }
     }
   },
