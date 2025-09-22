@@ -3,6 +3,8 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Bell, Settings, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { UIScaleControl } from './ui/ui-scale-control';
+import { useUIScale } from '@/lib/ui-scale-context';
 
 interface NavbarProps {
   sidebarCollapsed: boolean;
@@ -12,6 +14,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ sidebarCollapsed, isCopilotOpen = false }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { scale, setScale } = useUIScale();
   
   // Determine which module badge to show based on current route
   const getModuleBadge = () => {
@@ -80,6 +83,11 @@ const Navbar: React.FC<NavbarProps> = ({ sidebarCollapsed, isCopilotOpen = false
       </div>
       
       <div className="flex items-center gap-2">
+        <UIScaleControl
+          onScaleChange={setScale}
+          currentScale={scale}
+        />
+
         <button
           className="flex items-center justify-center rounded-full p-2 hover:bg-accent/10 transition-colors"
           aria-label="Notifications"

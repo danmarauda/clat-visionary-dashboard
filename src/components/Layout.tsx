@@ -39,8 +39,8 @@ const Layout: React.FC = () => {
       
       <div className={cn(
         "flex-1 flex flex-col transition-all duration-300",
-        isCollapsed ? "ml-[70px]" : "ml-[280px]",
-        isCopilotOpen ? "mr-[320px]" : "mr-0"
+        isCollapsed ? "ml-[60px]" : "ml-[240px]",
+        isCopilotOpen ? "mr-[280px]" : "mr-0"
       )}>
         <Navbar 
           sidebarCollapsed={isCollapsed}
@@ -48,16 +48,16 @@ const Layout: React.FC = () => {
         />
         
         <div className="flex flex-1">
-          <main className="flex-1 pt-20 pb-12">
-            <div className="w-full px-6 mx-auto max-w-[1920px]">
+          <main className="flex-1 pt-16 pb-8">
+            <div className="w-full px-4 mx-auto max-w-[1920px]">
               <Outlet />
             </div>
           </main>
         </div>
 
         <VoiceAssistantBar 
-          isListening={isListening} 
-          toggleVoiceAssistant={toggleVoiceAssistant}
+          isListening={false}
+          toggleVoiceAssistant={() => {}}
           openCopilot={() => {
             // Dispatch the toggle event to show/hide the copilot
             const event = new CustomEvent('toggle-copilot');
