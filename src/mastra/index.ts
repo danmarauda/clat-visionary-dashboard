@@ -6,9 +6,9 @@ import { ConsoleLogger, LogLevel } from "@mastra/core/logger";
 const LOG_LEVEL = process.env.LOG_LEVEL as LogLevel || "info";
 
 export const mastra = new Mastra({
-  agents: {
+  agents: canvasAgent ? {
     "sample_agent": canvasAgent,
-  },
+  } : {},
   storage: new LibSQLStore({
     url: ":memory:"
   }),

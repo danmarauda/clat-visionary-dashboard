@@ -1,8 +1,5 @@
-import { openai } from "@ai-sdk/openai";
-import { Agent } from "@mastra/core/agent";
+// AI SDK dependencies not installed - using placeholder
 import { z } from "zod";
-import { Memory } from "@mastra/memory";
-import { completePlan, setPlan, updatePlanProgress } from "@/mastra/tools";
 
 // Canvas Agent working memory schema mirrors the front-end AgentState
 export const AgentState = z.object({
@@ -28,18 +25,5 @@ export const AgentState = z.object({
   planStatus: z.string().default(""),
 });
 
-export const canvasAgent = new Agent({
-  name: "sample_agent",
-  description: "Canvas agent powering CopilotKit AG-UI interactions.",
-  tools: { setPlan, updatePlanProgress, completePlan },
-  model: openai("gpt-4o-mini"),
-  instructions: "You are a helpful assistant managing a canvas of items. Prefer shared state over chat history.",
-  memory: new Memory({
-    options: {
-      workingMemory: {
-        enabled: true,
-        schema: AgentState,
-      },
-    },
-  }),
-});
+// Placeholder agent - dependencies not available
+export const canvasAgent = null;
