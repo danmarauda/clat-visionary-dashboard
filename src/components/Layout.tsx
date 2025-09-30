@@ -48,9 +48,9 @@ const Layout: React.FC = () => {
           isCopilotOpen={isCopilotOpen}
         />
         
-        <div className="flex flex-1">
-          <main className="flex-1 pt-16 pb-20 md:pb-8">
-            <div className="w-full px-3 sm:px-4 md:px-6 mx-auto max-w-[1920px]">
+        <div className="flex flex-1 overflow-x-hidden">
+          <main className="flex-1 pt-16 pb-20 md:pb-8 w-full">
+            <div className="w-full max-w-[1920px] px-3 sm:px-4 md:px-6 mx-auto overflow-x-hidden">
               <Outlet />
             </div>
           </main>
