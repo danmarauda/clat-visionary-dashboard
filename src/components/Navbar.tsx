@@ -73,40 +73,43 @@ const Navbar: React.FC<NavbarProps> = ({ sidebarCollapsed, isCopilotOpen = false
   return (
     <div 
       className={cn(
-        "fixed top-0 z-40 flex items-center justify-between h-16 transition-all duration-300 px-4 glass",
-        sidebarCollapsed ? "left-[70px]" : "left-[280px]",
-        isCopilotOpen ? "right-[320px]" : "right-0"
+        "fixed top-0 z-40 flex items-center justify-between h-16 transition-all duration-300 px-3 sm:px-4 glass",
+        "left-0 md:left-[70px] lg:left-[280px]",
+        sidebarCollapsed ? "md:left-[70px]" : "md:left-[280px]",
+        isCopilotOpen ? "right-0 lg:right-[320px]" : "right-0"
       )}
     >
       <div className="flex-1 flex justify-center">
         {getModuleBadge()}
       </div>
       
-      <div className="flex items-center gap-2">
-        <UIScaleControl
-          onScaleChange={setScale}
-          currentScale={scale}
-        />
+      <div className="flex items-center gap-1 sm:gap-2">
+        <div className="hidden sm:block">
+          <UIScaleControl
+            onScaleChange={setScale}
+            currentScale={scale}
+          />
+        </div>
 
         <button
           className="flex items-center justify-center rounded-full p-2 hover:bg-accent/10 transition-colors"
           aria-label="Notifications"
         >
-          <Bell className="h-5 w-5" />
+          <Bell className="h-4 w-4 sm:h-5 sm:w-5" />
         </button>
 
         <button
           className="flex items-center justify-center rounded-full p-2 hover:bg-accent/10 transition-colors"
           aria-label="Settings"
         >
-          <Settings className="h-5 w-5" />
+          <Settings className="h-4 w-4 sm:h-5 sm:w-5" />
         </button>
 
         <button
           className="flex items-center justify-center rounded-full p-2 hover:bg-accent/10 transition-colors"
           aria-label="User profile"
         >
-          <User className="h-5 w-5" />
+          <User className="h-4 w-4 sm:h-5 sm:w-5" />
         </button>
       </div>
     </div>

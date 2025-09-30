@@ -39,8 +39,9 @@ const Layout: React.FC = () => {
       
       <div className={cn(
         "flex-1 flex flex-col transition-all duration-300",
-        isCollapsed ? "ml-[60px]" : "ml-[240px]",
-        isCopilotOpen ? "mr-[280px]" : "mr-0"
+        "ml-0 md:ml-[70px] lg:ml-[280px]",
+        isCollapsed ? "md:ml-[70px]" : "md:ml-[280px]",
+        isCopilotOpen ? "mr-0 lg:mr-[280px]" : "mr-0"
       )}>
         <Navbar 
           sidebarCollapsed={isCollapsed}
@@ -48,8 +49,8 @@ const Layout: React.FC = () => {
         />
         
         <div className="flex flex-1">
-          <main className="flex-1 pt-16 pb-8">
-            <div className="w-full px-4 mx-auto max-w-[1920px]">
+          <main className="flex-1 pt-16 pb-20 md:pb-8">
+            <div className="w-full px-3 sm:px-4 md:px-6 mx-auto max-w-[1920px]">
               <Outlet />
             </div>
           </main>

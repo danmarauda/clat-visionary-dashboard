@@ -56,9 +56,14 @@
   html {
     @apply scroll-smooth;
     font-size: var(--font-size-base);
-    transform: scale(var(--ui-scale, 0.875));
-    transform-origin: top left;
-    width: calc(100% / var(--ui-scale, 0.875));
+  }
+
+  @media (min-width: 768px) {
+    html {
+      transform: scale(var(--ui-scale, 0.875));
+      transform-origin: top left;
+      width: calc(100% / var(--ui-scale, 0.875));
+    }
   }
 
   /* Custom scrollbar */

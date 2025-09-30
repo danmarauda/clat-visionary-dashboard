@@ -59,10 +59,10 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
   };
 
   return (
-    <div className="fixed bottom-8 left-0 right-0 z-50 flex justify-center px-4">
+    <div className="fixed bottom-4 md:bottom-8 left-0 right-0 z-50 flex justify-center px-2 sm:px-4">
       <div className="relative w-full max-w-6xl">
         <motion.nav
-          className="flex items-center justify-between px-4 py-2 rounded-full glass shadow-lg"
+          className="flex items-center justify-between px-3 sm:px-4 py-2 rounded-full glass shadow-lg"
           layout
         >
           {/* Voice Assistant */}
@@ -73,7 +73,7 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
             <motion.button
               onClick={toggleVoiceAssistant}
               className={cn(
-                "relative flex items-center justify-center rounded-full p-2 transition-all",
+                "relative flex items-center justify-center rounded-full p-1.5 sm:p-2 transition-all",
                 isListening 
                   ? "bg-white/20 text-white" 
                   : "hover:bg-accent/10 text-foreground"
@@ -89,7 +89,7 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
                 ease: "easeInOut"
               } : {}}
             >
-              <Mic className="h-5 w-5" />
+              <Mic className="h-4 w-4 sm:h-5 sm:w-5" />
               {isListening && (
                 <motion.span 
                   className="absolute -top-8 whitespace-nowrap text-xs font-medium text-white bg-black/80 px-2 py-1 rounded-md"
@@ -138,11 +138,11 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
             {/* Copilot Button */}
             <button
               onClick={openCopilot}
-              className="rounded-full p-2 text-foreground hover:bg-accent/10 transition-all hidden sm:flex items-center gap-1.5"
+              className="rounded-full p-1.5 sm:p-2 text-foreground hover:bg-accent/10 transition-all flex items-center gap-1.5"
               aria-label="Toggle Copilot"
             >
-              <Bot className="h-5 w-5" />
-              <span className="text-sm font-medium">Copilot</span>
+              <Bot className="h-4 w-4 sm:h-5 sm:w-5" />
+              <span className="text-xs sm:text-sm font-medium hidden sm:inline">Copilot</span>
             </button>
 
             {/* Mobile Menu Toggle */}
