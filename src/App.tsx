@@ -53,8 +53,8 @@ const App = () => (
       <UIScaleProvider>
         <Toaster />
         <Sonner />
-        <CopilotProvider>
-          <BrowserRouter>
+        <BrowserRouter>
+          <CopilotProvider>
             <Routes>
               <Route element={<Layout />}>
                 <Route path="/" element={<Home />} />
@@ -118,8 +118,8 @@ const App = () => (
               {/* 404 route */}
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </BrowserRouter>
-        </CopilotProvider>
+          </CopilotProvider>
+        </BrowserRouter>
       </UIScaleProvider>
     </TooltipProvider>
   </QueryClientProvider>
