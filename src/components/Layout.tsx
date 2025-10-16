@@ -16,10 +16,10 @@ const Layout: React.FC = () => {
 
   useEffect(() => {
     // Check if this is the first visit
-    const hasVisited = localStorage.getItem('eclat_has_visited');
+    const hasVisited = localStorage.getItem('alias_has_visited');
     if (!hasVisited) {
       setShowWelcome(true);
-      localStorage.setItem('eclat_has_visited', 'true');
+      localStorage.setItem('alias_has_visited', 'true');
     }
     
     // Listen for custom events to detect copilot state

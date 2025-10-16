@@ -10,7 +10,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import UserProfileButton from './UserProfileButton';
-import EclatLogo from './EclatLogo';
+import AliasLogo from './AliasLogo';
 
 const navCategories = [
   {
@@ -26,7 +26,7 @@ const navCategories = [
     ]
   },
   {
-    category: "ÉCLAT OS MODULES",
+    category: "ALIAS HQ MODULES",
     items: [
       { id: 'building-os', name: 'buildingOS', path: '/building-os', icon: Building },
       { id: 'hospitality-os', name: 'hospitalityOS', path: '/hospitality-os', icon: Coffee },
@@ -99,8 +99,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
           <div className="flex h-16 items-center justify-between px-4">
             {!isCollapsed && (
               <div className="flex items-center gap-2">
-                <EclatLogo size="small" variant="light" />
-                <span className="text-lg font-semibold text-foreground animate-fadeIn">éclatOS</span>
+                <AliasLogo size="small" variant="light" />
+                <span className="text-lg font-semibold text-foreground animate-fadeIn">ALIAS HQ</span>
               </div>
             )}
             <button

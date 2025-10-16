@@ -7,10 +7,10 @@ const Home = () => {
   const [showWelcome, setShowWelcome] = useState(false);
   
   useEffect(() => {
-    const hasVisited = localStorage.getItem('eclat_has_visited');
+    const hasVisited = localStorage.getItem('alias_has_visited');
     if (!hasVisited) {
       setShowWelcome(true);
-      localStorage.setItem('eclat_has_visited', 'true');
+      localStorage.setItem('alias_has_visited', 'true');
     }
   }, []);
 
@@ -61,9 +61,9 @@ const Home = () => {
       {showWelcome && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
           <div className="bg-card border border-border max-w-lg w-full rounded-xl shadow-lg p-4 sm:p-6 animate-fade-in">
-            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Welcome to the Client Portal</h2>
+            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Welcome to ALIAS HQ</h2>
             <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6">
-              This platform provides a comprehensive view of our research findings and solution proposal. You can review the content and provide feedback to ensure accuracy.
+              Your online hub for collaboration, research insights, and tailored solutions. Connect with clients, customers, and consultants all in one place.
             </p>
             <button 
               onClick={handleStartTour}
@@ -76,9 +76,9 @@ const Home = () => {
       )}
 
       <div className="flex flex-col items-center text-center py-4 sm:py-8 space-y-3 sm:space-y-4">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">Client Portal</h1>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">ALIAS HQ</h1>
         <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl px-4">
-          Comprehensive research and tailored automation solutions to transform your business operations.
+          Online Hub for Clients, Customers, and Consultants
         </p>
       </div>
 
