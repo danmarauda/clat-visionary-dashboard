@@ -34,6 +34,7 @@ import TechnologyEcosystem from "./pages/research/TechnologyEcosystem";
 import BusinessOperations from "./pages/research/BusinessOperations";
 import AutomationOpportunities from "./pages/research/AutomationOpportunities";
 import ImplementationRoadmap from "./pages/research/ImplementationRoadmap";
+import Settings from "./pages/Settings";
 
 const queryClient = new QueryClient();
 
@@ -106,7 +107,7 @@ const App = () => (
 
                 {/* Support */}
                 <Route path="/support" element={<PlaceholderPage title="Support" />} />
-                <Route path="/settings" element={<PlaceholderPage title="Settings" />} />
+                <Route path="/settings" element={<Settings />} />
 
                 {/* Other pages */}
                 <Route path="/testimonials" element={<PlaceholderPage title="Testimonials" />} />

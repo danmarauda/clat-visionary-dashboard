@@ -2,8 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FileText, BarChart3, Compass, FlaskConical, Building, Users, GanttChart, ArrowRight } from 'lucide-react';
+import { useClientConfig } from '@/contexts/ClientConfigContext';
 
 const Home = () => {
+  const { config } = useClientConfig();
   const [showWelcome, setShowWelcome] = useState(false);
   
   useEffect(() => {
@@ -61,9 +63,9 @@ const Home = () => {
       {showWelcome && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
           <div className="bg-card border border-border max-w-lg w-full rounded-xl shadow-lg p-6 animate-fade-in">
-            <h2 className="text-2xl font-bold mb-4">Welcome to ALIAS HQ</h2>
+            <h2 className="text-2xl font-bold mb-4">Welcome to {config.branding.companyName}</h2>
             <p className="text-muted-foreground mb-6">
-              Your online hub for collaboration, research insights, and tailored solutions. Connect with clients, customers, and consultants all in one place.
+              {config.branding.tagline}
             </p>
             <button 
               onClick={handleStartTour}
@@ -76,9 +78,9 @@ const Home = () => {
       )}
 
       <div className="flex flex-col items-center text-center py-8 space-y-4 mb-8">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">ALIAS HQ</h1>
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">{config.branding.companyName}</h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl">
-          Online Hub for Clients, Customers, and Consultants
+          {config.branding.tagline}
         </p>
       </div>
 

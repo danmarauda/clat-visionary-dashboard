@@ -2,12 +2,14 @@
 import React, { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useClientConfig } from '@/contexts/ClientConfigContext';
 
 interface WelcomeModalProps {
   onClose: () => void;
 }
 
 const WelcomeModal: React.FC<WelcomeModalProps> = ({ onClose }) => {
+  const { config } = useClientConfig();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -40,7 +42,7 @@ const WelcomeModal: React.FC<WelcomeModalProps> = ({ onClose }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-semibold text-gradient">Welcome to ALIAS HQ</h2>
+          <h2 className="text-2xl font-semibold text-gradient">Welcome to {config.branding.companyName}</h2>
           <button 
             onClick={handleClose}
             className="h-8 w-8 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
@@ -52,7 +54,7 @@ const WelcomeModal: React.FC<WelcomeModalProps> = ({ onClose }) => {
         
         <div className="space-y-4">
           <p className="text-muted-foreground">
-            ALIAS HQ is your centralized online hub connecting clients, customers, and consultants with powerful collaboration and insights.
+            {config.branding.tagline}
           </p>
           
           <div className="rounded-xl bg-primary/10 p-4 border border-primary/20">

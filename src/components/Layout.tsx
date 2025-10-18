@@ -8,6 +8,7 @@ import CopilotSidebar from './CopilotSidebar';
 import WelcomeModal from './WelcomeModal';
 import { cn } from '@/lib/utils';
 import useVoiceAssistant from '@/hooks/useVoiceAssistant';
+import { ClientConfigProvider } from '@/contexts/ClientConfigContext';
 
 const Layout: React.FC = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -35,41 +36,43 @@ const Layout: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen max-h-screen bg-background text-foreground flex overflow-hidden w-screen">
-      <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
-      
-      <div className={cn(
-        "flex-1 flex flex-col transition-all duration-300 min-h-screen max-h-screen overflow-hidden",
-        isCollapsed ? "md:ml-[70px]" : "md:ml-[280px]",
-        isCopilotOpen ? "mr-0 lg:mr-[320px]" : "mr-0"
-      )}>
-        <Navbar 
-          sidebarCollapsed={isCollapsed}
-          isCopilotOpen={isCopilotOpen}
-        />
+    <ClientConfigProvider>
+      <div className="min-h-screen max-h-screen bg-background text-foreground flex overflow-hidden w-screen">
+        <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
         
-        <main className="flex-1 overflow-y-auto overflow-x-hidden pt-16 pb-28 md:pb-24">
-          <div className="w-full h-full px-4 sm:px-6 md:px-8 lg:px-12">
-            <Outlet />
-          </div>
-        </main>
+        <div className={cn(
+          "flex-1 flex flex-col transition-all duration-300 min-h-screen max-h-screen overflow-hidden",
+          isCollapsed ? "md:ml-[70px]" : "md:ml-[280px]",
+          isCopilotOpen ? "mr-0 lg:mr-[320px]" : "mr-0"
+        )}>
+          <Navbar 
+            sidebarCollapsed={isCollapsed}
+            isCopilotOpen={isCopilotOpen}
+          />
+          
+          <main className="flex-1 overflow-y-auto overflow-x-hidden pt-16 pb-28 md:pb-24">
+            <div className="w-full h-full px-4 sm:px-6 md:px-8 lg:px-12">
+              <Outlet />
+            </div>
+          </main>
 
-        <VoiceAssistantBar 
+          <VoiceAssistantBar 
+            isListening={isListening}
+            toggleVoiceAssistant={toggleVoiceAssistant}
+            openCopilot={() => setIsCopilotOpen(!isCopilotOpen)}
+          />
+        </div>
+
+        <CopilotSidebar
+          isOpen={isCopilotOpen}
+          onClose={() => setIsCopilotOpen(false)}
           isListening={isListening}
           toggleVoiceAssistant={toggleVoiceAssistant}
-          openCopilot={() => setIsCopilotOpen(!isCopilotOpen)}
         />
+
+        {showWelcome && <WelcomeModal onClose={() => setShowWelcome(false)} />}
       </div>
-
-      <CopilotSidebar
-        isOpen={isCopilotOpen}
-        onClose={() => setIsCopilotOpen(false)}
-        isListening={isListening}
-        toggleVoiceAssistant={toggleVoiceAssistant}
-      />
-
-      {showWelcome && <WelcomeModal onClose={() => setShowWelcome(false)} />}
-    </div>
+    </ClientConfigProvider>
   );
 };
 

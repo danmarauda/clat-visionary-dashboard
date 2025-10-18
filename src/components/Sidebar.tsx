@@ -11,6 +11,7 @@ import {
 import { cn } from '@/lib/utils';
 import UserProfileButton from './UserProfileButton';
 import AliasLogo from './AliasLogo';
+import { useClientConfig } from '@/contexts/ClientConfigContext';
 
 const navCategories = [
   {
@@ -77,6 +78,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [mounted, setMounted] = useState(false);
+  const { config } = useClientConfig();
 
   useEffect(() => {
     setMounted(true);
@@ -85,6 +87,26 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
   if (!mounted) return null;
 
   const currentPath = location.pathname;
+
+  // Filter categories based on config
+  const filteredCategories = navCategories.filter(category => {
+    const categoryKey = category.category.toLowerCase().replace(/\s+/g, '');
+    if (categoryKey === 'research') return config.modules.research.enabled;
+    if (categoryKey === 'aliashqmodules') return config.modules.aliasHQModules.enabled;
+    if (categoryKey === 'businessunits') return config.modules.businessUnits.enabled;
+    if (categoryKey === 'concepts') return config.modules.concepts.enabled;
+    return true; // Always show SUPPORT
+  });
+
+  // Get custom labels
+  const getCategoryLabel = (category: string) => {
+    const categoryKey = category.toLowerCase().replace(/\s+/g, '');
+    if (categoryKey === 'research') return config.modules.research.label;
+    if (categoryKey === 'aliashqmodules') return config.modules.aliasHQModules.label;
+    if (categoryKey === 'businessunits') return config.modules.businessUnits.label;
+    if (categoryKey === 'concepts') return config.modules.concepts.label;
+    return category;
+  };
 
   return (
     <aside 
@@ -99,8 +121,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
           <div className="flex h-16 items-center justify-between px-4">
             {!isCollapsed && (
               <div className="flex items-center gap-2">
-                <AliasLogo size="small" variant="light" />
-                <span className="text-lg font-semibold text-foreground animate-fadeIn">ALIAS HQ</span>
+                <AliasLogo size="small" variant="light" customLogoUrl={config.branding.logoUrl} />
+                <span className="text-lg font-semibold text-foreground animate-fadeIn">{config.branding.companyName}</span>
               </div>
             )}
             <button
@@ -117,12 +139,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
           </div>
 
           <div className="scrollbar-none flex-1 overflow-y-auto py-4">
-            {navCategories.map((category, categoryIndex) => (
+            {filteredCategories.map((category, categoryIndex) => (
               <div key={categoryIndex} className="mb-6">
                 {!isCollapsed && (
                   <div className="px-4 mb-2">
                     <p className="text-xs font-medium text-muted-foreground tracking-wider">
-                      {category.category}
+                      {getCategoryLabel(category.category)}
                     </p>
                   </div>
                 )}
@@ -154,7 +176,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
 
         {!isCollapsed && (
           <div className="p-4 mx-2 mb-4">
-            <UserProfileButton userName="Jesse Hayes" userRole="Founder/Director" />
+            <UserProfileButton userName={config.defaultUser.name} userRole={config.defaultUser.role} />
           </div>
         )}
       </div>

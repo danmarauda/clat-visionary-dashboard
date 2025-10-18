@@ -6,12 +6,14 @@ interface AliasLogoProps {
   size?: "small" | "medium" | "large";
   variant?: "light" | "dark";
   className?: string;
+  customLogoUrl?: string;
 }
 
 const AliasLogo: React.FC<AliasLogoProps> = ({ 
   size = "medium", 
   variant = "light",
-  className
+  className,
+  customLogoUrl
 }) => {
   const getSize = () => {
     switch (size) {
@@ -24,6 +26,18 @@ const AliasLogo: React.FC<AliasLogoProps> = ({
   const sizeClasses = getSize();
   const isLight = variant === "light";
   
+  // If custom logo URL is provided, render image
+  if (customLogoUrl) {
+    return (
+      <img 
+        src={customLogoUrl}
+        alt="Logo"
+        className={cn(sizeClasses, "object-contain", className)}
+      />
+    );
+  }
+  
+  // Otherwise render letter logo
   return (
     <div 
       className={cn(
