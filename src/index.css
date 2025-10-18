@@ -58,14 +58,6 @@
     font-size: var(--font-size-base);
   }
 
-  @media (min-width: 768px) {
-    html {
-      transform: scale(var(--ui-scale, 0.875));
-      transform-origin: top left;
-      width: calc(100% / var(--ui-scale, 0.875));
-    }
-  }
-
   /* Custom scrollbar */
   ::-webkit-scrollbar {
     @apply w-1;

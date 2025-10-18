@@ -59,10 +59,10 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
   };
 
   return (
-    <div className="fixed bottom-4 md:bottom-8 left-0 right-0 z-50 flex justify-center px-2 sm:px-4">
-      <div className="relative w-full max-w-6xl">
+    <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+      <div className="w-full max-w-full">
         <motion.nav
-          className="flex items-center justify-between px-3 sm:px-4 py-2 rounded-full glass shadow-lg"
+          className="flex items-center justify-between px-4 py-2 md:py-2.5"
           layout
         >
           {/* Voice Assistant */}
@@ -107,26 +107,23 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1 overflow-x-auto max-w-3xl scrollbar-none">
+          <div className="hidden md:flex items-center space-x-1 flex-1 overflow-x-auto scrollbar-none mx-4">
             <div className="flex items-center space-x-1">
-              {navItems.map((item) => {
+              {navItems.slice(0, 8).map((item) => {
                 const isActive = location.pathname === item.href;
-                const isHovered = hoveredItem === item.href;
                 return (
                   <Link
                     key={item.title}
                     to={item.href}
-                    onMouseEnter={() => setHoveredItem(item.href)}
-                    onMouseLeave={() => setHoveredItem(null)}
                     className={cn(
-                      "px-3 py-1.5 rounded-full text-sm transition-all duration-300 flex items-center gap-1.5 whitespace-nowrap",
-                      isActive || isHovered
+                      "p-2 rounded-lg text-sm transition-all duration-300 flex items-center justify-center",
+                      isActive
                         ? item.color
-                        : "text-muted-foreground hover:text-foreground hover:bg-gray-800/40"
+                        : "text-muted-foreground hover:text-foreground hover:bg-accent/10"
                     )}
+                    title={item.title}
                   >
                     {item.icon}
-                    {(isActive || isHovered) && <span>{item.title}</span>}
                   </Link>
                 );
               })}
@@ -135,24 +132,24 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
 
           {/* Actions on the right */}
           <div className="flex items-center gap-2">
-            {/* Copilot Button */}
+            {/* Copilot Button - Always visible */}
             <button
               onClick={openCopilot}
-              className="rounded-full p-1.5 sm:p-2 text-foreground hover:bg-accent/10 transition-all flex items-center gap-1.5"
+              className="p-2 text-foreground hover:bg-accent/10 transition-all flex items-center gap-2 rounded-lg"
               aria-label="Toggle Copilot"
             >
-              <Bot className="h-4 w-4 sm:h-5 sm:w-5" />
-              <span className="text-xs sm:text-sm font-medium hidden sm:inline">Copilot</span>
+              <Bot className="h-4 w-4" />
+              <span className="text-sm font-medium hidden lg:inline">Copilot</span>
             </button>
 
             {/* Mobile Menu Toggle */}
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden flex items-center justify-center w-9 h-9 rounded-full hover:bg-accent transition-colors"
+              className="md:hidden p-2 rounded-lg hover:bg-accent/10 transition-colors"
               aria-label="Toggle menu"
             >
-              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </button>
           </div>
         </motion.nav>
@@ -161,13 +158,13 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
+              exit={{ opacity: 0, y: 10 }}
               transition={{ duration: 0.2 }}
-              className="absolute bottom-full left-0 right-0 mb-2 p-2 rounded-xl neo-blur shadow-lg md:hidden"
+              className="absolute bottom-full left-0 right-0 border-t border-border/40 bg-background/95 backdrop-blur md:hidden"
             >
-              <div className="flex flex-col space-y-1 max-h-[70vh] overflow-y-auto">
+              <div className="flex flex-col space-y-1 max-h-[60vh] overflow-y-auto p-2">
                 {/* Copilot Button for Mobile */}
                 <button
                   onClick={() => {

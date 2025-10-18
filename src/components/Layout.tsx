@@ -34,33 +34,29 @@ const Layout: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex">
+    <div className="min-h-screen max-h-screen bg-background text-foreground flex overflow-hidden w-screen">
       <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
       
       <div className={cn(
-        "flex-1 flex flex-col transition-all duration-300",
-        "ml-0 md:ml-[70px] lg:ml-[280px]",
+        "flex-1 flex flex-col transition-all duration-300 min-h-screen max-h-screen overflow-hidden",
         isCollapsed ? "md:ml-[70px]" : "md:ml-[280px]",
-        isCopilotOpen ? "mr-0 lg:mr-[280px]" : "mr-0"
+        isCopilotOpen ? "mr-0 lg:mr-[400px]" : "mr-0"
       )}>
         <Navbar 
           sidebarCollapsed={isCollapsed}
           isCopilotOpen={isCopilotOpen}
         />
         
-        <div className="flex flex-1 overflow-x-hidden">
-          <main className="flex-1 pt-16 pb-20 md:pb-8 w-full">
-            <div className="w-full max-w-[1920px] px-3 sm:px-4 md:px-6 mx-auto overflow-x-hidden">
-              <Outlet />
-            </div>
-          </main>
-        </div>
+        <main className="flex-1 overflow-y-auto overflow-x-hidden pt-16 pb-24 md:pb-20">
+          <div className="w-full h-full px-4 sm:px-6 md:px-8 lg:px-12">
+            <Outlet />
+          </div>
+        </main>
 
         <VoiceAssistantBar 
           isListening={false}
           toggleVoiceAssistant={() => {}}
           openCopilot={() => {
-            // Dispatch the toggle event to show/hide the copilot
             const event = new CustomEvent('toggle-copilot');
             window.dispatchEvent(event);
           }}
