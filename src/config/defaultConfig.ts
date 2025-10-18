@@ -1,10 +1,10 @@
 import { ClientConfig } from './types';
 
 export const defaultConfig: ClientConfig = {
-  id: 'alias-hq-default',
+  id: 'client-portal-template',
   branding: {
-    companyName: 'ALIAS HQ',
-    tagline: 'Online Hub for Clients, Customers, and Consultants',
+    companyName: 'Your Company',
+    tagline: 'Client Portal - Configure in Settings',
     logoUrl: undefined,
     primaryColor: '#A855F7',
     accentColor: '#3B82F6'
@@ -47,9 +47,9 @@ export const defaultConfig: ClientConfig = {
     { id: 'concept-4', name: 'Concept 4', path: '/concept-4', icon: 'Lightbulb', category: 'concepts' },
   ],
   defaultUser: {
-    name: 'Jesse Hayes',
-    role: 'Founder/Director',
-    email: 'jesse@aliashq.com'
+    name: 'Admin User',
+    role: 'Administrator',
+    email: 'admin@example.com'
   },
-  activeClientId: 'alias-hq-default'
+  activeClientId: 'client-portal-template'
 };
