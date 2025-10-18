@@ -33,7 +33,7 @@ export interface ClientConfig {
   modules: {
     research: ModuleConfig;
     aliasHQModules: ModuleConfig;
-    businessUnits: ModuleConfig;
+    businessModules: ModuleConfig;
     concepts: ModuleConfig;
   };
   navigation: NavigationItem[];

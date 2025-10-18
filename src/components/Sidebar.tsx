@@ -92,8 +92,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
   const filteredCategories = navCategories.filter(category => {
     const categoryKey = category.category.toLowerCase().replace(/\s+/g, '');
     if (categoryKey === 'research') return config.modules.research.enabled;
-    if (categoryKey === 'aliashqmodules') return config.modules.aliasHQModules.enabled;
-    if (categoryKey === 'businessunits') return config.modules.businessUnits.enabled;
+    if (categoryKey === 'aliashqmodules' || categoryKey === 'aliasplatformmodules') return config.modules.aliasHQModules.enabled;
+    if (categoryKey === 'businessmodules') return config.modules.businessModules.enabled;
     if (categoryKey === 'concepts') return config.modules.concepts.enabled;
     return true; // Always show SUPPORT
   });
@@ -102,8 +102,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
   const getCategoryLabel = (category: string) => {
     const categoryKey = category.toLowerCase().replace(/\s+/g, '');
     if (categoryKey === 'research') return config.modules.research.label;
-    if (categoryKey === 'aliashqmodules') return config.modules.aliasHQModules.label;
-    if (categoryKey === 'businessunits') return config.modules.businessUnits.label;
+    if (categoryKey === 'aliashqmodules' || categoryKey === 'aliasplatformmodules') return config.modules.aliasHQModules.label;
+    if (categoryKey === 'businessmodules') return config.modules.businessModules.label;
     if (categoryKey === 'concepts') return config.modules.concepts.label;
     return category;
   };

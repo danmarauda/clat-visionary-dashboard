@@ -12,7 +12,7 @@ export const defaultConfig: ClientConfig = {
   modules: {
     research: { enabled: true, label: 'RESEARCH', order: 1 },
     aliasHQModules: { enabled: true, label: 'ALIAS Platform Modules', order: 2 },
-    businessUnits: { enabled: true, label: 'BUSINESS UNITS', order: 3 },
+    businessModules: { enabled: true, label: 'BUSINESS MODULES', order: 3 },
     concepts: { enabled: true, label: 'CONCEPTS', order: 4 }
   },
   navigation: [
@@ -31,14 +31,20 @@ export const defaultConfig: ClientConfig = {
     { id: 'gallery', name: 'Gallery', path: '/gallery', icon: 'Image', category: 'aliasHQModules' },
     { id: 'dashboard', name: 'Dashboard', path: '/dashboard', icon: 'LayoutDashboard', category: 'aliasHQModules' },
     
-    // BUSINESS UNITS
-    { id: 'analytics-os', name: 'Analytics OS', path: '/analytics-os', icon: 'TrendingUp', category: 'businessUnits' },
-    { id: 'building-os', name: 'Building OS', path: '/building-os', icon: 'Building', category: 'businessUnits' },
-    { id: 'community-os', name: 'Community OS', path: '/community-os', icon: 'Users', category: 'businessUnits' },
-    { id: 'design-os', name: 'Design OS', path: '/design-os', icon: 'Palette', category: 'businessUnits' },
-    { id: 'event-os', name: 'Event OS', path: '/event-os', icon: 'Calendar', category: 'businessUnits' },
-    { id: 'hospitality-os', name: 'Hospitality OS', path: '/hospitality-os', icon: 'Coffee', category: 'businessUnits' },
-    { id: 'workspace-os', name: 'Workspace OS', path: '/workspace-os', icon: 'Briefcase', category: 'businessUnits' },
+    // BUSINESS MODULES
+    { id: 'analytics', name: 'Analytics', path: '/analytics', icon: 'BarChart3', category: 'businessModules' },
+    { id: 'operations', name: 'Operations', path: '/operations', icon: 'Settings', category: 'businessModules' },
+    { id: 'engagement', name: 'Engagement', path: '/engagement', icon: 'Users', category: 'businessModules' },
+    { id: 'creative', name: 'Creative', path: '/creative', icon: 'Palette', category: 'businessModules' },
+    { id: 'events', name: 'Events', path: '/events', icon: 'Calendar', category: 'businessModules' },
+    { id: 'services', name: 'Services', path: '/services', icon: 'Coffee', category: 'businessModules' },
+    { id: 'resources', name: 'Resources', path: '/resources', icon: 'Briefcase', category: 'businessModules' },
+    { id: 'projects', name: 'Projects', path: '/projects', icon: 'Kanban', category: 'businessModules' },
+    { id: 'documents', name: 'Documents', path: '/documents', icon: 'FileText', category: 'businessModules' },
+    { id: 'collaboration', name: 'Collaboration', path: '/collaboration', icon: 'Users2', category: 'businessModules' },
+    { id: 'finance', name: 'Finance', path: '/finance', icon: 'DollarSign', category: 'businessModules' },
+    { id: 'customers', name: 'Customers', path: '/customers', icon: 'UserCircle', category: 'businessModules' },
+    { id: 'people', name: 'People', path: '/people', icon: 'Heart', category: 'businessModules' },
     
     // CONCEPTS
     { id: 'concept-1', name: 'Concept 1', path: '/concept-1', icon: 'Lightbulb', category: 'concepts' },

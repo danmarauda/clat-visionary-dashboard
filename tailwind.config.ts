@@ -62,15 +62,20 @@ export default {
           'light-gray': '#F3F4F6'
         },
         module: {
-          // OS Module colors
-          analytics: "#3B82F6",  // Blue
-          building: "#10B981",   // Green
-          community: "#F59E0B",  // Amber
-          design: "#EC4899",     // Pink
-          event: "#8B5CF6",      // Purple
-          hospitality: "#EF4444", // Red
-          marketing: "#F97316",  // Orange
-          workspace: "#06B6D4",  // Cyan
+          // Business Module colors
+          analytics: "#3B82F6",       // Blue
+          operations: "#10B981",      // Green
+          engagement: "#F59E0B",      // Amber
+          creative: "#EC4899",        // Pink
+          events: "#8B5CF6",          // Purple
+          services: "#EF4444",        // Red
+          resources: "#06B6D4",       // Cyan
+          projects: "#8B5CF6",        // Purple
+          documents: "#14B8A6",       // Teal
+          collaboration: "#06B6D4",   // Cyan
+          finance: "#22C55E",         // Green
+          customers: "#F97316",       // Orange
+          people: "#EC4899",          // Pink
         }
       },
       borderRadius: {

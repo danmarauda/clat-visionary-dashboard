@@ -8,13 +8,19 @@ import Home from "./pages/Home";
 import ExecutiveSummary from "./pages/ExecutiveSummary";
 import CurrentLandscape from "./pages/CurrentLandscape";
 import NotFound from "./pages/NotFound";
-import DesignOSPage from "./pages/DesignOS";
-import EventOSPage from "./pages/EventOS";
-import HospitalityOSPage from "./pages/HospitalityOS";
-import BuildingOSPage from "./pages/BuildingOS";
-import WorkspaceOSPage from "./pages/WorkspaceOS";
-import AnalyticsOSPage from "./pages/AnalyticsOS";
-import CommunityOSPage from "./pages/CommunityOS";
+import Analytics from "./pages/Analytics";
+import Operations from "./pages/Operations";
+import Engagement from "./pages/Engagement";
+import Creative from "./pages/Creative";
+import Events from "./pages/Events";
+import Services from "./pages/Services";
+import Resources from "./pages/Resources";
+import Projects from "./pages/Projects";
+import Documents from "./pages/Documents";
+import Collaboration from "./pages/Collaboration";
+import Finance from "./pages/Finance";
+import Customers from "./pages/Customers";
+import People from "./pages/People";
 import DeliveryTimeline from "./pages/DeliveryTimeline";
 import GanttChart from "./pages/GanttChart";
 import ParlorPorticoPage from "./pages/ParlorPortico";
@@ -74,15 +80,20 @@ const App = () => (
                 <Route path="/current-landscape" element={<CurrentLandscape />} />
                 <Route path="/dashboard" element={<Dashboard />} />
 
-                {/* OS Modules */}
-                <Route path="/analytics-os" element={<AnalyticsOSPage />} />
-                <Route path="/building-os" element={<BuildingOSPage />} />
-                <Route path="/community-os" element={<CommunityOSPage />} />
-                <Route path="/design-os" element={<DesignOSPage />} />
-                <Route path="/event-os" element={<EventOSPage />} />
-                <Route path="/hospitality-os" element={<HospitalityOSPage />} />
-                <Route path="/marketing-os" element={<PlaceholderPage title="Marketing OS" />} />
-                <Route path="/workspace-os" element={<WorkspaceOSPage />} />
+                {/* Business Modules */}
+                <Route path="/analytics" element={<Analytics />} />
+                <Route path="/operations" element={<Operations />} />
+                <Route path="/engagement" element={<Engagement />} />
+                <Route path="/creative" element={<Creative />} />
+                <Route path="/events" element={<Events />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/resources" element={<Resources />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/documents" element={<Documents />} />
+                <Route path="/collaboration" element={<Collaboration />} />
+                <Route path="/finance" element={<Finance />} />
+                <Route path="/customers" element={<Customers />} />
+                <Route path="/people" element={<People />} />
 
                 {/* Project Sections */}
                 <Route path="/project-scope" element={<PlaceholderPage title="Project Scope" />} />

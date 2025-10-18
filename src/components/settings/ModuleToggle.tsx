@@ -11,7 +11,7 @@ import { FileText, Briefcase, Building, Lightbulb } from 'lucide-react';
 const moduleIcons = {
   research: FileText,
   aliasHQModules: Briefcase,
-  businessUnits: Building,
+  businessModules: Building,
   concepts: Lightbulb
 };
 
