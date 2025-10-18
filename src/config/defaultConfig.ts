@@ -11,7 +11,7 @@ export const defaultConfig: ClientConfig = {
   },
   modules: {
     research: { enabled: true, label: 'RESEARCH', order: 1 },
-    aliasHQModules: { enabled: true, label: 'ALIAS HQ MODULES', order: 2 },
+    aliasHQModules: { enabled: true, label: 'ALIAS Platform Modules', order: 2 },
     businessUnits: { enabled: true, label: 'BUSINESS UNITS', order: 3 },
     concepts: { enabled: true, label: 'CONCEPTS', order: 4 }
   },
@@ -25,7 +25,7 @@ export const defaultConfig: ClientConfig = {
     { id: 'automation-opportunities', name: 'Automation Opportunities', path: '/research/automation', icon: 'Sparkles', category: 'research' },
     { id: 'implementation-roadmap', name: 'Implementation Roadmap', path: '/research/roadmap', icon: 'Map', category: 'research' },
     
-    // ALIAS HQ MODULES
+    // ALIAS Platform Modules
     { id: 'gantt-chart', name: 'Gantt Chart', path: '/gantt', icon: 'BarChart3', category: 'aliasHQModules' },
     { id: 'ai-analytics', name: 'AI Analytics', path: '/ai-analytics', icon: 'Brain', category: 'aliasHQModules' },
     { id: 'gallery', name: 'Gallery', path: '/gallery', icon: 'Image', category: 'aliasHQModules' },
