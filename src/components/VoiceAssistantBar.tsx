@@ -59,10 +59,10 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-      <div className="w-full max-w-full">
+    <div className="fixed bottom-4 left-0 right-0 z-40 flex justify-center px-4">
+      <div className="relative w-full max-w-5xl">
         <motion.nav
-          className="flex items-center justify-between px-4 py-2 md:py-2.5"
+          className="flex items-center justify-between px-4 py-2 md:py-2.5 rounded-full border border-border/40 bg-background/95 backdrop-blur shadow-lg"
           layout
         >
           {/* Voice Assistant */}
