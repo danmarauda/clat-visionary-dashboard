@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import VoiceAssistantBar from './VoiceAssistantBar';
+import CopilotSidebar from './CopilotSidebar';
 import WelcomeModal from './WelcomeModal';
 import { cn } from '@/lib/utils';
 import useVoiceAssistant from '@/hooks/useVoiceAssistant';
@@ -40,7 +41,7 @@ const Layout: React.FC = () => {
       <div className={cn(
         "flex-1 flex flex-col transition-all duration-300 min-h-screen max-h-screen overflow-hidden",
         isCollapsed ? "md:ml-[70px]" : "md:ml-[280px]",
-        isCopilotOpen ? "mr-0 lg:mr-[400px]" : "mr-0"
+        isCopilotOpen ? "mr-0 lg:mr-[320px]" : "mr-0"
       )}>
         <Navbar 
           sidebarCollapsed={isCollapsed}
@@ -54,14 +55,18 @@ const Layout: React.FC = () => {
         </main>
 
         <VoiceAssistantBar 
-          isListening={false}
-          toggleVoiceAssistant={() => {}}
-          openCopilot={() => {
-            const event = new CustomEvent('toggle-copilot');
-            window.dispatchEvent(event);
-          }}
+          isListening={isListening}
+          toggleVoiceAssistant={toggleVoiceAssistant}
+          openCopilot={() => setIsCopilotOpen(!isCopilotOpen)}
         />
       </div>
+
+      <CopilotSidebar
+        isOpen={isCopilotOpen}
+        onClose={() => setIsCopilotOpen(false)}
+        isListening={isListening}
+        toggleVoiceAssistant={toggleVoiceAssistant}
+      />
 
       {showWelcome && <WelcomeModal onClose={() => setShowWelcome(false)} />}
     </div>

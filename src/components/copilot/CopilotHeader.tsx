@@ -20,7 +20,7 @@ const CopilotHeader: React.FC<CopilotHeaderProps> = ({
         <div className="flex items-center justify-center h-8 w-8 rounded-full bg-module-design/20">
           <Brain className="h-5 w-5 text-module-design" />
         </div>
-        <h2 className="font-semibold text-lg">éclatOS Copilot</h2>
+        <h2 className="font-semibold text-lg">Voice Agent Copilot</h2>
         {isListening && (
           <div className="flex items-center gap-1 text-xs text-module-design">
             <Mic className="h-3 w-3 animate-pulse" />

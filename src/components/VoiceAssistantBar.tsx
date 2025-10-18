@@ -65,46 +65,6 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
           className="flex items-center justify-between px-4 py-2 md:py-2.5 rounded-full border border-border/40 bg-background/95 backdrop-blur shadow-lg"
           layout
         >
-          {/* Voice Assistant */}
-          <motion.div 
-            className="flex items-center gap-2" 
-            layout
-          >
-            <motion.button
-              onClick={toggleVoiceAssistant}
-              className={cn(
-                "relative flex items-center justify-center rounded-full p-1.5 sm:p-2 transition-all",
-                isListening 
-                  ? "bg-white/20 text-white" 
-                  : "hover:bg-accent/10 text-foreground"
-              )}
-              aria-label={isListening ? "Stop listening" : "Start voice assistant"}
-              animate={isListening ? {
-                scale: [1, 1.1, 1],
-                opacity: [1, 0.8, 1],
-              } : {}}
-              transition={isListening ? {
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              } : {}}
-            >
-              <Mic className="h-4 w-4 sm:h-5 sm:w-5" />
-              {isListening && (
-                <motion.span 
-                  className="absolute -top-8 whitespace-nowrap text-xs font-medium text-white bg-black/80 px-2 py-1 rounded-md"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                >
-                  Listening...
-                </motion.span>
-              )}
-            </motion.button>
-            <span className="font-medium text-foreground hidden sm:inline">
-              {isListening ? "Listening..." : "Voice Assistant"}
-            </span>
-          </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1 flex-1 overflow-x-auto scrollbar-none mx-4">
@@ -130,16 +90,16 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
             </div>
           </div>
 
-          {/* Actions on the right */}
-          <div className="flex items-center gap-2">
-            {/* Copilot Button - Always visible */}
+          {/* Actions */}
+          <div className="flex items-center gap-2 flex-1 justify-end">
+            {/* Voice Agent Copilot Button - Always visible */}
             <button
               onClick={openCopilot}
               className="p-2 text-foreground hover:bg-accent/10 transition-all flex items-center gap-2 rounded-lg"
-              aria-label="Toggle Copilot"
+              aria-label="Open Voice Agent Copilot"
             >
               <Bot className="h-4 w-4" />
-              <span className="text-sm font-medium hidden lg:inline">Copilot</span>
+              <span className="text-sm font-medium hidden sm:inline">Voice Agent</span>
             </button>
 
             {/* Mobile Menu Toggle */}
@@ -165,7 +125,7 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
               className="absolute bottom-full left-0 right-0 border-t border-border/40 bg-background/95 backdrop-blur md:hidden"
             >
               <div className="flex flex-col space-y-1 max-h-[60vh] overflow-y-auto p-2">
-                {/* Copilot Button for Mobile */}
+                {/* Voice Agent Copilot Button for Mobile */}
                 <button
                   onClick={() => {
                     setIsOpen(false);
@@ -176,7 +136,7 @@ const VoiceAssistantBar: React.FC<VoiceAssistantBarProps> = ({
                   <div className="flex items-center justify-center w-6 h-6">
                     <Bot className="h-4 w-4" />
                   </div>
-                  <span>Toggle Copilot</span>
+                  <span>Voice Agent Copilot</span>
                   <ChevronRight className="h-4 w-4 ml-auto" />
                 </button>
 
