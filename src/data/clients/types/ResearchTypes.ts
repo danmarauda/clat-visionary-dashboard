@@ -1,13 +1,11 @@
 
-import { LucideIcon } from "lucide-react";
-
 export interface ClientSection {
   id: string;
   title: string;
   subtitle?: string;
   gradientColors: string[];
   description: string;
-  icon?: LucideIcon;
+  icon?: React.ElementType;
   status?: "Core" | "Enhanced" | "New";
   tags?: string[];
   benefits?: string[];

@@ -2,14 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useClientConfig } from '@/contexts/ClientConfigContext';
 
 interface WelcomeModalProps {
   onClose: () => void;
 }
 
 const WelcomeModal: React.FC<WelcomeModalProps> = ({ onClose }) => {
-  const { config } = useClientConfig();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -42,7 +40,7 @@ const WelcomeModal: React.FC<WelcomeModalProps> = ({ onClose }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-semibold text-gradient">Welcome to {config.branding.companyName}</h2>
+          <h2 className="text-2xl font-semibold text-gradient">Welcome to éclatOS</h2>
           <button 
             onClick={handleClose}
             className="h-8 w-8 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors"
@@ -54,7 +52,7 @@ const WelcomeModal: React.FC<WelcomeModalProps> = ({ onClose }) => {
         
         <div className="space-y-4">
           <p className="text-muted-foreground">
-            {config.branding.tagline}
+            éclatOS is a luxury workspace management platform designed to elevate your experience with elegant design and powerful features.
           </p>
           
           <div className="rounded-xl bg-primary/10 p-4 border border-primary/20">
@@ -69,15 +67,15 @@ const WelcomeModal: React.FC<WelcomeModalProps> = ({ onClose }) => {
             <ul className="text-sm text-muted-foreground space-y-2">
               <li className="flex items-start gap-2">
                 <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary mt-1.5"></span>
-                <span>Comprehensive client research and intelligence</span>
+                <span>Interactive Dashboard Suite with real-time analytics</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary mt-1.5"></span>
-                <span>Seamless collaboration between all stakeholders</span>
+                <span>AI-powered workspace optimization and insights</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary mt-1.5"></span>
-                <span>Tailored automation and solution proposals</span>
+                <span>Comprehensive building management system</span>
               </li>
             </ul>
           </div>

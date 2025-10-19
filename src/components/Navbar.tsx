@@ -3,8 +3,6 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Bell, Settings, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { UIScaleControl } from './ui/ui-scale-control';
-import { useUIScale } from '@/lib/ui-scale-context';
 
 interface NavbarProps {
   sidebarCollapsed: boolean;
@@ -14,7 +12,6 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ sidebarCollapsed, isCopilotOpen = false }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { scale, setScale } = useUIScale();
   
   // Determine which module badge to show based on current route
   const getModuleBadge = () => {
@@ -71,48 +68,40 @@ const Navbar: React.FC<NavbarProps> = ({ sidebarCollapsed, isCopilotOpen = false
   };
   
   return (
-    <nav 
+    <div 
       className={cn(
-        "fixed top-0 z-20 flex h-16 items-center justify-between border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 px-4 md:px-6 transition-all duration-300",
-        sidebarCollapsed ? "md:left-[70px]" : "md:left-[280px]",
-        isCopilotOpen ? "lg:right-[320px]" : "right-0",
-        "left-0"
+        "fixed top-0 z-40 flex items-center justify-between h-16 transition-all duration-300 px-4 glass",
+        sidebarCollapsed ? "left-[70px]" : "left-[280px]",
+        isCopilotOpen ? "right-[320px]" : "right-0"
       )}
     >
       <div className="flex-1 flex justify-center">
         {getModuleBadge()}
       </div>
       
-      <div className="flex items-center gap-1 sm:gap-2">
-        <div className="hidden sm:block">
-          <UIScaleControl
-            onScaleChange={setScale}
-            currentScale={scale}
-          />
-        </div>
-
+      <div className="flex items-center gap-2">
         <button
           className="flex items-center justify-center rounded-full p-2 hover:bg-accent/10 transition-colors"
           aria-label="Notifications"
         >
-          <Bell className="h-4 w-4 sm:h-5 sm:w-5" />
+          <Bell className="h-5 w-5" />
         </button>
 
         <button
           className="flex items-center justify-center rounded-full p-2 hover:bg-accent/10 transition-colors"
           aria-label="Settings"
         >
-          <Settings className="h-4 w-4 sm:h-5 sm:w-5" />
+          <Settings className="h-5 w-5" />
         </button>
 
         <button
           className="flex items-center justify-center rounded-full p-2 hover:bg-accent/10 transition-colors"
           aria-label="User profile"
         >
-          <User className="h-4 w-4 sm:h-5 sm:w-5" />
+          <User className="h-5 w-5" />
         </button>
       </div>
-    </nav>
+    </div>
   );
 };
 

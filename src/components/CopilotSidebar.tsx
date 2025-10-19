@@ -5,7 +5,6 @@ import CopilotMessages from './copilot/CopilotMessages';
 import CopilotSuggestions from './copilot/CopilotSuggestions';
 import CopilotInput from './copilot/CopilotInput';
 import { useCopilotMessages } from '@/hooks/useCopilotMessages';
-import useVoiceAssistant from '@/hooks/useVoiceAssistant';
 
 interface CopilotSidebarProps {
   isOpen: boolean;
@@ -14,9 +13,9 @@ interface CopilotSidebarProps {
   toggleVoiceAssistant: () => void;
 }
 
-const CopilotSidebar: React.FC<CopilotSidebarProps> = ({
-  isOpen,
-  onClose,
+const CopilotSidebar: React.FC<CopilotSidebarProps> = ({ 
+  isOpen, 
+  onClose, 
   isListening,
   toggleVoiceAssistant
 }) => {
@@ -31,7 +30,7 @@ const CopilotSidebar: React.FC<CopilotSidebarProps> = ({
   const handleSuggestionClick = (suggestion: string) => {
     setMessage(suggestion);
     setMessages(prev => [...prev, { type: 'user', content: suggestion }]);
-
+    
     // Simulate response
     setTimeout(() => {
       let response = "";
@@ -44,10 +43,10 @@ const CopilotSidebar: React.FC<CopilotSidebarProps> = ({
       } else {
         response = "Design OS connects with Building OS for physical implementation, Marketing OS for brand alignment, and Event OS for temporary design elements and experiences.";
       }
-
+      
       setMessages(prev => [...prev, { type: 'assistant', content: response }]);
     }, 1000);
-
+    
     setMessage('');
   };
 
@@ -55,18 +54,14 @@ const CopilotSidebar: React.FC<CopilotSidebarProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed top-0 right-0 h-screen min-h-screen w-[320px] bg-background border-l border-border shadow-md flex flex-col z-20">
-      <CopilotHeader
-        onClose={onClose}
-        isListening={isListening}
-        toggleVoiceAssistant={toggleVoiceAssistant}
-      />
+    <div className="fixed top-0 right-0 h-screen w-[320px] bg-background border-l border-border shadow-md flex flex-col z-20">
+      <CopilotHeader onClose={onClose} />
       <CopilotMessages messages={messages} />
-      <CopilotSuggestions
-        messages={messages}
-        onSuggestionClick={handleSuggestionClick}
+      <CopilotSuggestions 
+        messages={messages} 
+        onSuggestionClick={handleSuggestionClick} 
       />
-      <CopilotInput
+      <CopilotInput 
         message={message}
         setMessage={setMessage}
         handleSendMessage={handleSendMessage}

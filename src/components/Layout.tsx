@@ -4,11 +4,9 @@ import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import VoiceAssistantBar from './VoiceAssistantBar';
-import CopilotSidebar from './CopilotSidebar';
 import WelcomeModal from './WelcomeModal';
 import { cn } from '@/lib/utils';
 import useVoiceAssistant from '@/hooks/useVoiceAssistant';
-import { ClientConfigProvider } from '@/contexts/ClientConfigContext';
 
 const Layout: React.FC = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -18,10 +16,10 @@ const Layout: React.FC = () => {
 
   useEffect(() => {
     // Check if this is the first visit
-    const hasVisited = localStorage.getItem('alias_has_visited');
+    const hasVisited = localStorage.getItem('eclat_has_visited');
     if (!hasVisited) {
       setShowWelcome(true);
-      localStorage.setItem('alias_has_visited', 'true');
+      localStorage.setItem('eclat_has_visited', 'true');
     }
     
     // Listen for custom events to detect copilot state
@@ -36,43 +34,40 @@ const Layout: React.FC = () => {
   }, []);
 
   return (
-    <ClientConfigProvider>
-      <div className="min-h-screen max-h-screen bg-background text-foreground flex overflow-hidden w-screen">
-        <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
+    <div className="min-h-screen bg-background text-foreground flex">
+      <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
+      
+      <div className={cn(
+        "flex-1 flex flex-col transition-all duration-300",
+        isCollapsed ? "ml-[70px]" : "ml-[280px]",
+        isCopilotOpen ? "mr-[320px]" : "mr-0"
+      )}>
+        <Navbar 
+          sidebarCollapsed={isCollapsed}
+          isCopilotOpen={isCopilotOpen}
+        />
         
-        <div className={cn(
-          "flex-1 flex flex-col transition-all duration-300 min-h-screen max-h-screen overflow-hidden",
-          isCollapsed ? "md:ml-[70px]" : "md:ml-[280px]",
-          isCopilotOpen ? "mr-0 lg:mr-[320px]" : "mr-0"
-        )}>
-          <Navbar 
-            sidebarCollapsed={isCollapsed}
-            isCopilotOpen={isCopilotOpen}
-          />
-          
-          <main className="flex-1 overflow-y-auto overflow-x-hidden pt-16 pb-28 md:pb-24">
-            <div className="w-full h-full px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="flex flex-1">
+          <main className="flex-1 pt-20 pb-12">
+            <div className="w-full px-6 mx-auto max-w-[1920px]">
               <Outlet />
             </div>
           </main>
-
-          <VoiceAssistantBar 
-            isListening={isListening}
-            toggleVoiceAssistant={toggleVoiceAssistant}
-            openCopilot={() => setIsCopilotOpen(!isCopilotOpen)}
-          />
         </div>
 
-        <CopilotSidebar
-          isOpen={isCopilotOpen}
-          onClose={() => setIsCopilotOpen(false)}
-          isListening={isListening}
+        <VoiceAssistantBar 
+          isListening={isListening} 
           toggleVoiceAssistant={toggleVoiceAssistant}
+          openCopilot={() => {
+            // Dispatch the toggle event to show/hide the copilot
+            const event = new CustomEvent('toggle-copilot');
+            window.dispatchEvent(event);
+          }}
         />
-
-        {showWelcome && <WelcomeModal onClose={() => setShowWelcome(false)} />}
       </div>
-    </ClientConfigProvider>
+
+      {showWelcome && <WelcomeModal onClose={() => setShowWelcome(false)} />}
+    </div>
   );
 };
 

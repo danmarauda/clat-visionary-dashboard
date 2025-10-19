@@ -54,41 +54,41 @@ const EventOSPage: React.FC = () => {
   ];
   
   return (
-    <div className="w-full max-w-full mx-auto px-3 sm:px-4 md:px-6 overflow-x-hidden">
-      <div className="flex flex-col items-center text-center py-4 sm:py-6">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-light leading-tight tracking-wide">Professional Events.</h2>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-light leading-tight tracking-wide">Seamless Execution.</h2>
-        <div className="my-3 sm:my-4">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-light leading-tight tracking-wide text-module-event">eventOS</h2>
+    <div className="w-full mx-auto px-4 md:px-6">
+      <div className="flex flex-col items-center text-center py-6">
+        <h2 className="text-4xl font-light leading-tight tracking-wide">Professional Events.</h2>
+        <h2 className="text-4xl font-light leading-tight tracking-wide">Seamless Execution.</h2>
+        <div className="my-4">
+          <h2 className="text-4xl font-light leading-tight tracking-wide text-module-event">eventOS</h2>
         </div>
         
-        <p className="max-w-2xl text-xs sm:text-sm text-muted-foreground mt-4 sm:mt-8 px-4">
+        <p className="max-w-2xl text-sm text-muted-foreground mt-8">
           {description}
         </p>
       </div>
       
       {/* Key Components Section */}
-      <div className="space-y-6 sm:space-y-8 animate-fadeIn">
-        <div className="glass rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-            <div className="space-y-4 sm:space-y-6">
+      <div className="space-y-8 animate-fadeIn">
+        <div className="glass rounded-2xl p-6 md:p-8 shadow-lg animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="space-y-6">
               <div>
-                <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Key Components</h2>
+                <h2 className="text-xl font-semibold mb-4">Key Components</h2>
                 <ul className="space-y-2">
                   {keyComponents.map((component, index) => (
-                    <li key={index} className="flex items-start gap-2 sm:gap-3">
-                      <span className="inline-flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-primary/10 text-xs font-medium text-primary mt-0.5 flex-shrink-0">
+                    <li key={index} className="flex items-start gap-3">
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-xs font-medium text-primary mt-0.5">
                         {index + 1}
                       </span>
-                      <span className="text-sm sm:text-base text-foreground">{component}</span>
+                      <span className="text-foreground">{component}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
 
-            <div className="space-y-4 sm:space-y-6">
-              <div className="overflow-hidden rounded-lg sm:rounded-xl border border-border/50">
+            <div className="space-y-6">
+              <div className="overflow-hidden rounded-xl border border-border/50">
                 <img 
                   src={imageUrl} 
                   alt={title} 
@@ -101,48 +101,48 @@ const EventOSPage: React.FC = () => {
       </div>
       
       {/* Business Impact Section */}
-      <div className="mt-6 sm:mt-8">
-        <div className="glass rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg">
-          <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Business Impact</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-            <div className="bg-module-event/5 p-3 sm:p-4 rounded-lg border border-module-event/10">
-              <h3 className="text-sm sm:text-base font-medium text-module-event mb-2">Operational Efficiency</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">
+      <div className="mt-8">
+        <div className="glass rounded-2xl p-6 md:p-8 shadow-lg">
+          <h2 className="text-xl font-semibold mb-6">Business Impact</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-module-event/5 p-4 rounded-lg border border-module-event/10">
+              <h3 className="font-medium text-module-event mb-2">Operational Efficiency</h3>
+              <p className="text-sm text-muted-foreground">
                 Reduction in event planning and execution time through streamlined workflows.
               </p>
             </div>
             
-            <div className="bg-module-event/5 p-3 sm:p-4 rounded-lg border border-module-event/10">
-              <h3 className="text-sm sm:text-base font-medium text-module-event mb-2">Revenue Growth</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">
+            <div className="bg-module-event/5 p-4 rounded-lg border border-module-event/10">
+              <h3 className="font-medium text-module-event mb-2">Revenue Growth</h3>
+              <p className="text-sm text-muted-foreground">
                 Increase in event bookings through optimized venue utilization and availability.
               </p>
             </div>
             
-            <div className="bg-module-event/5 p-3 sm:p-4 rounded-lg border border-module-event/10">
-              <h3 className="text-sm sm:text-base font-medium text-module-event mb-2">Resource Optimization</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">
+            <div className="bg-module-event/5 p-4 rounded-lg border border-module-event/10">
+              <h3 className="font-medium text-module-event mb-2">Resource Optimization</h3>
+              <p className="text-sm text-muted-foreground">
                 Reduction in event staffing costs through intelligent scheduling and automation.
               </p>
             </div>
             
-            <div className="bg-module-event/5 p-3 sm:p-4 rounded-lg border border-module-event/10">
-              <h3 className="text-sm sm:text-base font-medium text-module-event mb-2">Attendee Satisfaction</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">
+            <div className="bg-module-event/5 p-4 rounded-lg border border-module-event/10">
+              <h3 className="font-medium text-module-event mb-2">Attendee Satisfaction</h3>
+              <p className="text-sm text-muted-foreground">
                 Significantly improved attendee experience through seamless registration and engagement.
               </p>
             </div>
             
-            <div className="bg-module-event/5 p-3 sm:p-4 rounded-lg border border-module-event/10">
-              <h3 className="text-sm sm:text-base font-medium text-module-event mb-2">Brand Enhancement</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">
+            <div className="bg-module-event/5 p-4 rounded-lg border border-module-event/10">
+              <h3 className="font-medium text-module-event mb-2">Brand Enhancement</h3>
+              <p className="text-sm text-muted-foreground">
                 Consistently exceptional event execution reinforcing Éclat's premium brand positioning.
               </p>
             </div>
             
-            <div className="bg-module-event/5 p-3 sm:p-4 rounded-lg border border-module-event/10">
-              <h3 className="text-sm sm:text-base font-medium text-module-event mb-2">Data-Driven Decisions</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">
+            <div className="bg-module-event/5 p-4 rounded-lg border border-module-event/10">
+              <h3 className="font-medium text-module-event mb-2">Data-Driven Decisions</h3>
+              <p className="text-sm text-muted-foreground">
                 Comprehensive event analytics enabling continuous improvement and strategic planning.
               </p>
             </div>
@@ -237,20 +237,20 @@ const EventOSPage: React.FC = () => {
           </div>
         </div>
         
-        <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row justify-between gap-3 sm:gap-4">
+        <div className="mt-8 flex justify-between">
           <a 
             href="/design-os" 
-            className="group inline-flex items-center justify-center sm:justify-start gap-2 text-module-event text-sm sm:text-base font-medium hover:underline"
+            className="group inline-flex items-center gap-2 text-module-event font-medium hover:underline"
           >
-            <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 rotate-180 transition-transform group-hover:-translate-x-1" />
+            <ArrowRight className="h-4 w-4 rotate-180 transition-transform group-hover:-translate-x-1" />
             Previous: Design OS
           </a>
           <a 
             href="/hospitality-os" 
-            className="group inline-flex items-center justify-center sm:justify-start gap-2 text-module-event text-sm sm:text-base font-medium hover:underline"
+            className="group inline-flex items-center gap-2 text-module-event font-medium hover:underline"
           >
             Next: Hospitality OS
-            <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
       </div>

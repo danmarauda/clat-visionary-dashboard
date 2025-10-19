@@ -54,15 +54,15 @@ const BuildingOSPage: React.FC = () => {
   ];
   
   return (
-    <div className="w-full max-w-full mx-auto px-3 sm:px-4 md:px-6 overflow-x-hidden">
-      <div className="flex flex-col items-center text-center py-4 sm:py-6">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-light leading-tight tracking-wide">Intelligent Infrastructure.</h2>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-light leading-tight tracking-wide">Sustainable Operation.</h2>
-        <div className="my-3 sm:my-4">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-light leading-tight tracking-wide text-module-building">buildingOS</h2>
+    <div className="w-full mx-auto px-4 md:px-6">
+      <div className="flex flex-col items-center text-center py-6">
+        <h2 className="text-4xl font-light leading-tight tracking-wide">Intelligent Infrastructure.</h2>
+        <h2 className="text-4xl font-light leading-tight tracking-wide">Sustainable Operation.</h2>
+        <div className="my-4">
+          <h2 className="text-4xl font-light leading-tight tracking-wide text-module-building">buildingOS</h2>
         </div>
         
-        <p className="max-w-2xl text-xs sm:text-sm text-muted-foreground mt-4 sm:mt-8 px-4">
+        <p className="max-w-2xl text-sm text-muted-foreground mt-8">
           {description}
         </p>
       </div>
@@ -237,20 +237,20 @@ const BuildingOSPage: React.FC = () => {
           </div>
         </div>
         
-        <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row justify-between gap-3 sm:gap-4">
+        <div className="mt-8 flex justify-between">
           <a 
             href="/analytics-os" 
-            className="group inline-flex items-center justify-center sm:justify-start gap-2 text-module-building text-sm sm:text-base font-medium hover:underline"
+            className="group inline-flex items-center gap-2 text-module-building font-medium hover:underline"
           >
-            <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 rotate-180 transition-transform group-hover:-translate-x-1" />
+            <ArrowRight className="h-4 w-4 rotate-180 transition-transform group-hover:-translate-x-1" />
             Previous: Analytics OS
           </a>
           <a 
             href="/community-os" 
-            className="group inline-flex items-center justify-center sm:justify-start gap-2 text-module-building text-sm sm:text-base font-medium hover:underline"
+            className="group inline-flex items-center gap-2 text-module-building font-medium hover:underline"
           >
             Next: Community OS
-            <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
       </div>

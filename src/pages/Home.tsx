@@ -2,17 +2,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FileText, BarChart3, Compass, FlaskConical, Building, Users, GanttChart, ArrowRight } from 'lucide-react';
-import { useClientConfig } from '@/contexts/ClientConfigContext';
 
 const Home = () => {
-  const { config } = useClientConfig();
   const [showWelcome, setShowWelcome] = useState(false);
   
   useEffect(() => {
-    const hasVisited = localStorage.getItem('alias_has_visited');
+    const hasVisited = localStorage.getItem('eclat_has_visited');
     if (!hasVisited) {
       setShowWelcome(true);
-      localStorage.setItem('alias_has_visited', 'true');
+      localStorage.setItem('eclat_has_visited', 'true');
     }
   }, []);
 
@@ -59,17 +57,17 @@ const Home = () => {
   ];
 
   return (
-    <div className="w-full h-full max-w-6xl mx-auto py-6 sm:py-8 md:py-12">
+    <div className="container max-w-5xl mx-auto py-8">
       {showWelcome && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
           <div className="bg-card border border-border max-w-lg w-full rounded-xl shadow-lg p-6 animate-fade-in">
-            <h2 className="text-2xl font-bold mb-4">Welcome to {config.branding.companyName}</h2>
+            <h2 className="text-2xl font-bold mb-4">Welcome to the Client Portal</h2>
             <p className="text-muted-foreground mb-6">
-              {config.branding.tagline}
+              This platform provides a comprehensive view of our research findings and solution proposal. You can review the content and provide feedback to ensure accuracy.
             </p>
             <button 
               onClick={handleStartTour}
-              className="w-full py-2.5 px-4 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              className="w-full py-2 px-4 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
             >
               Get Started
             </button>
@@ -77,10 +75,10 @@ const Home = () => {
         </div>
       )}
 
-      <div className="flex flex-col items-center text-center py-8 space-y-4 mb-8">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">{config.branding.companyName}</h1>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl">
-          {config.branding.tagline}
+      <div className="flex flex-col items-center text-center py-8 space-y-4">
+        <h1 className="text-4xl font-bold tracking-tight">Client Portal</h1>
+        <p className="text-xl text-muted-foreground max-w-2xl">
+          Comprehensive research and tailored automation solutions to transform your business operations.
         </p>
       </div>
 

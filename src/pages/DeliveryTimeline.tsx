@@ -116,6 +116,14 @@ const DeliveryTimelinePage: React.FC = () => {
               A comprehensive implementation plan for éclatOS, designed for minimal disruption and maximum value delivery.
             </p>
             
+            <div className="mt-2">
+              <Button variant="outline" size="sm" asChild>
+                <Link to="/gantt-chart" className="flex items-center gap-2">
+                  <BarChart className="h-4 w-4" />
+                  <span>View as Gantt Chart</span>
+                </Link>
+              </Button>
+            </div>
           </motion.div>
         </div>
 

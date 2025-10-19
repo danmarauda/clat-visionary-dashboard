@@ -6,18 +6,18 @@ import {
   Coffee, BarChart, Pen, Calendar, Wrench, 
   BookOpen, HelpCircle, Settings, ChevronRight, ChevronLeft,
   NotebookText, Lightbulb, ChartGantt, FileSearch, Building2,
-  Brain, FlaskConical, Network, LineChart
+  Brain, FlaskConical, Network, LineChart, Scale
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import UserProfileButton from './UserProfileButton';
-import AliasLogo from './AliasLogo';
-import { useClientConfig } from '@/contexts/ClientConfigContext';
+import EclatLogo from './EclatLogo';
 
 const navCategories = [
   {
     category: "RESEARCH",
     items: [
       { id: 'research', name: 'Overview', path: '/research', icon: FileSearch },
+      { id: 'legal-report', name: 'Legal Report', path: '/research/legal-report', icon: Scale },
       { id: 'company-profile', name: 'Company Profile', path: '/research/company-profile', icon: Building2 },
       { id: 'leadership', name: 'Leadership Analysis', path: '/research/leadership', icon: Users },
       { id: 'technology', name: 'Technology Ecosystem', path: '/research/technology', icon: Brain },
@@ -27,7 +27,7 @@ const navCategories = [
     ]
   },
   {
-    category: "ALIAS HQ MODULES",
+    category: "ÉCLAT OS MODULES",
     items: [
       { id: 'building-os', name: 'buildingOS', path: '/building-os', icon: Building },
       { id: 'hospitality-os', name: 'hospitalityOS', path: '/hospitality-os', icon: Coffee },
@@ -78,7 +78,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [mounted, setMounted] = useState(false);
-  const { config } = useClientConfig();
 
   useEffect(() => {
     setMounted(true);
@@ -88,31 +87,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
 
   const currentPath = location.pathname;
 
-  // Filter categories based on config
-  const filteredCategories = navCategories.filter(category => {
-    const categoryKey = category.category.toLowerCase().replace(/\s+/g, '');
-    if (categoryKey === 'research') return config.modules.research.enabled;
-    if (categoryKey === 'aliashqmodules' || categoryKey === 'aliasplatformmodules') return config.modules.aliasHQModules.enabled;
-    if (categoryKey === 'businessmodules') return config.modules.businessModules.enabled;
-    if (categoryKey === 'concepts') return config.modules.concepts.enabled;
-    return true; // Always show SUPPORT
-  });
-
-  // Get custom labels
-  const getCategoryLabel = (category: string) => {
-    const categoryKey = category.toLowerCase().replace(/\s+/g, '');
-    if (categoryKey === 'research') return config.modules.research.label;
-    if (categoryKey === 'aliashqmodules' || categoryKey === 'aliasplatformmodules') return config.modules.aliasHQModules.label;
-    if (categoryKey === 'businessmodules') return config.modules.businessModules.label;
-    if (categoryKey === 'concepts') return config.modules.concepts.label;
-    return category;
-  };
-
   return (
     <aside 
       className={cn(
-        "fixed left-0 top-0 z-30 h-screen max-h-screen bg-background border-r border-border/40 shadow-xl transition-all duration-300 ease-in-out overflow-hidden",
-        "hidden md:block",
+        "fixed left-0 top-0 z-30 h-screen bg-background border-r border-border/40 shadow-xl transition-all duration-300 ease-in-out",
         isCollapsed ? "w-[70px]" : "w-[280px]",
       )}
     >
@@ -121,8 +99,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
           <div className="flex h-16 items-center justify-between px-4">
             {!isCollapsed && (
               <div className="flex items-center gap-2">
-                <AliasLogo size="small" variant="light" customLogoUrl={config.branding.logoUrl} />
-                <span className="text-lg font-semibold text-foreground animate-fadeIn">{config.branding.companyName}</span>
+                <EclatLogo size="small" variant="light" />
+                <span className="text-lg font-semibold text-foreground animate-fadeIn">éclatOS</span>
               </div>
             )}
             <button
@@ -139,12 +117,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
           </div>
 
           <div className="scrollbar-none flex-1 overflow-y-auto py-4">
-            {filteredCategories.map((category, categoryIndex) => (
+            {navCategories.map((category, categoryIndex) => (
               <div key={categoryIndex} className="mb-6">
                 {!isCollapsed && (
                   <div className="px-4 mb-2">
                     <p className="text-xs font-medium text-muted-foreground tracking-wider">
-                      {getCategoryLabel(category.category)}
+                      {category.category}
                     </p>
                   </div>
                 )}
@@ -176,7 +154,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
 
         {!isCollapsed && (
           <div className="p-4 mx-2 mb-4">
-            <UserProfileButton userName={config.defaultUser.name} userRole={config.defaultUser.role} />
+            <UserProfileButton userName="Jesse Hayes" userRole="Founder/Director" />
           </div>
         )}
       </div>
