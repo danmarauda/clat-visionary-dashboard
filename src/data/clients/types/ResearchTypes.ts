@@ -1,3 +1,4 @@
+import { LucideIcon } from 'lucide-react';
 
 export interface ClientSection {
   id: string;
@@ -5,7 +6,7 @@ export interface ClientSection {
   subtitle?: string;
   gradientColors: string[];
   description: string;
-  icon?: React.ElementType;
+  icon?: LucideIcon;
   status?: "Core" | "Enhanced" | "New";
   tags?: string[];
   benefits?: string[];

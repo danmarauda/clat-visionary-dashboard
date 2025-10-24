@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { LucideIcon } from 'lucide-react';
 import GradientCard from '../atoms/GradientCard';
 import ResearchSectionHeader from '../molecules/ResearchSectionHeader';
 import { ClientSection } from '@/data/clients/types/ResearchTypes';
